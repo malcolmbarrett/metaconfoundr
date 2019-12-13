@@ -15,3 +15,12 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.0.0
+Imports: 
+    tidyselect,
+    magrittr,
+    tidyr (>= 1.0.0),
+    dplyr,
+    tibble,
+    ggplot2 (>= 3.2.1.9000)
+Remotes:  
+    tidyverse/ggplot2
