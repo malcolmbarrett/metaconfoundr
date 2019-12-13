@@ -1,0 +1,42 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# metaconfoundr
+
+<!-- badges: start -->
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![CRAN status](https://www.r-pkg.org/badges/version/metaconfoundr)](https://CRAN.R-project.org/package=metaconfoundr)
+<!-- badges: end -->
+
+The goal of metaconfoundr is to ...
+
+## Installation
+
+You can install the released version of metaconfoundr from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("metaconfoundr")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(metaconfoundr)
+## basic example code
+```
+
+Please note that the 'metaconfoundr' project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
