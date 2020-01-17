@@ -4,7 +4,13 @@
 \alias{mc_heatmap}
 \title{Title}
 \usage{
-mc_heatmap(.df, legend_title = "control quality")
+mc_heatmap(
+  .df,
+  legend_title = "control quality",
+  sort = FALSE,
+  by_group = FALSE,
+  score = c("sum", "adequate", "controlled")
+)
 }
 \arguments{
 \item{.df}{}

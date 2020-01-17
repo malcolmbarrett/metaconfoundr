@@ -8,6 +8,14 @@
 \description{
 What the package does (one paragraph).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/malcolmbarrett/metaconfoundr}
+  \item Report bugs at \url{https://github.com/malcolmbarrett/metaconfoundr/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Malcolm Barrett \email{malcolmbarrett@gmail.com} (\href{https://orcid.org/0000-0003-0299-5825}{ORCID})
 

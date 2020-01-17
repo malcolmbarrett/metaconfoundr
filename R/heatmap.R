@@ -6,11 +6,28 @@
 #' @export
 #'
 #' @examples
-mc_heatmap <- function(.df, legend_title = "control quality") {
-  .df %>%
-    ggplot2::ggplot(ggplot2::aes(x = variable, y = study, fill = control_quality)) +
-      ggplot2::geom_tile(color = "white", size = .8) +
-      ggplot2::labs(fill = legend_title)
+mc_heatmap <- function(.df, legend_title = "control quality", sort = FALSE, by_group = FALSE, score = c("sum", "adequate", "controlled")) {
+
+  if (!sort)  p <- ggplot2::ggplot(.df, ggplot2::aes(x = variable, y = study, fill = control_quality))
+
+  if (sort && !by_group) {
+    p <- .df %>%
+      score_control(score = score) %>%
+      dplyr::arrange(desc(score)) %>%
+      dplyr::mutate(variable = fct_inorder(variable)) %>%
+      ggplot2::ggplot(ggplot2::aes(x = variable, y = study, fill = control_quality))
+  }
+
+  if (sort && by_group) {
+    p <- .df %>%
+      reorder_variable() %>%
+      ggplot2::ggplot(ggplot2::aes(x = variable, y = study, fill = control_quality)) +
+      scale_x_reordered()
+  }
+
+  p +
+    ggplot2::geom_tile(color = "white", size = .8) +
+    ggplot2::labs(fill = legend_title)
 }
 
 #' Title
