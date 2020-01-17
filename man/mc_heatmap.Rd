@@ -9,7 +9,8 @@ mc_heatmap(
   legend_title = "control quality",
   sort = FALSE,
   by_group = FALSE,
-  score = c("sum", "adequate", "controlled")
+  score = c("sum", "adequate", "controlled"),
+  non_confounders = FALSE
 )
 }
 \arguments{
