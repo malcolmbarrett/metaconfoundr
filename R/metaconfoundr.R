@@ -55,11 +55,11 @@ mc_longer <- function(
 
     .df %>%
       dplyr::rename(
-        study = study,
-        construct = construct,
-        variable = variable,
-        control_quality = control_quality,
-        is_confounder = is_confounder
+        study = unname(study),
+        construct = unname(construct),
+        variable = unname(variable),
+        control_quality = unname(control_quality),
+        is_confounder = unname(is_confounder)
       ) %>%
       dplyr::mutate(
         control_quality = ordered(
