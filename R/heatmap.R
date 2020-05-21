@@ -6,7 +6,7 @@
 #' @export
 #'
 #' @examples
-mc_heatmap <- function(.df, legend_title = "control quality", sort = FALSE, by_group = FALSE, score = c("sum", "adequate", "controlled"), non_confounders = FALSE) {
+mc_heatmap <- function(.df, legend_title = "control quality", sort = FALSE, by_group = FALSE, score = c("adequate", "sum", "controlled"), non_confounders = FALSE) {
 
   if (!non_confounders) .df <- dplyr::filter(.df, is_confounder %in% c("Y", "Yes", "TRUE", "1"))
 

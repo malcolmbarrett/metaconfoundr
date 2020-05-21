@@ -7,7 +7,7 @@
 #' @export
 #'
 #' @examples
-score_control <- function(.df, score = c("sum", "adequate", "controlled")) {
+score_control <- function(.df, score = c("adequate", "sum", "controlled")) {
   score <- match.arg(score)
   f <- get_score_f(score)
 
@@ -29,7 +29,7 @@ mean_adequate <- function(x) mean(x == 3, na.rm = TRUE)
 
 mean_controlled <- function(x) mean(x != 1, na.rm = TRUE)
 
-reorder_variable <- function(.df, score = c("sum", "adequate", "controlled"), ..., sep = "___") {
+reorder_variable <- function(.df, score = c("adequate", "sum", "controlled"), ..., sep = "___") {
   .df %>%
     dplyr::mutate(variable = paste(variable, construct, sep = sep)) %>%
     dplyr::group_by(construct) %>%
