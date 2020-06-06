@@ -7,3 +7,4 @@
 ^\.github/ISSUE_TEMPLATE$
 ^data-raw$
 ^examples\.R$
+^paper_figures$
