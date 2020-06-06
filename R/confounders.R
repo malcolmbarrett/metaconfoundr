@@ -28,7 +28,7 @@ count_confounders <- function(.df) {
 #' @export
 #'
 #' @examples
-plot_non_confounders <- function(.df, sort = TRUE, ..., geom = ggplot2::geom_col) {
+plot_non_confounders <- function(.df, ..., geom = ggplot2::geom_col, sort = TRUE) {
   confounder_df <- .df %>%
     count_confounders()
 
