@@ -1,11 +1,16 @@
-#' Title
+#' Count and plot non-confounders
 #'
-#' @param .df
+#' @param .df A data frame, usually the result of `metaconfoundr()`
 #'
-#' @return
+#' @return a `tibble` or ggplot
 #' @export
 #'
 #' @examples
+#'
+#' ipi %>%
+#'   metaconfounder() %>%
+#'   plot_non_confounders(size = 3, ggplot2::geom_point)
+#'
 count_confounders <- function(.df) {
   no_values <- c("N", "NO", "FALSE", "0")
   .df %>%
@@ -17,17 +22,13 @@ count_confounders <- function(.df) {
       ))
 }
 
-#' Title
+#' @param sort Logical. Should the results be sorted?
+#' @param ... Arguments passed to `geom`
+#' @param geom The ggplot2 geom to use
 #'
-#' @param .df
-#' @param sort
-#' @param ...
-#' @param geom
-#'
-#' @return
 #' @export
 #'
-#' @examples
+#' @rdname count_confounders
 plot_non_confounders <- function(.df, ..., geom = ggplot2::geom_col, sort = TRUE) {
   confounder_df <- .df %>%
     count_confounders()
