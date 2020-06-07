@@ -11,6 +11,8 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 status](https://www.r-pkg.org/badges/version/metaconfoundr)](https://CRAN.R-project.org/package=metaconfoundr)
 [![R build
 status](https://github.com/malcolmbarrett/metaconfoundr/workflows/R-CMD-check/badge.svg)](https://github.com/malcolmbarrett/metaconfoundr/actions)
+[![Codecov test
+coverage](https://codecov.io/gh/malcolmbarrett/metaconfoundr/branch/master/graph/badge.svg)](https://codecov.io/gh/malcolmbarrett/metaconfoundr?branch=master)
 <!-- badges: end -->
 
 The goal of metaconfoundr is to …
