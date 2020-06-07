@@ -5,9 +5,17 @@
 \alias{metaconfoundr-package}
 \alias{_PACKAGE}
 \alias{metaconfoundr2}
-\title{metaconfoundr: What the Package Does (One Line, Title Case)}
+\title{metaconfoundr: Visualize Confounder Control in Meta-Analyses}
 \description{
-What the package does (one paragraph).
+Visualize confounder control in meta-analysis.
+    'metaconfoundr' is an approach to evaluating bias in studies used in
+    meta-analyses based on the causal inference framework. Study groups
+    create a causal diagram displaying their assumptions about the
+    scientific question. From this, they develop a list of important
+    confounders. Then, they evaluate whether studies controlled for these
+    variables well. 'metaconfoundr' is a toolkit to facilitate this
+    process and visualize the results as heatmaps, traffic light plots,
+    and more.
 }
 \seealso{
 Useful links:

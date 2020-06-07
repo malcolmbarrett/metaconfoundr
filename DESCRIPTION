@@ -1,5 +1,5 @@
 Package: metaconfoundr
-Title: What the Package Does (One Line, Title Case)
+Title: Visualize Confounder Control in Meta-Analyses
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Malcolm",
@@ -7,13 +7,21 @@ Authors@R:
            role = c("aut", "cre"),
            email = "malcolmbarrett@gmail.com",
            comment = c(ORCID = "0000-0003-0299-5825"))
-Description: What the package does (one paragraph).
+Description: Visualize confounder control in meta-analysis.
+    'metaconfoundr' is an approach to evaluating bias in studies used in
+    meta-analyses based on the causal inference framework. Study groups
+    create a causal diagram displaying their assumptions about the
+    scientific question. From this, they develop a list of important
+    confounders. Then, they evaluate whether studies controlled for these
+    variables well. 'metaconfoundr' is a toolkit to facilitate this
+    process and visualize the results as heatmaps, traffic light plots,
+    and more.
 License: MIT + file LICENSE
 URL: https://github.com/malcolmbarrett/metaconfoundr
 BugReports: 
     https://github.com/malcolmbarrett/metaconfoundr/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 3.2.0)
 Imports: 
     dplyr (>= 1.0.0),
     ellipsis,
