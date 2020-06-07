@@ -74,7 +74,7 @@ all_controlled <- function(x) {
   dplyr::case_when(
     all(x == "adequate") ~ "adequate",
     all(x == "inadequate") ~ "inadequate",
-    TRUE ~ "partial control"
+    TRUE ~ "some control"
   )
 }
 
@@ -86,7 +86,7 @@ set_construct_factor <- function(x) {
 }
 
 set_control_factor <- function(x) {
-  ordered(x, levels = c("inadequate", "partial control", "adequate"))
+  ordered(x, levels = c("inadequate", "some control", "adequate"))
 }
 
 set_variable_factor <- function(x) {
@@ -122,7 +122,7 @@ select_studies <- function(domain, adequate_studies, partial_studies, .df) {
   .df %>%
     dplyr::mutate({{domain}} := dplyr::case_when(
       study %in% adequate_studies ~ "adequate",
-      study %in% partial_studies ~ "partial control",
+      study %in% partial_studies ~ "some control",
       TRUE ~ "inadequate"
     )) %>%
     dplyr::select({{domain}})
