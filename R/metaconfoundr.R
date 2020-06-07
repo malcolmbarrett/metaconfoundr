@@ -42,6 +42,8 @@ metaconfoundr <- function(.df, data_format = mc_detect_layout()) {
 #' number of variables in the data frame. `mc_study_values()` helps standardize
 #' evaluations of control quality.
 #'
+#' @param ... Additional arguments passed to `mc_wider()` or `mc_longer()`
+#'
 #' @return a function that tidies the data
 #' @export
 mc_detect_layout <- function(...) {

@@ -97,9 +97,9 @@ set_variable_factor <- function(x) {
 }
 
 build_filter_quosures <- function(..., equal_to = "adequate") {
-  .dots <- rlang::enquos(...)
+  quo_dots <- rlang::enquos(...)
 
-  dot_names <- names(.dots)
+  dot_names <- names(quo_dots)
   names_missing <- dot_names == ""
   if (any(names_missing)) {
     domain_names <- paste0("domain", seq_along(dot_names))
@@ -108,7 +108,7 @@ build_filter_quosures <- function(..., equal_to = "adequate") {
 
   variables_regex <- "(\\`.*?\\`|[:word:]+)"
   replacement_predicate <- paste0("\\1 == \\'", equal_to, "\\'")
-  logic_text <- purrr::map_chr(.dots, rlang::quo_text) %>%
+  logic_text <- purrr::map_chr(quo_dots, rlang::quo_text) %>%
     stringr::str_replace_all(variables_regex, replacement_predicate)
 
   logic_text <- rlang::parse_exprs(logic_text)

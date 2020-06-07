@@ -2,8 +2,9 @@
 % Please edit documentation in R/metaconfoundr-package.R
 \docType{package}
 \name{metaconfoundr-package}
-\alias{metaconfoundr}
 \alias{metaconfoundr-package}
+\alias{_PACKAGE}
+\alias{metaconfoundr2}
 \title{metaconfoundr: What the Package Does (One Line, Title Case)}
 \description{
 What the package does (one paragraph).

@@ -16,7 +16,7 @@ scale_shape_cochrane(...)
 \item{...}{Arguments passed to the underline scale function}
 }
 \value{
-
+scales for ggplot
 }
 \description{
 Add Cochrane-style palettes to ggplots

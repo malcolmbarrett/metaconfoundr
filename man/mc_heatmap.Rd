@@ -26,6 +26,22 @@ mc_trafficlight(
 }
 \arguments{
 \item{.df}{A data frame, usually the result of \code{metaconfoundr()}}
+
+\item{legend_title}{The legend title}
+
+\item{sort}{Logical. Sort by confounder score? Calculated by \code{\link[=score_control]{score_control()}}}
+
+\item{by_group}{Logical. If sorted, sort within domain?}
+
+\item{score}{The approach used to calculate the score. \code{adequate} tests if
+the study controlled at a strictly adequate level. \code{sum} treats
+\code{control_quality} as an ordinal integer, summing it's values such that a
+higher score has better control overall. \code{controlled} tests if any control,
+including \code{unclear} control, is present.}
+
+\item{non_confounders}{Logical. Include non-confounders? Default is \code{FALSE}.}
+
+\item{size}{The size of the points in the traffic light plot}
 }
 \value{
 a ggplot
@@ -39,11 +55,11 @@ study.
 
 ipi \%>\%
   metaconfoundr() \%>\%
-  mutate(variable = str_wrap(variable, 10)) \%>\%
+  dplyr::mutate(variable = stringr::str_wrap(variable, 10)) \%>\%
   mc_heatmap() +
   theme_mc() +
   facet_constructs() +
-  guides(x = guide_axis(n.dodge = 2))
+  ggplot2::guides(x = ggplot2::guide_axis(n.dodge = 2))
 
 ipi \%>\%
   metaconfoundr() \%>\%
@@ -52,7 +68,7 @@ ipi \%>\%
   facet_constructs() +
   scale_fill_cochrane() +
   theme_mc() +
-  guides(x = guide_axis(n.dodge = 2))
+  ggplot2::guides(x = ggplot2::guide_axis(n.dodge = 2))
 
 }
 \seealso{

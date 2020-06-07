@@ -5,6 +5,12 @@
 #' study.
 #'
 #' @param .df A data frame, usually the result of `metaconfoundr()`
+#' @param legend_title The legend title
+#' @param sort Logical. Sort by confounder score? Calculated by [score_control()]
+#' @param size The size of the points in the traffic light plot
+#' @param by_group Logical. If sorted, sort within domain?
+#' @param non_confounders Logical. Include non-confounders? Default is `FALSE`.
+#' @inheritParams score_control
 #'
 #' @return a ggplot
 #' @export
@@ -13,11 +19,11 @@
 #'
 #' ipi %>%
 #'   metaconfoundr() %>%
-#'   mutate(variable = str_wrap(variable, 10)) %>%
+#'   dplyr::mutate(variable = stringr::str_wrap(variable, 10)) %>%
 #'   mc_heatmap() +
 #'   theme_mc() +
 #'   facet_constructs() +
-#'   guides(x = guide_axis(n.dodge = 2))
+#'   ggplot2::guides(x = ggplot2::guide_axis(n.dodge = 2))
 #'
 #' ipi %>%
 #'   metaconfoundr() %>%
@@ -26,7 +32,7 @@
 #'   facet_constructs() +
 #'   scale_fill_cochrane() +
 #'   theme_mc() +
-#'   guides(x = guide_axis(n.dodge = 2))
+#'   ggplot2::guides(x = ggplot2::guide_axis(n.dodge = 2))
 #'
 #' @family plots
 mc_heatmap <- function(.df, legend_title = "control quality", sort = FALSE, by_group = FALSE, score = c("adequate", "sum", "controlled"), non_confounders = FALSE) {
@@ -80,8 +86,8 @@ process_plot <- function(.df, legend_title = "control quality", sort = FALSE, by
   if (sort && !by_group) {
     p <- .df %>%
       score_control(score = score) %>%
-      dplyr::arrange(desc(score)) %>%
-      dplyr::mutate(variable = fct_inorder(variable)) %>%
+      dplyr::arrange(dplyr::desc(score)) %>%
+      dplyr::mutate(variable = forcats::fct_inorder(variable)) %>%
       ggplot2::ggplot(ggplot2::aes(x = variable, y = study, fill = control_quality))
   }
 
@@ -145,7 +151,7 @@ geom_cochrane <- function(mapping = ggplot2::aes(shape = control_quality), data 
 #'
 #' @param ... Arguments passed to the underline scale function
 #'
-#' @return
+#' @return scales for ggplot
 #' @export
 #'
 #' @family plots
@@ -204,7 +210,7 @@ scale_x_reordered <- function(..., sep = "___") {
 #'
 #' @param ... Arguments passed to [`ggplot2::facet_grid()`]
 #'
-#' @return
+#' @return a facet component
 #' @export
 #'
 #' @family plots

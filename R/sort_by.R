@@ -50,7 +50,7 @@ reorder_variable <- function(.df, score = c("adequate", "sum", "controlled"), ..
     dplyr::mutate(variable = paste(variable, construct, sep = sep)) %>%
     dplyr::group_by(construct) %>%
     score_control(score = score) %>%
-    dplyr::arrange(construct, desc(score)) %>%
-    dplyr::mutate(variable = fct_inorder(variable))
+    dplyr::arrange(construct, dplyr::desc(score)) %>%
+    dplyr::mutate(variable = forcats::fct_inorder(variable))
 }
 

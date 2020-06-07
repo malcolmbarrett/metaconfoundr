@@ -8,8 +8,8 @@
 #' @examples
 #'
 #' ipi %>%
-#'   metaconfounder() %>%
-#'   plot_non_confounders(size = 3, ggplot2::geom_point)
+#'   metaconfoundr() %>%
+#'   plot_non_confounders(size = 3, geom = ggplot2::geom_point)
 #'
 count_confounders <- function(.df) {
   no_values <- c("N", "NO", "FALSE", "0")

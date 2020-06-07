@@ -8,7 +8,7 @@ Authors@R:
            email = "malcolmbarrett@gmail.com",
            comment = c(ORCID = "0000-0003-0299-5825"))
 Description: What the package does (one paragraph).
-License: GPL-3 + file LICENSE
+License: MIT + file LICENSE
 URL: https://github.com/malcolmbarrett/metaconfoundr
 BugReports: 
     https://github.com/malcolmbarrett/metaconfoundr/issues
@@ -16,16 +16,20 @@ Depends:
     R (>= 2.10)
 Imports: 
     dplyr (>= 1.0.0),
-    ggplot2 (>= 3.3.0),
+    ellipsis,
+    forcats,
+    ggplot2 (>= 3.3.1),
+    glue,
     magrittr,
-    rlang,
+    purrr,
+    rlang (>= 0.1.2),
+    stringr,
     tibble,
     tidyr (>= 1.0.0),
     tidyselect
 Suggests: 
+    roxygen2,
     testthat
-Remotes: 
-    tidyverse/ggplot2
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

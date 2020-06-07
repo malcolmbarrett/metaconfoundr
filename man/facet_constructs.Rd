@@ -10,7 +10,7 @@ facet_constructs(...)
 \item{...}{Arguments passed to \code{\link[ggplot2:facet_grid]{ggplot2::facet_grid()}}}
 }
 \value{
-
+a facet component
 }
 \description{
 A helper function to facet by constructs in `\code{\link[=mc_heatmap]{mc_heatmap()}} and

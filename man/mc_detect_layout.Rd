@@ -29,6 +29,8 @@ mc_wider(
 )
 }
 \arguments{
+\item{...}{Additional arguments passed to \code{mc_wider()} or \code{mc_longer()}}
+
 \item{study}{The column with the name of the studies}
 
 \item{construct}{The domain or construct column}
