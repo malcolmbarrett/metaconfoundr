@@ -9,6 +9,8 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/metaconfoundr)](https://CRAN.R-project.org/package=metaconfoundr)
+[![R build
+status](https://github.com/malcolmbarrett/metaconfoundr/workflows/R-CMD-check/badge.svg)](https://github.com/malcolmbarrett/metaconfoundr/actions)
 <!-- badges: end -->
 
 The goal of metaconfoundr is to …
