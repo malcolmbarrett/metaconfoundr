@@ -1,13 +1,36 @@
-#' Title
+#' Summarize the control quality of studies
 #'
-#' @param .df
-#' @param ...
-#' @param domains
+#' `summarize_control_quality()` allows you to summarize how well studies
+#' control for variables within one or more domains, and how well those domains
+#' are controlled for overall. Each logical statement is a domain and can be
+#' named.
 #'
-#' @return
+#' @param .df A data frame, usually the result of [`metaconfoundr()`]
+#' @param ... Boolean arguments to declare adequate control logic
+#' @param domains Logical. Include the domains in the output? If `FALSE`, only
+#'   returns overall control quality.
+#'
+#' @return A tibble
 #' @export
 #'
 #' @examples
+#'
+#' summary_df <- summarize_control_quality(
+#'   metaconfoundr(ipi),
+#'   Sociodemographics = `Maternal age` & `Race/ethnicity` & `Marital status`,
+#'   Socioeconomics = `SES category` | Insurance & Education,
+#'   "Reproductive Hx" = `Prior pregnancy outcome`
+#' )
+#'
+#' summary_df
+#'
+#' summary_df %>%
+#'   mc_trafficlight() +
+#'   theme_mc() +
+#'   facet_constructs() +
+#'   geom_cochrane() +
+#'   scale_fill_cochrane()
+#'
 summarize_control_quality <- function(.df, ..., domains = TRUE) {
   adequate_context <- build_filter_quosures(...)
   domain_names <- names(adequate_context)

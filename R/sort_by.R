@@ -1,12 +1,28 @@
-#' Title
+#' Add a score of confounding control
 #'
-#' @param .df
-#' @param score
+#' `score_control()` adds a variable, `score`, that summarizes how well a study
+#' controls for a domain or construct. Used to sort heatmaps and traffic light
+#' plots.
 #'
-#' @return
+#' @param .df A data frame, usually the result of [metaconfoundr()]
+#' @param score The approach used to calculate the score. `adequate` tests if
+#'   the study controlled at a strictly adequate level. `sum` treats
+#'   `control_quality` as an ordinal integer, summing it's values such that a
+#'   higher score has better control overall. `controlled` tests if any control,
+#'   including `unclear` control, is present.
+#'
+#' @return a tibble
 #' @export
 #'
 #' @examples
+#' library(dplyr)
+#'
+#' ipi %>%
+#'   metaconfoundr() %>%
+#'   filter(is_confounder == "Y") %>%
+#'   score_control("controlled") %>%
+#'   arrange(desc(score))
+#'
 score_control <- function(.df, score = c("adequate", "sum", "controlled")) {
   score <- match.arg(score)
   f <- get_score_f(score)
@@ -38,18 +54,3 @@ reorder_variable <- function(.df, score = c("adequate", "sum", "controlled"), ..
     dplyr::mutate(variable = fct_inorder(variable))
 }
 
-# from tidytext
-scale_x_reordered <- function(..., sep = "___") {
-  reg <- paste0(sep, ".+$")
-  ggplot2::scale_x_discrete(labels = function(x) gsub(reg, "", x), ...)
-}
-
-#' Title
-#'
-#' @return
-#' @export
-#'
-#' @examples
-facet_constructs <- function() {
-  ggplot2::facet_grid(. ~ construct, scales = "free_x", space = "free_x")
-}

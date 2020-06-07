@@ -2,13 +2,60 @@
 % Please edit documentation in R/metaconfoundr.R
 \name{mc_detect_layout}
 \alias{mc_detect_layout}
-\title{Title}
+\alias{mc_longer}
+\alias{mc_study_values}
+\alias{mc_wider}
+\title{Tidy metaconfoundr data layouts}
 \usage{
 mc_detect_layout(...)
+
+mc_longer(
+  study = contains("construct"),
+  construct = contains("construct"),
+  variable = matches("variable|factor"),
+  control_quality = contains("control_quality"),
+  is_confounder = contains("confounder"),
+  study_values = mc_study_values()
+)
+
+mc_study_values(inadequate = 0, unclear = 1, adequate = 2)
+
+mc_wider(
+  construct = contains("construct"),
+  variable = matches("variable|factor"),
+  is_confounder = contains("confounder"),
+  study = everything(),
+  study_values = mc_study_values()
+)
+}
+\arguments{
+\item{study}{The column with the name of the studies}
+
+\item{construct}{The domain or construct column}
+
+\item{variable}{The column that describes the confounding variables}
+
+\item{control_quality}{The column that describes the confounding control
+quality}
+
+\item{is_confounder}{The column that describes if a variable is a confounder}
+
+\item{study_values}{What are the levels of \code{control_quality}? Use
+\code{mc_study_values()} to set up.}
+
+\item{inadequate}{Which value signifies inadequate control?}
+
+\item{unclear}{Which value signifies unclear control?}
+
+\item{adequate}{Which value signifies adequate control?}
 }
 \value{
-
+a function that tidies the data
 }
 \description{
-Title
+\code{mc_longer()} and \code{mc_wider()} are helper functions to put \code{\link[=metaconfoundr]{metaconfoundr()}}
+for long and wide data sets, respectively. results into a tidy format.
+\code{mc_detect_layout()} chooses between the two automatically based on the
+number of variables in the data frame. \code{mc_study_values()} helps standardize
+evaluations of control quality.
 }

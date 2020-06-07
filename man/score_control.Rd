@@ -2,16 +2,34 @@
 % Please edit documentation in R/sort_by.R
 \name{score_control}
 \alias{score_control}
-\title{Title}
+\title{Add a score of confounding control}
 \usage{
-score_control(.df, score = c("sum", "adequate", "controlled"))
+score_control(.df, score = c("adequate", "sum", "controlled"))
 }
 \arguments{
-\item{score}{}
+\item{.df}{A data frame, usually the result of \code{\link[=metaconfoundr]{metaconfoundr()}}}
+
+\item{score}{The approach used to calculate the score. \code{adequate} tests if
+the study controlled at a strictly adequate level. \code{sum} treats
+\code{control_quality} as an ordinal integer, summing it's values such that a
+higher score has better control overall. \code{controlled} tests if any control,
+including \code{unclear} control, is present.}
 }
 \value{
-
+a tibble
 }
 \description{
-Title
+\code{score_control()} adds a variable, \code{score}, that summarizes how well a study
+controls for a domain or construct. Used to sort heatmaps and traffic light
+plots.
+}
+\examples{
+library(dplyr)
+
+ipi \%>\%
+  metaconfoundr() \%>\%
+  filter(is_confounder == "Y") \%>\%
+  score_control("controlled") \%>\%
+  arrange(desc(score))
+
 }

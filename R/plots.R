@@ -1,11 +1,34 @@
-#' Title
+#' Plot a heatmap or traffic light plot of `metaconfoundr()` summaries
 #'
-#' @param .df
+#' `mc_heatmap()` and `mc_trafficlight()` visualize the results of
+#' `metaconfoundr()`, summarizing the quality of confounder control in each
+#' study.
 #'
-#' @return
+#' @param .df A data frame, usually the result of `metaconfoundr()`
+#'
+#' @return a ggplot
 #' @export
 #'
 #' @examples
+#'
+#' ipi %>%
+#'   metaconfoundr() %>%
+#'   mutate(variable = str_wrap(variable, 10)) %>%
+#'   mc_heatmap() +
+#'   theme_mc() +
+#'   facet_constructs() +
+#'   guides(x = guide_axis(n.dodge = 2))
+#'
+#' ipi %>%
+#'   metaconfoundr() %>%
+#'   mc_trafficlight() +
+#'   geom_cochrane() +
+#'   facet_constructs() +
+#'   scale_fill_cochrane() +
+#'   theme_mc() +
+#'   guides(x = guide_axis(n.dodge = 2))
+#'
+#' @family plots
 mc_heatmap <- function(.df, legend_title = "control quality", sort = FALSE, by_group = FALSE, score = c("adequate", "sum", "controlled"), non_confounders = FALSE) {
 
   .df <- filter_confounders(.df, non_confounders)
@@ -23,14 +46,9 @@ mc_heatmap <- function(.df, legend_title = "control quality", sort = FALSE, by_g
     ggplot2::geom_tile(color = "white", size = .8)
 }
 
-#' Title
-#'
-#' @param .df
-#'
-#' @return
+
 #' @export
-#'
-#' @examples
+#' @rdname mc_heatmap
 mc_trafficlight <- function(.df, size = 8, legend_title = "control quality", sort = FALSE, by_group = FALSE, score = c("adequate", "sum", "controlled"), non_confounders = FALSE) {
 
   .df <- filter_confounders(.df, non_confounders)
@@ -93,6 +111,15 @@ GeomCochrane <- ggplot2::ggproto("GeomCochrane", ggplot2::GeomPoint,
   )
 )
 
+#' Add Cochrane-style symbols to heatmaps and traffic light plots
+#'
+#'
+#' @inheritParams ggplot2::geom_point
+#'
+#' @return a geom
+#' @export
+#'
+#' @family plots
 geom_cochrane <- function(mapping = ggplot2::aes(shape = control_quality), data = NULL,
                        stat = "identity", position = "identity",
                        ...,
@@ -114,14 +141,14 @@ geom_cochrane <- function(mapping = ggplot2::aes(shape = control_quality), data 
   )
 }
 
-#' Title
+#' Add Cochrane-style palettes to ggplots
 #'
 #' @param ... Arguments passed to the underline scale function
 #'
 #' @return
 #' @export
 #'
-#' @examples
+#' @family plots
 scale_fill_cochrane <- function(...) {
   ggplot2::scale_fill_manual(
     values = c("#D85247FF", "#E2B01EFF", "#409C58FF"),
@@ -145,15 +172,15 @@ scale_shape_cochrane <- function(...) {
   ggplot2::scale_shape_manual(values = c(120, 45, 43))
 }
 
-#' Title
+#' A minimal theme for metaconfoundr plots
 #'
-#' @param base_size
+#' @inheritParams ggplot2::theme_minimal
 #'
-#' @return
+#' @return a ggplot theme
 #' @export
 #'
-#' @examples
 #' @importFrom ggplot2 `%+replace%`
+#' @family plots
 theme_mc <- function(base_size = 14) {
   ggplot2::theme_minimal(base_size = base_size) %+replace%
     ggplot2::theme(
@@ -163,3 +190,25 @@ theme_mc <- function(base_size = 14) {
       legend.position = "bottom"
     )
 }
+
+# from tidytext, for internal use
+scale_x_reordered <- function(..., sep = "___") {
+  reg <- paste0(sep, ".+$")
+  ggplot2::scale_x_discrete(labels = function(x) gsub(reg, "", x), ...)
+}
+
+#' Facet by constructs
+#'
+#' A helper function to facet by constructs in `[mc_heatmap()] and
+#' [mc_trafficlight()]
+#'
+#' @param ... Arguments passed to [`ggplot2::facet_grid()`]
+#'
+#' @return
+#' @export
+#'
+#' @family plots
+facet_constructs <- function(...) {
+  ggplot2::facet_grid(. ~ construct, scales = "free_x", space = "free_x", ...)
+}
+

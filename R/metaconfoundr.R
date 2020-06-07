@@ -1,22 +1,49 @@
-#' Title
+#' Prepare a meta-analysis data set for metaconfoundr
 #'
-#' @param .df
-#' @param data_format
+#' `metaconfoundr()` standardizes data frames with information on how well a set
+#' of studies control for a set of variables. In this approach, a set of domain
+#' experts agree on the variables that are required to properly control for
+#' confounding for a scientific question. Then, the studies are described as
+#' being adequately, inadequately, or partially controlled for a given
+#' confounder. `metaconfoundr()` is intended to standardize data for use in
+#' [`mc_heatmap()`] and [`mc_trafficlight()`]. See the vignette on data
+#' preparation for more information on how to set up your evaluation.
 #'
-#' @return
+#' @param .df A data frame. See the vignette on data preparation for more
+#'   details.
+#' @param data_format The format of the data. Detected automatically by default,
+#'   but explicit options include [`mc_longer()`] and [`mc_wider()`]
+#'
+#' @return a tibble
 #' @export
 #'
 #' @examples
+#'
+#' metaconfoundr(ipi)
+#'
+#' metaconfoundr(ipi_wide)
+#'
+#' ipi_wide2 <- ipi_wide %>%
+#'   dplyr::rename(scope = construct)
+#'
+#' metaconfoundr(ipi_wide2, mc_wider(construct = "scope"))
+#'
+#'
+#' @name metaconfoundr()
 metaconfoundr <- function(.df, data_format = mc_detect_layout()) {
   data_format(.df)
 }
 
-#' Title
+#' Tidy metaconfoundr data layouts
 #'
-#' @return
+#' `mc_longer()` and `mc_wider()` are helper functions to put [metaconfoundr()]
+#' for long and wide data sets, respectively. results into a tidy format.
+#' `mc_detect_layout()` chooses between the two automatically based on the
+#' number of variables in the data frame. `mc_study_values()` helps standardize
+#' evaluations of control quality.
+#'
+#' @return a function that tidies the data
 #' @export
-#'
-#' @examples
 mc_detect_layout <- function(...) {
   function(.df) {
     if (ncol(.df) > 5) return(mc_wider(...)(.df))
@@ -24,19 +51,18 @@ mc_detect_layout <- function(...) {
   }
 }
 
-#' Title
+#' @param study The column with the name of the studies
+#' @param construct The domain or construct column
+#' @param variable The column that describes the confounding variables
+#' @param control_quality The column that describes the confounding control
+#'   quality
+#' @param is_confounder The column that describes if a variable is a confounder
+#' @param study_values What are the levels of `control_quality`? Use
+#'   `mc_study_values()` to set up.
 #'
-#' @param study
-#' @param construct
-#' @param variable
-#' @param control_quality
-#' @param is_confounder
-#' @param study_values
-#'
-#' @return
 #' @export
 #'
-#' @examples
+#' @rdname mc_detect_layout
 mc_longer <- function(
   study = contains("construct"),
   construct = contains("construct"),
@@ -71,32 +97,20 @@ mc_longer <- function(
   }
 }
 
-#' Title
+#' @param inadequate Which value signifies inadequate control?
+#' @param unclear Which value signifies unclear control?
+#' @param adequate Which value signifies adequate control?
 #'
-#' @param inadequate
-#' @param unclear
-#' @param adequate
-#'
-#' @return
 #' @export
 #'
-#' @examples
+#' @rdname mc_detect_layout
 mc_study_values <- function(inadequate = 0, unclear = 1, adequate = 2) {
   c(inadequate = inadequate, unclear = unclear, adequate = adequate)
 }
 
-#' Title
-#'
-#' @param construct
-#' @param variable
-#' @param is_confounder
-#' @param study
-#' @param study_values
-#'
-#' @return
+
 #' @export
-#'
-#' @examples
+#' @rdname mc_detect_layout
 mc_wider <- function(
   construct = contains("construct"),
   variable = matches("variable|factor"),
@@ -122,9 +136,15 @@ mc_wider <- function(
 }
 
 validate_select <- function(nms, x) {
+  error_msg <- paste0(
+    "Couldn't find column `",
+    get_text(x),
+    "`. Use `mc_longer()` or mc_wider()` to identify columns explicitly."
+  )
+
   tryCatch(
     tidyselect::vars_select(nms, {{x}}),
-    error = function(e) stop(paste0("Couldn't find column `", get_text(x) ,"`. Use `mc_longer()` or mc_wider()` to identify columns explicitly."), call. = FALSE)
+    error = function(e) stop(error_msg, call. = FALSE)
   )
 }
 
