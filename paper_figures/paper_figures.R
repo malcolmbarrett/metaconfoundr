@@ -3,12 +3,6 @@ library(tidyverse)
 library(ggtext)
 library(prismatic)
 
-values <- c(
-  "#EA4335", #red
-  "#FBBC05", #yellow
-  "#34A853" #green
-)
-
 study_labels <- ipi_metaanalysis %>%
   mutate(study_label = paste(lead_author, year)) %>%
   select(study, study_label) %>%
@@ -19,6 +13,14 @@ critical_constructs <- c(
   "Socioeconomics",
   "Reproductive Hx"
 )
+
+summary_df <- summarize_control_quality(
+  metaconfoundr(ipi),
+  "Socio-\ndemographics" = `Maternal age` & `Race/ethnicity` & `Marital status`,
+  "Socio-\neconomics" = `SES category` | Insurance & Education,
+  "Repro-\nductive Hx" = `Prior pregnancy outcome`
+)
+
 
 wrap_labeller <- function(x) {
   x <- ifelse(
@@ -31,14 +33,26 @@ wrap_labeller <- function(x) {
   str_replace_all(x, "\n", "<br/>")
 }
 
-build_heatmap <- function(pal = "viridis") {
-  ipi_heatmap <- ipi %>%
+build_plot <- function(type = "heatmap", pal = "viridis", sym = FALSE) {
+  ipi_data <- ipi %>%
     metaconfoundr() %>%
     mutate(
       variable = str_wrap(variable, 10),
+      variable = ifelse(variable == "Hypertension", "Hyper-\ntension", variable),
       construct = fct_relevel(construct, critical_constructs)
-    ) %>%
-    mc_heatmap(sort = TRUE, by_group = TRUE) +
+    )
+
+  if (type == "heatmap") {
+    ipi_plot <- ipi_data %>%
+      mc_heatmap(sort = TRUE, by_group = TRUE)
+  } else {
+    ipi_plot <- ipi_data %>%
+      mc_trafficlight(sort = TRUE, by_group = TRUE, size = 12.5)
+  }
+
+  if (sym) ipi_plot <- ipi_plot + geom_cochrane(size = 6.5)
+
+  ipi_plot <- ipi_plot +
     theme_mc() +
     theme(
       strip.text = element_markdown(),
@@ -55,11 +69,11 @@ build_heatmap <- function(pal = "viridis") {
     labs(caption = "^1 Construct critical for confounder control")
 
   if (pal == "cochrane") {
-    ipi_heatmap <- ipi_heatmap +
-      scale_fill_manual(values = clr_desaturate(values, .2))
+    ipi_plot <- ipi_plot +
+      scale_fill_cochrane()
   }
 
-  plot_grobs <- ggplotGrob(ipi_heatmap)
+  plot_grobs <- ggplotGrob(ipi_plot)
 
   for(i in which(grepl("strip-t", plot_grobs$layout$name))){
     plot_grobs$grobs[[i]]$layout$clip <- "off"
@@ -73,5 +87,66 @@ draw_heatmap <- function(x) {
   grid::grid.draw(x)
 }
 
-ggsave("paper_figures/paper_gyr.png", build_heatmap("cochrane"), width = 17, height = 9)
-ggsave("paper_figures/paper_viridis.png", build_heatmap(), width = 23, height = 12)
+build_summary_plot <- function(x = summary_df, type = "heatmap", pal = "viridis", sym = FALSE) {
+  if (type == "heatmap") {
+    ipi_plot <- x %>%
+      mc_heatmap()
+  } else {
+    ipi_plot <- x %>%
+      mc_trafficlight(size = 10)
+  }
+
+  if (sym) ipi_plot <- ipi_plot + geom_cochrane()
+
+  if (pal == "cochrane") {
+    ipi_plot <- ipi_plot +
+      scale_fill_cochrane()
+  }
+
+
+  ipi_plot +
+    scale_y_discrete(labels = study_labels) +
+    facet_constructs() +
+    theme_mc() +
+    theme(legend.position = "right") +
+    guides(x = guide_axis(n.dodge = 2))
+}
+
+# ------ Individual plots ------
+
+# heatmap + no symbols
+ggsave("paper_figures/01_paper_gyr.png", build_plot(pal = "cochrane"), width = 17, height = 9)
+ggsave("paper_figures/02_paper_viridis.png", build_plot(), width = 17, height = 9)
+
+# heatmap + symbols
+ggsave("paper_figures/03_paper_gyr_sym.png", build_plot(pal = "cochrane", sym = TRUE), width = 17, height = 9)
+ggsave("paper_figures/04_paper_viridis_sym.png", build_plot(sym = TRUE), width = 17, height = 9)
+
+# traffic light + no symbols
+ggsave("paper_figures/05_paper_gyr_tl.png", build_plot(type = "tl", pal = "cochrane"), width = 17, height = 9)
+ggsave("paper_figures/06_paper_viridis_tl.png", build_plot(type = "tl"), width = 17, height = 9)
+
+# traffic light + symbols
+ggsave("paper_figures/07_paper_gyr_tl_sym.png", build_plot(type = "tl", pal = "cochrane", sym = TRUE), width = 17, height = 9)
+ggsave("paper_figures/08_paper_viridis_tl_sym.png", build_plot(type = "tl", sym = TRUE), width = 17, height = 9)
+
+# ------ Summary plots ------
+
+# heatmap + no symbols
+ggsave("paper_figures/09_paper_gyr_summary.png", build_summary_plot(pal = "cochrane"), width = 5.5, height = 6)
+ggsave("paper_figures/10_paper_viridis_summary.png", build_summary_plot(), width = 5.5, height = 6)
+
+# heatmap + symbols
+ggsave("paper_figures/11_paper_gyr_sym_summary.png", build_summary_plot(pal = "cochrane", sym = TRUE), width = 5.5, height = 6)
+ggsave("paper_figures/12_paper_viridis_sym_summary.png", build_summary_plot(sym = TRUE), width = 5.5, height = 6)
+
+# traffic light + no symbols
+ggsave("paper_figures/13_paper_gyr_tl_summary.png", build_summary_plot(type = "tl", pal = "cochrane"), width = 5.5, height = 6)
+ggsave("paper_figures/14_paper_viridis_tl_summary.png", build_summary_plot(type = "tl"), width = 5.5, height = 6)
+
+# traffic light + symbols
+ggsave("paper_figures/15_paper_gyr_tl_sym_summary.png", build_summary_plot(type = "tl", pal = "cochrane", sym = TRUE), width = 5.5, height = 6)
+ggsave("paper_figures/16_paper_viridis_tl_sym_summary.png", build_summary_plot(type = "tl", sym = TRUE), width = 5.5, height = 6)
+
+fs::dir_ls("paper_figures/", regexp = "\\.png") %>%
+  zip(zipfile = "paper_figures/paper_figures.zip", files = .)
