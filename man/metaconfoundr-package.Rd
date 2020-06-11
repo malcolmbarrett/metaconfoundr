@@ -28,5 +28,11 @@ Useful links:
 \author{
 \strong{Maintainer}: Malcolm Barrett \email{malcolmbarrett@gmail.com} (\href{https://orcid.org/0000-0003-0299-5825}{ORCID})
 
+Other contributors:
+\itemize{
+  \item Julie M. Petersen \email{juliemo@bu.edu} (\href{https://orcid.org/0000-0001-7845-4545}{ORCID})
+  \item Ludovic Trinquart \email{ludovic@bu.edu} (\href{https://orcid.org/0000-0002-3028-4900}{ORCID})
+}
+
 }
 \keyword{internal}

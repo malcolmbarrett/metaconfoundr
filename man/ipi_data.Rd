@@ -15,8 +15,7 @@ An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) w
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 15 rows and 9 columns.
 }
 \source{
-Baxter et al. (2016),
-\url{https://doi.org/10.1186/s13073-016-0290-3}.
+Ahrens et al. (2019)
 }
 \usage{
 ipi
@@ -26,20 +25,26 @@ ipi_wide
 ipi_metaanalysis
 }
 \description{
-Clinical and microbiome data derived from "Microbiota-based model improves
-the sensitivity of fecal immunochemical test for detecting colonic lesions"
-by Baxter et al. (2016). These data represent a subset of 172 health
-participants. \code{baxter_clinical} contains 8 clinical variables for each of the
-participants: \code{sample_name}, \code{id}, \code{age}, \code{bmi}, \code{gender}, \code{height},
-\code{total_reads}, and \code{disease_state} (all \code{H} for healthy). \code{baxter_otu} has
-1,234 columns, where each columns represent an Operational Taxonomic Unit
-(OTU). OTUs are species-like relationships among bacteria determined by
-analyzing their RNA. The cells are logged counts for how often the OTU was
-detected in a participant's stool sample. Each column name is a shorthand
-name, e.g. \code{otu1}; you can find the true name of the OTU mapped in
-\code{baxter_data_dictionary}. \code{baxter_family} and \code{baxter_genus} are also logged
-counts but instead group OTUs at the family and genus level, respectively, a
-common approach to reducing microbiome data. Likewise, the column names are
-shorthands, which you can find mapped in \code{baxter_data_dictionary}.
+These data represent 14 analyses (9 published articles, retrospective cohorts
+and sibling-matched designs) to evaluate the association between short
+interpregnancy interval (<6 months versus 18-23 months) and risk of preterm
+birth (<37 weeks’ gestation) and the adequacy of confounder control (Petersen
+et al.). Adequacy of confounder control was determined overall for each study
+as well as by variable and construct (groupings of conceptually related
+variables).These studies are a subset of studies originally identified in a
+systematic review by Ahrens et al. to summarize associations between short
+interpregnancy interval and a variety of perinatal outcomes in high-resource
+settings.
+}
+\references{
+Ahrens KA, Nelson H, Stidd RL, Moskosky S, Hutcheon JA. Short
+interpregnancy intervals and adverse perinatal outcomes in high-resource
+settings: An updated systematic review. Paediatr Perinat Epidemiol.
+2019;33(1):O25-O47.
+
+Petersen JM, Barrett M, Ahrens K, Murray EJ, Hogue C,
+Mumford S, Bryant Mantha A, Gadupudi S, Trinquart T. Confounder Matrix: A
+tool to assess Confounding Bias in Systematic Reviews of Observational
+Studies. 2020
 }
 \keyword{datasets}
