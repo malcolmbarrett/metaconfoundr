@@ -8,7 +8,7 @@
 \alias{ipi_metaanalysis}
 \title{IPI data}
 \format{
-data frame
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 540 rows and 5 columns.
 
 An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 36 rows and 18 columns.
 

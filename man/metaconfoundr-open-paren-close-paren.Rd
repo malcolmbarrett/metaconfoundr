@@ -21,11 +21,12 @@ a tibble
 \code{metaconfoundr()} standardizes data frames with information on how well a set
 of studies control for a set of variables. In this approach, a set of domain
 experts agree on the variables that are required to properly control for
-confounding for a scientific question. Then, the studies are described as
-being adequately, inadequately, or partially controlled for a given
-confounder. \code{metaconfoundr()} is intended to standardize data for use in
-\code{\link[=mc_heatmap]{mc_heatmap()}} and \code{\link[=mc_trafficlight]{mc_trafficlight()}}. See the vignette on data
-preparation for more information on how to set up your evaluation.
+confounding for a scientific question. Then, for a given confounder, the
+studies are described as being adequately controlled, inadequately
+controlled, or controlled with some concerns. \code{metaconfoundr()} is intended
+to standardize data for use in \code{\link[=mc_heatmap]{mc_heatmap()}} and \code{\link[=mc_trafficlight]{mc_trafficlight()}}.
+See the vignette on data preparation for more information on how to set up
+your evaluation.
 }
 \examples{
 

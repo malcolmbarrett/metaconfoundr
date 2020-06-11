@@ -13,7 +13,7 @@ score_control(.df, score = c("adequate", "sum", "controlled"))
 the study controlled at a strictly adequate level. \code{sum} treats
 \code{control_quality} as an ordinal integer, summing it's values such that a
 higher score has better control overall. \code{controlled} tests if any control,
-including \code{unclear} control, is present.}
+including \verb{some concerns} control, is present.}
 }
 \value{
 a tibble

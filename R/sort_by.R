@@ -9,7 +9,7 @@
 #'   the study controlled at a strictly adequate level. `sum` treats
 #'   `control_quality` as an ordinal integer, summing it's values such that a
 #'   higher score has better control overall. `controlled` tests if any control,
-#'   including `unclear` control, is present.
+#'   including `some concerns` control, is present.
 #'
 #' @return a tibble
 #' @export

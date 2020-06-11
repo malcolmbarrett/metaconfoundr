@@ -3,11 +3,12 @@
 #' `metaconfoundr()` standardizes data frames with information on how well a set
 #' of studies control for a set of variables. In this approach, a set of domain
 #' experts agree on the variables that are required to properly control for
-#' confounding for a scientific question. Then, the studies are described as
-#' being adequately, inadequately, or partially controlled for a given
-#' confounder. `metaconfoundr()` is intended to standardize data for use in
-#' [`mc_heatmap()`] and [`mc_trafficlight()`]. See the vignette on data
-#' preparation for more information on how to set up your evaluation.
+#' confounding for a scientific question. Then, for a given confounder, the
+#' studies are described as being adequately controlled, inadequately
+#' controlled, or controlled with some concerns. `metaconfoundr()` is intended
+#' to standardize data for use in [`mc_heatmap()`] and [`mc_trafficlight()`].
+#' See the vignette on data preparation for more information on how to set up
+#' your evaluation.
 #'
 #' @param .df A data frame. See the vignette on data preparation for more
 #'   details.
@@ -100,14 +101,14 @@ mc_longer <- function(
 }
 
 #' @param inadequate Which value signifies inadequate control?
-#' @param unclear Which value signifies unclear control?
+#' @param concerns Which value signifies control with some concerns?
 #' @param adequate Which value signifies adequate control?
 #'
 #' @export
 #'
 #' @rdname mc_detect_layout
-mc_study_values <- function(inadequate = 0, unclear = 1, adequate = 2) {
-  c(inadequate = inadequate, unclear = unclear, adequate = adequate)
+mc_study_values <- function(inadequate = 0, concerns = 1, adequate = 2) {
+  c(inadequate = inadequate, concerns = concerns, adequate = adequate)
 }
 
 

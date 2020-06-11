@@ -17,7 +17,7 @@ count_confounders <- function(.df) {
     dplyr::group_by(study) %>%
     dplyr::summarise(
       n_non_confounders = sum(
-        is_confounder %in% no_values & control_quality >= "unclear",
+        is_confounder %in% no_values & control_quality >= "some concerns",
         na.rm = TRUE
       ))
 }

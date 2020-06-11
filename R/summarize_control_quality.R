@@ -37,7 +37,7 @@ summarize_control_quality <- function(.df, ..., domains = TRUE) {
   adequate_studies <- purrr::map(adequate_context, pull_studies, .df = .df) %>%
     purrr::set_names(domain_names)
 
-  partial_context <- build_filter_quosures(..., equal_to = "unclear")
+  partial_context <- build_filter_quosures(..., equal_to = "some concerns")
   partial_studies <- purrr::map(partial_context, pull_studies, .df = .df) %>%
     purrr::set_names(domain_names)
 
@@ -74,7 +74,7 @@ all_controlled <- function(x) {
   dplyr::case_when(
     all(x == "adequate") ~ "adequate",
     all(x == "inadequate") ~ "inadequate",
-    TRUE ~ "some control"
+    TRUE ~ "some concerns"
   )
 }
 
@@ -86,7 +86,7 @@ set_construct_factor <- function(x) {
 }
 
 set_control_factor <- function(x) {
-  ordered(x, levels = c("inadequate", "some control", "adequate"))
+  ordered(x, levels = c("inadequate", "some concerns", "adequate"))
 }
 
 set_variable_factor <- function(x) {
@@ -122,7 +122,7 @@ select_studies <- function(domain, adequate_studies, partial_studies, .df) {
   .df %>%
     dplyr::mutate({{domain}} := dplyr::case_when(
       study %in% adequate_studies ~ "adequate",
-      study %in% partial_studies ~ "some control",
+      study %in% partial_studies ~ "some concerns",
       TRUE ~ "inadequate"
     )) %>%
     dplyr::select({{domain}})
