@@ -9,10 +9,12 @@ Authors@R:
              comment = c(ORCID = "0000-0003-0299-5825")),
       person(given = "Julie M.",
              family = "Petersen",
+             role = "aut",
              email = "juliemo@bu.edu",
              comment = c(ORCID = "0000-0001-7845-4545")),
       person(given = "Ludovic",
              family = "Trinquart",
+             role = "aut",
              email = "ludovic@bu.edu",
              comment = c(ORCID = "0000-0002-3028-4900")))
 Description: Visualize confounder control in meta-analysis.
