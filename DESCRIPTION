@@ -2,11 +2,19 @@ Package: metaconfoundr
 Title: Visualize Confounder Control in Meta-Analyses
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "Malcolm",
-           family = "Barrett",
-           role = c("aut", "cre"),
-           email = "malcolmbarrett@gmail.com",
-           comment = c(ORCID = "0000-0003-0299-5825"))
+    c(person(given = "Malcolm",
+             family = "Barrett",
+             role = c("aut", "cre"),
+             email = "malcolmbarrett@gmail.com",
+             comment = c(ORCID = "0000-0003-0299-5825")),
+      person(given = "Julie M.",
+             family = "Petersen",
+             email = "juliemo@bu.edu",
+             comment = c(ORCID = "0000-0001-7845-4545")),
+      person(given = "Ludovic",
+             family = "Trinquart",
+             email = "ludovic@bu.edu",
+             comment = c(ORCID = "0000-0002-3028-4900")))
 Description: Visualize confounder control in meta-analysis.
     'metaconfoundr' is an approach to evaluating bias in studies used in
     meta-analyses based on the causal inference framework. Study groups
