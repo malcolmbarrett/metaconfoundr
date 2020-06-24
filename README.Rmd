@@ -9,7 +9,9 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
   fig.path = "man/figures/README-",
-  out.width = "100%"
+  out.width = "100%",
+  dpi = 320,
+  fig.width = 5
 )
 ```
 
@@ -22,11 +24,11 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/malcolmbarrett/metaconfoundr/branch/master/graph/badge.svg)](https://codecov.io/gh/malcolmbarrett/metaconfoundr?branch=master)
 <!-- badges: end -->
 
-The goal of metaconfoundr is to ...
+The goal of metaconfoundr is to make it easy to visualize confounding control in meta-analyses. Researchers use a causal diagram to assess factors that are required to control for to estimate an effect unbiased by confounding. Then, the researchers create a data frame of confounding variables and how well each study in the meta-analysis controlled for each: adequately, inadequately, or with some control. See the vignette on collecting confounder data for more information.
 
 ## Installation
 
-You can install the development version of metaconfoundr from GitHub with:
+metaconfoundr is not yet on CRAN, but you can install the development version of metaconfoundr from GitHub with:
 
 ``` r
 # if needed
@@ -34,13 +36,42 @@ You can install the development version of metaconfoundr from GitHub with:
 remotes::install_github("malcolmbarrett/metaconfoundr")
 ```
 
-## Example
+## Visualizing confounding control
 
-This is a basic example which shows you how to solve a common problem:
+metaconfoundr includes an example dataset, `ipi`, that contains information on a meta-analysis of interpregnancy interval and the risk of preterm birth. Use `metaconfoundr()` to prepare the dataset to work with metaconfoundr functions. `ipi` includes several domains of confounders, but for ease of visualization, we'll just show one, `Sociodemographics`.
 
 ```{r example}
 library(metaconfoundr)
-## basic example code
+mc_ipi <- metaconfoundr(ipi) %>% 
+  dplyr::filter(construct == "Sociodemographics")
+
+mc_ipi
+```
+
+metaconfoundr includes several tools for visualizing the results of a confounding control assesment. The most common are `mc_heatmap()` and `mc_trafficlight()`
+
+```{r}
+mc_heatmap(mc_ipi)
+mc_trafficlight(mc_ipi)
+```
+
+These plotting functions return ggplots, so they are easy to modify
+
+```{r}
+mc_heatmap(mc_ipi) +
+  theme_mc() +
+  ggplot2::guides(x = ggplot2::guide_axis(n.dodge = 2))
+```
+
+metaconfoundr also includes geoms and scales to make output similar to other types of bias assessments for meta-analyses
+
+
+```{r}
+mc_trafficlight(mc_ipi) +
+  theme_mc() +
+  geom_cochrane() + 
+  scale_fill_cochrane()  +
+  ggplot2::guides(x = ggplot2::guide_axis(n.dodge = 2))
 ```
 
 Please note that the 'metaconfoundr' project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
