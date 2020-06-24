@@ -12,6 +12,8 @@ library(metaconfoundr)
 library(ggplot2)
 library(dplyr)
 library(rlang)
+library(markdown)
+
 
 wrap_labeller <- function(x) stringr::str_wrap(x, 10)
 
