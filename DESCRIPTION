@@ -48,7 +48,9 @@ Imports:
 Suggests: 
     roxygen2,
     testthat,
-    covr
+    covr,
+    rio,
+    readr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

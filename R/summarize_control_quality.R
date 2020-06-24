@@ -99,6 +99,8 @@ set_variable_factor <- function(x) {
 build_filter_quosures <- function(..., equal_to = "adequate") {
   quo_dots <- rlang::enquos(...)
 
+  if (is_first_quo_string(quo_dots)) quo_dots <- string_to_quosure(quo_dots)
+
   dot_names <- names(quo_dots)
   names_missing <- dot_names == ""
   if (any(names_missing)) {
@@ -115,6 +117,34 @@ build_filter_quosures <- function(..., equal_to = "adequate") {
   names(logic_text) <- dot_names
 
   logic_text
+}
+
+is_first_quo_string <- function(x) {
+  first_quo <- x[[1]]
+  tryCatch(
+    rlang::is_string(rlang::eval_tidy(first_quo)),
+    error = function(e) FALSE
+  )
+}
+
+string_to_quosure <- function(x) {
+  x <- rlang::eval_tidy(x[[1]])
+  x <- stringr::str_split(x, "\\s*,\\s*")[[1]]
+  x_names_regex <- '[:punct:]?[\\w\\s]*[:punct:]?\\s*=\\s*'
+  x_names <- stringr::str_extract(x, x_names_regex) %>%
+    stringr::str_remove("\\s*=\\s*") %>%
+    stringr::str_remove_all("\'|\"")
+
+  x <- stringr::str_split(x, x_names_regex, simplify = TRUE)[, 2]
+  x_quos <- purrr::map(
+    rlang::parse_exprs(x),
+    rlang::as_quosure,
+    env = rlang::caller_env()
+  )
+
+  names(x_quos) <- x_names
+
+  rlang::as_quosures(x_quos, env = rlang::caller_env())
 }
 
 

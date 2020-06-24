@@ -7,7 +7,7 @@
 theme_mc(base_size = 14)
 }
 \arguments{
-\item{base_size}{base font size}
+\item{base_size}{base font size, given in pts.}
 }
 \value{
 a ggplot theme
