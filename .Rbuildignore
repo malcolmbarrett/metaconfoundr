@@ -9,3 +9,4 @@
 ^examples\.R$
 ^paper_figures$
 ^codecov\.yml$
+^deploy$

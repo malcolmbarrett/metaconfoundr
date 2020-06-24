@@ -18,7 +18,7 @@ mc_longer(
   study_values = mc_study_values()
 )
 
-mc_study_values(inadequate = 0, concerns = 1, adequate = 2)
+mc_study_values(inadequate = 0, some_concerns = 1, adequate = 2)
 
 mc_wider(
   construct = contains("construct"),
@@ -47,7 +47,7 @@ quality}
 
 \item{inadequate}{Which value signifies inadequate control?}
 
-\item{concerns}{Which value signifies control with some concerns?}
+\item{some_concerns}{Which value signifies control with some concerns?}
 
 \item{adequate}{Which value signifies adequate control?}
 }

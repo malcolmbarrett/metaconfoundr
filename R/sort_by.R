@@ -28,7 +28,7 @@ score_control <- function(.df, score = c("adequate", "sum", "controlled")) {
   f <- get_score_f(score)
 
   .df %>%
-    dplyr::group_by(variable, add = TRUE) %>%
+    dplyr::group_by(variable, .add = TRUE) %>%
     dplyr::mutate(score = f(as.numeric(control_quality))) %>%
     dplyr::ungroup()
 }

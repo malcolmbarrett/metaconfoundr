@@ -101,14 +101,14 @@ mc_longer <- function(
 }
 
 #' @param inadequate Which value signifies inadequate control?
-#' @param concerns Which value signifies control with some concerns?
+#' @param some_concerns Which value signifies control with some concerns?
 #' @param adequate Which value signifies adequate control?
 #'
 #' @export
 #'
 #' @rdname mc_detect_layout
-mc_study_values <- function(inadequate = 0, concerns = 1, adequate = 2) {
-  c(inadequate = inadequate, concerns = concerns, adequate = adequate)
+mc_study_values <- function(inadequate = 0, some_concerns = 1, adequate = 2) {
+  c(inadequate = inadequate, "some concerns" = some_concerns, adequate = adequate)
 }
 
 

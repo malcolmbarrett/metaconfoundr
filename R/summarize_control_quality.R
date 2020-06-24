@@ -79,7 +79,7 @@ all_controlled <- function(x) {
 }
 
 set_construct_factor <- function(x) {
-  ordered(
+  factor(
     ifelse(x == "overall", "overall", "domains"),
     levels = c("overall", "domains")
   )
@@ -93,7 +93,7 @@ set_variable_factor <- function(x) {
   domains <- unique(x)
   domains <- domains[domains != "overall"]
 
-  ordered(x, levels = c("overall", domains))
+  factor(x, levels = c("overall", domains))
 }
 
 build_filter_quosures <- function(..., equal_to = "adequate") {

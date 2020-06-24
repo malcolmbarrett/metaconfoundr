@@ -11,7 +11,7 @@
 #'   metaconfoundr() %>%
 #'   plot_non_confounders(size = 3, geom = ggplot2::geom_point)
 #'
-count_confounders <- function(.df) {
+count_non_confounders <- function(.df) {
   no_values <- c("N", "NO", "FALSE", "0")
   .df %>%
     dplyr::group_by(study) %>%
@@ -28,10 +28,10 @@ count_confounders <- function(.df) {
 #'
 #' @export
 #'
-#' @rdname count_confounders
+#' @rdname count_non_confounders
 plot_non_confounders <- function(.df, ..., geom = ggplot2::geom_col, sort = TRUE) {
   confounder_df <- .df %>%
-    count_confounders()
+    count_non_confounders()
 
   if (sort) {
     confounder_df <- confounder_df %>%

@@ -2,7 +2,7 @@
 
 export("%>%")
 export(contains)
-export(count_confounders)
+export(count_non_confounders)
 export(ends_with)
 export(everything)
 export(facet_constructs)

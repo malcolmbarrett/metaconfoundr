@@ -51,7 +51,8 @@ Suggests:
     readr,
     rio,
     roxygen2,
-    testthat
+    testthat,
+    vdiffr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
