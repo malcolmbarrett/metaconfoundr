@@ -41,16 +41,17 @@ Imports:
     magrittr,
     purrr,
     rlang (>= 0.1.2),
+    shiny,
     stringr,
     tibble,
     tidyr (>= 1.0.0),
     tidyselect
 Suggests: 
-    roxygen2,
-    testthat,
     covr,
+    readr,
     rio,
-    readr
+    roxygen2,
+    testthat
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
