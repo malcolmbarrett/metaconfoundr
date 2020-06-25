@@ -5,3 +5,4 @@ examples.R
 .DS_Store
 deploy
 inst/shiny_app/rsconnect/
+inst/doc

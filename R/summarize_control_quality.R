@@ -61,7 +61,7 @@ process_domains <- function(domain_df, .df) {
     dplyr::rowwise() %>%
     dplyr::mutate(overall = all_controlled(dplyr::c_across())) %>%
     dplyr::select(overall, dplyr::everything()) %>%
-    dplyr::bind_cols(dplyr::select(.df, study), .) %>%
+    dplyr::bind_cols(dplyr::distinct(.df, study), .) %>%
     tidyr::pivot_longer(-study, names_to = "variable", values_to = "control_quality") %>%
     dplyr::mutate(
       variable = set_variable_factor(variable),
@@ -150,6 +150,7 @@ string_to_quosure <- function(x) {
 
 select_studies <- function(domain, adequate_studies, partial_studies, .df) {
   .df %>%
+    dplyr::distinct(study) %>%
     dplyr::mutate({{domain}} := dplyr::case_when(
       study %in% adequate_studies ~ "adequate",
       study %in% partial_studies ~ "some concerns",

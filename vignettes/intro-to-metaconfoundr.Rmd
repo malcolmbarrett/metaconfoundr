@@ -1,0 +1,201 @@
+---
+title: "An Introduction to metaconfoundr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{An Introduction to metaconfoundr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  dpi = 320
+)
+```
+
+The metaconfoundr package is a toolkit for visualizing confounding control in a set of studies included in a meta-analysis. In this approach, a set of domain experts agree on the variables that are required to properly control for confounding for a scientific question. Then, for a given confounder, the studies are described as being adequately controlled, inadequately controlled, or controlled with some concerns (see the vignette on evaluating studies and setting up your data). metaconfoundr visualizes these relationships using heatmaps and traffic light plots. `metaconfoundr()` standardizes data for use in `mc_heatmap()` and `mc_trafficlight()`. Let's look at an example with an included data set, `ipi`. These data represent 14 analyses (retrospective cohorts and sibling-matched designs) to evaluate the association between short interpregnancy interval (<6 months versus 18-23 months) and risk of preterm birth (<37 weeks gestation) and the adequacy of confounder control. Using `metaconfoundr()` on `ipi` simply does some data wrangling to get it into a shape expected by the plotting functions:
+
+```{r setup}
+library(metaconfoundr)
+# for later examples
+library(dplyr)
+library(ggplot2)
+
+metaconfoundr(ipi)
+```
+
+The vignette on evaluating studies has more detail but in brief, the goal is to create a data frame where there are five columns and a row for each confounder and study. The columns are `construct`, the domain to which a confounder might belong (e.g. "Sociodemographics"), `variable`, the name of the variable (e.g. "age"), `is_confounder`, an indicator if the variable is a confounder, `study`, the name of the study (or another unique ID), and `control_quality`, an indicator of the level of control for a confounder. `control_quality` is one of: "adequate", "some concerns", or "inadequate". metaconfoundr attempts to detect the layout of your data automatically, but you have full control (see `?mc_detect_layout`). You can also specify the data in this format manually. 
+
+Data that you provide `metaconfoundr()` can be in two basic formats: a long format and a wide format. The long format assumes that there are five columns, as above, and they simply need to be standardized. If there are more than five, `metaconfoundr()` assumes that, in addition to the other four columns, any additional columns represent studies (e.g. they are in wide format). It will automatically transform your wide data to the format expected by metaconfoundr plotting functions. `ipi` has a wide cousin, `ipi_wide`, which `metaconfoundr()` can prepare seamlessly:
+
+```{r}
+ipi_wide
+metaconfoundr(ipi_wide)
+```
+
+# Creating plots
+
+The primary goal of metaconfoundr is to visualize confounding control for a set of studies in a meta-analysis. The two main plotting functions are `mc_heatmap()` and `mc_trafficlight()`, which both accept data prepared by `metaconfoundr()`.
+
+```{r}
+mc_ipi <- metaconfoundr(ipi)
+
+mc_heatmap(mc_ipi)
+mc_trafficlight(mc_ipi)
+```
+
+## Customizing plots
+
+These results are ggplots and can thus be customized like any other plot from ggplot2.
+
+```{r}
+wrap_labeller <- function(x) stringr::str_wrap(x, 10)
+
+mc_heatmap(mc_ipi) + 
+  facet_constructs(labeller = as_labeller(wrap_labeller)) + 
+  theme_mc() + 
+  theme(
+    axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5),
+    strip.text = element_text(face = "bold")
+  )
+```
+
+metaconfoundr also supports adding Cochrane-like symbols and colors to plots with geoms and scales. Note that these colors are *not* colorblind friendly.
+
+```{r}
+mc_trafficlight(mc_ipi) + 
+  geom_cochrane() + 
+  scale_fill_cochrane() + 
+  theme_mc() + 
+  guides(x = guide_axis(n.dodge = 2)) # dodge axis text rather than rotate
+```
+
+It's also possible to sort plots by how well a confounder is controlled over all the studies included. See `?score_control` for more information on available algorithms to sort confounders by.
+
+```{r}
+mc_heatmap(mc_ipi, sort = TRUE) + 
+  theme_mc() + 
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = .5),)
+```
+
+## Summarizing confounder control
+
+In addition to visualizing all possible confounders, metaconfoundr supports evaluating confounders at the domain level. For instance, if we feel `ipi` has three core areas of confounding, sociodemographics, socioeconomics, and reproductive history, we can specify what variables must be controlled for to account for the domain. For these 3, we'll say that controlling for maternal age, race/ethnicity, and marital status are sufficient to control for sociodemographics; socioecononmic status *or* insurance status *and* education are sufficient to control for socioeconomics; and prior pregnancy outcomes are sufficient to control for reproductive history. We can specify these rules using boolean logic that refers to confounders in the `variable` column of our data:
+
+```{r}
+summary_df <- summarize_control_quality(
+  metaconfoundr(ipi),
+  Sociodemographics = `Maternal age` & `Race/ethnicity` & `Marital status`,
+  Socioeconomics = `SES category` | Insurance & Education,
+  "Reproductive Hx" = `Prior pregnancy outcome`
+)
+
+summary_df
+```
+
+This creates a simpler visualization. You can also just visualize the overall control quality of a study by using the `domains = FALSE` argument in `summarize_control_quality()`.
+
+```{r}
+mc_heatmap(summary_df) +
+  theme_mc() + 
+  guides(x = guide_axis(n.dodge = 2))
+```
+
+# Combining with forest plots
+
+Because metaconfoundr plots are ggplots, it's easy to combine with other plots using tools from the ggplot2 ecosystem. The patchwork package makes it particularly easy, allowing you to combine plots with `+`. For example, let's make a simple forest plot in ggplot2 and combine it with a metaconfoundr plot. (Alternatively, you could use a tool like [tidymeta](https://github.com/malcolmbarrett/tidymeta) to create the forest plot.) `ipi_metaanalysis` contains effect sizes for the studies in `ipi`. We'll also write a helper function, `sort_by_year()`, to help order the two plots in the same way.
+
+```{r}
+sort_by_year <- function(.df) {
+  .df %>% 
+    arrange(year) %>% 
+    mutate(
+      study = paste0(lead_author, " ", year, " (", design, ")"),
+      study = forcats::fct_inorder(study)
+    )
+}
+
+forest_plot <- function(.df) {
+   .df %>% 
+    sort_by_year() %>% 
+    ggplot(aes(x = estimate, y = study)) + 
+    #  add effect estimates
+    geom_point(aes(size = sample_size), shape = 15) +
+    geom_errorbarh(aes(xmin = lower_ci, xmax = upper_ci), height = 0) + 
+    #  use a log10 transformed scale
+    scale_x_log10() + 
+    #  use a minumal scale with only vertical grid lines
+    theme_minimal(14) +
+    theme(
+      axis.title.y = element_blank(),
+      panel.grid.minor = element_blank(),
+      panel.grid.major.y = element_blank()
+    ) + 
+    labs(
+      x = "Odds Ratio",
+      size = "Sample Size"
+    )
+}
+
+fp <- forest_plot(ipi_metaanalysis)
+
+fp
+
+tl_plot <- 
+  mc_ipi %>% 
+  summarize_control_quality(
+    "Socio-\ndemo-\ngraphics" = `Maternal age` & `Race/ethnicity` & `Marital status`,
+    "Socio-\neconomic\nFactors" = `SES category` | Insurance & Education,
+    "Repro-\nductive Hx" = `Prior pregnancy outcome`
+  ) %>% 
+  left_join(ipi_metaanalysis, by = "study") %>% 
+  sort_by_year() %>% 
+  mutate(variable = stringr::str_wrap(variable, 10)) %>% 
+  mc_trafficlight() + 
+  geom_cochrane() + 
+  scale_fill_cochrane() + 
+  theme_mc() + 
+  guides(x = guide_axis(n.dodge = 2)) + 
+  facet_constructs()
+
+tl_plot
+```
+
+Putting the plots side-by-side is easy with patchwork:
+
+```{r}
+library(patchwork)
+
+# forest plot
+fp + theme(legend.position = "none") + 
+  # traffic light plot
+  tl_plot + theme(axis.text.y = element_blank(), legend.position = "none") +
+  # make the FP twice as as wide as the TLP
+  plot_layout(widths = c(2, 1))
+```
+
+## Using control quality as an analytic category
+
+Another use of metaconfoundr is to create categories for which to estimate sub-group summary effect sizes. Let's use the metafor package to do a simple meta-analysis by whether a study is, overall, adequately controlled, inadequately controlled, or controlled with some concerns.
+
+```{r}
+library(metafor)
+ipi_metaanalysis %>% 
+  left_join(summary_df %>% filter(variable == "overall"), by = "study") %>% 
+  mutate(se = log(upper_ci) - log(estimate) / 1.96) %>% 
+  group_by(control_quality) %>% 
+  group_map(~rma(data = .x, yi = estimate, sei = se)) 
+```
+
+# Visualizing non-confounders
+
+Many studies control for variables that are not, in fact, confounders. While there are many cases where doing this will not effect results, there are several, such as controlling for a descendant of the exposure and outcome, that may increase bias. By default, metaconfoundr does not plot non-confounders. Instead, there is a set of tools for evaluating how many non-confounders a study controls for. The more controlled for, the higher the chance that one is inducing bias.
+
+```{r}
+ipi %>%
+  metaconfoundr() %>%
+  plot_non_confounders(size = 3, geom = ggplot2::geom_point)
+```
+
