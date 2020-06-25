@@ -10,3 +10,4 @@
 ^paper_figures$
 ^codecov\.yml$
 ^deploy$
+^_pkgdown\.yml$

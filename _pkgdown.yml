@@ -1,0 +1,45 @@
+reference:
+- title: All functions
+  contents:
+  - '`count_non_confounders`'
+  - '`facet_constructs`'
+  - '`geom_cochrane`'
+  - '`ipi_data`'
+  - '`launch_metaconfoundr_app`'
+  - '`mc_detect_layout`'
+  - '`mc_heatmap`'
+  - '`metaconfoundr()`'
+  - '`scale_fill_cochrane`'
+  - '`score_control`'
+  - '`summarize_control_quality`'
+  - '`theme_mc`'
+articles:
+- title: All vignettes
+  desc: null
+  contents: '`intro-to-metaconfoundr`'
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    github:
+      icon: fab fa-github fa-lg
+      href: https://github.com/malcolmbarrett/metaconfoundr/
+    articles:
+      text: Articles
+      menu:
+      - text: An Introduction to metaconfoundr
+        href: articles/intro-to-metaconfoundr.html
+
