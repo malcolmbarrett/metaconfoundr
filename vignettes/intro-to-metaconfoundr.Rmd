@@ -14,6 +14,8 @@ knitr::opts_chunk$set(
   fig.width = 12,
   fig.height = 6
 )
+
+library(metafor)
 ```
 
 The metaconfoundr package is a toolkit for visualizing confounding control in a set of studies included in a meta-analysis. In this approach, a set of domain experts agree on the variables required to control for confounding for a scientific question properly. Then, for a given confounder, the studies are described as being adequately controlled, inadequately controlled, or controlled with some concerns (see the vignette on evaluating studies and setting up your data). metaconfoundr visualizes these relationships using heatmaps and traffic light plots. `metaconfoundr()` standardizes data for use in `mc_heatmap()` and `mc_trafficlight()`. Let's look at an example with an included data set, `ipi`. These data represent 14 analyses (retrospective cohorts and sibling-matched designs) to evaluate the association between short interpregnancy interval (<6 months versus 18-23 months) and risk of preterm birth (<37 weeks gestation) and the adequacy of confounder control. Using `metaconfoundr()` on `ipi` does some data wrangling to get it into a shape expected by the plotting functions:
