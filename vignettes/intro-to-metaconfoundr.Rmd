@@ -11,7 +11,8 @@ vignette: >
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  dpi = 320
+  fig.width = 12,
+  fig.height = 6
 )
 ```
 
@@ -19,12 +20,14 @@ The metaconfoundr package is a toolkit for visualizing confounding control in a 
 
 ```{r setup}
 library(metaconfoundr)
+
 # for later examples
-library(dplyr)
+library(dplyr, warn.conflicts = FALSE)
 library(ggplot2)
 
 metaconfoundr(ipi)
 ```
+
 
 The vignette on evaluating studies has more detail, but in brief, the goal is to create a data frame where there are five columns and a row for each confounder and study. The columns are `construct`, the domain to which a confounder might belong (e.g., "Sociodemographics"); `variable`, the name of the variable (e.g. "age"); `is_confounder`, an indicator if the variable is a confounder; `study`, the name of the study (or another unique ID); and `control_quality`, an indicator of the level of control for a confounder. `control_quality` is one of "adequate", "some concerns", or "inadequate". metaconfoundr attempts to automatically detect the layout of your data, but you have full control (see `?mc_detect_layout`). You can also specify the data in this format manually. 
 
@@ -32,6 +35,7 @@ Data that you provide `metaconfoundr()` can be in two basic formats: a long and 
 
 ```{r}
 ipi_wide
+
 metaconfoundr(ipi_wide)
 ```
 
@@ -41,8 +45,14 @@ The primary goal of metaconfoundr is to visualize confounding control for a set 
 
 ```{r}
 mc_ipi <- metaconfoundr(ipi)
+```
 
+
+```{r, fig.width=12}
 mc_heatmap(mc_ipi)
+```
+
+```{r}
 mc_trafficlight(mc_ipi)
 ```
 
@@ -69,7 +79,7 @@ mc_trafficlight(mc_ipi) +
   geom_cochrane() + 
   scale_fill_cochrane() + 
   theme_mc() + 
-  guides(x = guide_axis(n.dodge = 2)) # dodge axis text rather than rotate
+  guides(x = guide_axis(n.dodge = 3)) # dodge axis text rather than rotate
 ```
 
 It's also possible to sort plots by how well a confounder is controlled over all the studies included. See `?score_control` for more information on available algorithms by which to sort confounders.
@@ -97,9 +107,10 @@ summary_df
 
 Summarizing control quality creates a more straightforward visualization. You can also visualize just the overall control quality of a study by using the `domains = FALSE` argument in `summarize_control_quality()`.
 
-```{r}
+```{r, fig.width=5}
 mc_heatmap(summary_df) +
   theme_mc() + 
+  theme(legend.position = "right") +
   guides(x = guide_axis(n.dodge = 2))
 ```
 
@@ -107,10 +118,10 @@ mc_heatmap(summary_df) +
 
 Because metaconfoundr plots are ggplots, it's easy to combine with other plots using tools from the ggplot2 ecosystem. The patchwork package makes it particularly easy, allowing you to connect plots with `+`. For example, let's make a simple forest plot in ggplot2 and combine it with a metaconfoundr plot. (Alternatively, you could use a tool like [tidymeta](https://github.com/malcolmbarrett/tidymeta) to create the forest plot.) `ipi_metaanalysis` contains effect sizes for the studies in `ipi`. We'll also write a helper function, `sort_by_year()`, to help order the two plots in the same way.
 
-```{r}
+```{r, fig.width=8}
 sort_by_year <- function(.df) {
   .df %>% 
-    arrange(year) %>% 
+    arrange(desc(year)) %>% 
     mutate(
       study = paste0(lead_author, " ", year, " (", design, ")"),
       study = forcats::fct_inorder(study)
@@ -142,7 +153,10 @@ forest_plot <- function(.df) {
 fp <- forest_plot(ipi_metaanalysis)
 
 fp
+```
 
+
+```{r, fig.width=5}
 tl_plot <- 
   mc_ipi %>% 
   summarize_control_quality(
@@ -157,6 +171,7 @@ tl_plot <-
   geom_cochrane() + 
   scale_fill_cochrane() + 
   theme_mc() + 
+  theme(legend.position = "right") +
   guides(x = guide_axis(n.dodge = 2)) + 
   facet_constructs()
 
@@ -165,15 +180,15 @@ tl_plot
 
 Putting the plots side-by-side is effortless with patchwork:
 
-```{r}
+```{r, fig.width=10}
 library(patchwork)
 
 # forest plot
 fp + theme(legend.position = "none") + 
   # traffic light plot
   tl_plot + theme(axis.text.y = element_blank(), legend.position = "none") +
-  # make the FP twice as as wide as the TLP
-  plot_layout(widths = c(2, 1))
+  # make the FP thrice as as wide as the TLP
+  plot_layout(widths = c(3, 1))
 ```
 
 ## Using control quality as an analytic category
@@ -193,9 +208,9 @@ ipi_metaanalysis %>%
 
 Many studies control for variables that are not, in fact, confounders. While there are many cases where doing this will not affect results, there are several, such as controlling for a descendant of the exposure and outcome, that may increase bias. By default, metaconfoundr does not plot non-confounders. Instead, there is a set of tools for evaluating how many non-confounders for which a study controls. The more controlled for, the higher the chance that one is inducing bias.
 
-```{r}
+```{r, fig.width=5}
 ipi %>%
   metaconfoundr() %>%
-  plot_non_confounders(size = 3, geom = ggplot2::geom_point)
+  plot_non_confounders(geom = ggplot2::geom_point)
 ```
 
