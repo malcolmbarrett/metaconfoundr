@@ -26,6 +26,8 @@ knitr::opts_chunk$set(
 
 The goal of metaconfoundr is to make it easy to visualize confounding control in meta-analyses. Researchers use a causal diagram to assess factors that are required to control for to estimate an effect unbiased by confounding. Then, the researchers create a data frame of confounding variables and how well each study in the meta-analysis controlled for each: adequately, inadequately, or with some control. See the vignette on collecting confounder data for more information.
 
+In addition to the package, metaconfoundr ships with a Shiny app to help create visualizations. You can start the app locally with `launch_metaconfoundr_app()` or [use the hosted version](https://malcolmbarrett.shinyapps.io/metaconfoundr/).
+
 ## Installation
 
 metaconfoundr is not yet on CRAN, but you can install the development version of metaconfoundr from GitHub with:

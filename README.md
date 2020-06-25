@@ -23,6 +23,11 @@ variables and how well each study in the meta-analysis controlled for
 each: adequately, inadequately, or with some control. See the vignette
 on collecting confounder data for more information.
 
+In addition to the package, metaconfoundr ships with a Shiny app to help
+create visualizations. You can start the app locally with
+`launch_metaconfoundr_app()` or [use the hosted
+version](https://malcolmbarrett.shinyapps.io/metaconfoundr/).
+
 ## Installation
 
 metaconfoundr is not yet on CRAN, but you can install the development
