@@ -53,15 +53,15 @@ mc_ipi
 #>    construct         variable     is_confounder study    control_quality
 #>    <chr>             <chr>        <chr>         <chr>    <ord>          
 #>  1 Sociodemographics Maternal age Y             study_1  adequate       
-#>  2 Sociodemographics Maternal age Y             study_2  concerns       
-#>  3 Sociodemographics Maternal age Y             study_3  concerns       
+#>  2 Sociodemographics Maternal age Y             study_2  some concerns  
+#>  3 Sociodemographics Maternal age Y             study_3  some concerns  
 #>  4 Sociodemographics Maternal age Y             study_4  adequate       
 #>  5 Sociodemographics Maternal age Y             study_5  adequate       
 #>  6 Sociodemographics Maternal age Y             study_6  adequate       
-#>  7 Sociodemographics Maternal age Y             study_7  concerns       
-#>  8 Sociodemographics Maternal age Y             study_8  concerns       
-#>  9 Sociodemographics Maternal age Y             study_9  concerns       
-#> 10 Sociodemographics Maternal age Y             study_10 concerns       
+#>  7 Sociodemographics Maternal age Y             study_7  some concerns  
+#>  8 Sociodemographics Maternal age Y             study_8  some concerns  
+#>  9 Sociodemographics Maternal age Y             study_9  some concerns  
+#> 10 Sociodemographics Maternal age Y             study_10 some concerns  
 #> # … with 80 more rows
 ```
 
@@ -103,6 +103,14 @@ mc_trafficlight(mc_ipi) +
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+# Similar work
+
+For working with common assessments of bias in studies, such as the
+ROBINS tool, see the excellent
+[robvis](https://github.com/mcguinlu/robvis) package.
+
+# Code of Conduct
 
 Please note that the ‘metaconfoundr’ project is released with a
 [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By

@@ -74,4 +74,10 @@ mc_trafficlight(mc_ipi) +
   ggplot2::guides(x = ggplot2::guide_axis(n.dodge = 2))
 ```
 
+# Similar work
+
+For working with common assessments of bias in studies, such as the ROBINS tool, see the excellent [robvis](https://github.com/mcguinlu/robvis) package.
+
+# Code of Conduct
+
 Please note that the 'metaconfoundr' project is released with a [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
