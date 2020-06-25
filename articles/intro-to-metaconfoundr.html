@@ -317,9 +317,6 @@
 <p>Another use of metaconfoundr is to create categories for which to estimate sub-group summary effect sizes. Let’s use the metafor package to do a simple meta-analysis by whether a study is, overall, adequately controlled, inadequately controlled, or controlled with some concerns.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://www.metafor-project.org">metafor</a></span>)
-<span class="co">#&gt; Loading required package: Matrix</span>
-<span class="co">#&gt; Loading 'metafor' package (version 2.4-0). For an overview </span>
-<span class="co">#&gt; and introduction to the package please type: help(metafor).</span>
 <span class="kw">ipi_metaanalysis</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span>(<span class="kw">summary_df</span> <span class="op">%&gt;%</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">variable</span> <span class="op">==</span> <span class="st">"overall"</span>), by = <span class="st">"study"</span>) <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(se = <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span>(<span class="kw">upper_ci</span>) <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log</a></span>(<span class="kw">estimate</span>) <span class="op">/</span> <span class="fl">1.96</span>) <span class="op">%&gt;%</span> 
