@@ -123,16 +123,15 @@ Because metaconfoundr plots are ggplots, it's easy to combine with other plots u
 ```{r, fig.width=8}
 sort_by_year <- function(.df) {
   .df %>% 
-    arrange(desc(year)) %>% 
-    mutate(
-      study = paste0(lead_author, " ", year, " (", design, ")"),
-      study = forcats::fct_inorder(study)
-    )
+    arrange(desc(year), desc(study)) %>% 
+    mutate(study = forcats::fct_inorder(study))
 }
 
 forest_plot <- function(.df) {
    .df %>% 
     sort_by_year() %>% 
+    # set small weight for missing sample size
+    mutate(sample_size = ifelse(is.na(sample_size), 1, sample_size)) %>% 
     ggplot(aes(x = estimate, y = study)) + 
     #  add effect estimates
     geom_point(aes(size = sample_size), shape = 15) +
