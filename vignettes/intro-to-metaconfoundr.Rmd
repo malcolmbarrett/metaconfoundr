@@ -99,9 +99,9 @@ In addition to visualizing all possible confounders, metaconfoundr supports eval
 ```{r}
 summary_df <- summarize_control_quality(
   metaconfoundr(ipi),
-  Sociodemographics = `Maternal age` & `Race/ethnicity` & `Marital status`,
-  Socioeconomics = `SES category` | Insurance & Education,
-  "Reproductive Hx" = `Prior pregnancy outcome`
+  Sociodemographics = `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
+  Socioeconomics = `SES Category` | Insurance & Education,
+  "Reproductive Hx" = `Prior Pregnancy Outcome`
 )
 
 summary_df
@@ -162,9 +162,9 @@ fp
 tl_plot <- 
   mc_ipi %>% 
   summarize_control_quality(
-    "Socio-\ndemo-\ngraphics" = `Maternal age` & `Race/ethnicity` & `Marital status`,
-    "Socio-\neconomic\nFactors" = `SES category` | Insurance & Education,
-    "Repro-\nductive Hx" = `Prior pregnancy outcome`
+    "Socio-\ndemo-\ngraphics" = `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
+    "Socio-\neconomic\nFactors" = `SES Category` | Insurance & Education,
+    "Repro-\nductive Hx" = `Prior Pregnancy Outcome`
   ) %>% 
   left_join(ipi_metaanalysis, by = "study") %>% 
   sort_by_year() %>% 

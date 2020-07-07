@@ -8,11 +8,11 @@
 \alias{ipi_metaanalysis}
 \title{IPI data}
 \format{
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 540 rows and 5 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 407 rows and 5 columns.
 
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 36 rows and 18 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 37 rows and 14 columns.
 
-An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 15 rows and 9 columns.
+An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 11 rows and 9 columns.
 }
 \source{
 Ahrens et al. (2019)

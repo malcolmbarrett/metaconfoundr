@@ -9,9 +9,9 @@ expect_mc_sum_tbl <- function(x) {
 test_that("summarize_control_quality() works", {
   x1 <- summarize_control_quality(
     metaconfoundr(ipi),
-    Sociodemographics = `Maternal age` & `Race/ethnicity` & `Marital status`,
-    Socioeconomics = `SES category` | Insurance & Education,
-    "Reproductive Hx" = `Prior pregnancy outcome`
+    Sociodemographics = `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
+    Socioeconomics = `SES Category` | Insurance & Education,
+    "Reproductive Hx" = `Prior Pregnancy Outcome`
   )
 
   expect_mc_sum_tbl(x1)
@@ -19,26 +19,26 @@ test_that("summarize_control_quality() works", {
   expect_error(
     summarize_control_quality(
       metaconfoundr(ipi),
-      Sociodemographics = `Doesn't exist` & `Race/ethnicity` & `Marital status`,
-      Socioeconomics = `SES category` | Insurance & Education,
-      "Reproductive Hx" = `Prior pregnancy outcome`
+      Sociodemographics = `Doesn't exist` & `Race/Ethnicity` & `Marital Status`,
+      Socioeconomics = `SES Category` | Insurance & Education,
+      "Reproductive Hx" = `Prior Pregnancy Outcome`
     )
   )
 
   x2 <- summarize_control_quality(
     metaconfoundr(ipi),
-    "Sociodemographics = `Maternal age` & `Race/ethnicity` & `Marital status`,
-    Socioeconomics = `SES category` | Insurance & Education,
-    \"Reproductive Hx\" = `Prior pregnancy outcome`"
+    "Sociodemographics = `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
+    Socioeconomics = `SES Category` | Insurance & Education,
+    \"Reproductive Hx\" = `Prior Pregnancy Outcome`"
   )
 
   expect_mc_sum_tbl(x2)
 
   x3 <- summarize_control_quality(
     metaconfoundr(ipi),
-    `Maternal age` & `Race/ethnicity` & `Marital status`,
-    `SES category` | Insurance & Education,
-    `Prior pregnancy outcome`
+    `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
+    `SES Category` | Insurance & Education,
+    `Prior Pregnancy Outcome`
   )
 
   expect_mc_sum_tbl(x3)
@@ -47,9 +47,9 @@ test_that("summarize_control_quality() works", {
 
   x4 <- summarize_control_quality(
     metaconfoundr(ipi),
-    `Maternal age` & `Race/ethnicity` & `Marital status`,
-    `SES category` | Insurance & Education,
-    `Prior pregnancy outcome`,
+    `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
+    `SES Category` | Insurance & Education,
+    `Prior Pregnancy Outcome`,
     domains = FALSE
   )
 
