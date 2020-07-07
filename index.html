@@ -114,20 +114,20 @@
   <span class="kw">dplyr</span>::<span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span>(<span class="kw">construct</span> <span class="op">==</span> <span class="st">"Sociodemographics"</span>)
 
 <span class="kw">mc_ipi</span>
-<span class="co">#&gt; # A tibble: 90 x 5</span>
-<span class="co">#&gt;    construct         variable     is_confounder study    control_quality</span>
-<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;    &lt;ord&gt;          </span>
-<span class="co">#&gt;  1 Sociodemographics Maternal age Y             study_1  adequate       </span>
-<span class="co">#&gt;  2 Sociodemographics Maternal age Y             study_2  some concerns  </span>
-<span class="co">#&gt;  3 Sociodemographics Maternal age Y             study_3  some concerns  </span>
-<span class="co">#&gt;  4 Sociodemographics Maternal age Y             study_4  adequate       </span>
-<span class="co">#&gt;  5 Sociodemographics Maternal age Y             study_5  adequate       </span>
-<span class="co">#&gt;  6 Sociodemographics Maternal age Y             study_6  adequate       </span>
-<span class="co">#&gt;  7 Sociodemographics Maternal age Y             study_7  some concerns  </span>
-<span class="co">#&gt;  8 Sociodemographics Maternal age Y             study_8  some concerns  </span>
-<span class="co">#&gt;  9 Sociodemographics Maternal age Y             study_9  some concerns  </span>
-<span class="co">#&gt; 10 Sociodemographics Maternal age Y             study_10 some concerns  </span>
-<span class="co">#&gt; # … with 80 more rows</span>
+<span class="co">#&gt; # A tibble: 55 x 5</span>
+<span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span>
+<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;        &lt;ord&gt;          </span>
+<span class="co">#&gt;  1 Sociodemographics Maternal Age Y             Zhu 2001a    some concerns  </span>
+<span class="co">#&gt;  2 Sociodemographics Maternal Age Y             Zhu 2001b    some concerns  </span>
+<span class="co">#&gt;  3 Sociodemographics Maternal Age Y             Zhu 1999     some concerns  </span>
+<span class="co">#&gt;  4 Sociodemographics Maternal Age Y             Salihu 2012a some concerns  </span>
+<span class="co">#&gt;  5 Sociodemographics Maternal Age Y             Salihu 2012b some concerns  </span>
+<span class="co">#&gt;  6 Sociodemographics Maternal Age Y             Smith 2003   some concerns  </span>
+<span class="co">#&gt;  7 Sociodemographics Maternal Age Y             Shachar 2016 some concerns  </span>
+<span class="co">#&gt;  8 Sociodemographics Maternal Age Y             Ball 2014    some concerns  </span>
+<span class="co">#&gt;  9 Sociodemographics Maternal Age Y             Coo 2017     some concerns  </span>
+<span class="co">#&gt; 10 Sociodemographics Maternal Age Y             Hanley 2017  some concerns  </span>
+<span class="co">#&gt; # … with 45 more rows</span>
 </pre></div>
 <p>metaconfoundr includes several tools for visualizing the results of a confounding control assesment. The most common are <code><a href="reference/mc_heatmap.html">mc_heatmap()</a></code> and <code><a href="reference/mc_heatmap.html">mc_trafficlight()</a></code></p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
