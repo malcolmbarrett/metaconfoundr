@@ -1,7 +1,7 @@
 ## code to prepare `ipi_wide` dataset goes here
 library(tidyverse)
 library(janitor)
-ipi_wide <- readxl::read_xlsx("data-raw/ipi.xlsx") %>%
+ipi_wide <- readxl::read_xlsx("data-raw/ipi2.xlsx") %>%
   clean_names() %>%
   mutate_at(vars(starts_with("study")), ~replace_na(., 0))
 

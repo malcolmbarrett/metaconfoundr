@@ -1,8 +1,8 @@
 ## code to prepare `ipi_metaanalysis` dataset goes here
 library(tidyverse)
 library(janitor)
-ipi_metaanalysis <- readxl::read_xlsx("data-raw/ipi.xlsx", sheet = 2) %>%
-  mutate(No. = snakecase::to_snake_case(No.))
+ipi_metaanalysis <- readxl::read_xlsx("data-raw/ipi2.xlsx", sheet = 2) %>%
+  select(-`No.`, -`a,b`)
 
 names(ipi_metaanalysis) <- c(
   "study",
