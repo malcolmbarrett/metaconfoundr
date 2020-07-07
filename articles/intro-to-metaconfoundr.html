@@ -98,57 +98,57 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span>)
 
 <span class="fu"><a href="../reference/metaconfoundr().html">metaconfoundr</a></span>(<span class="kw">ipi</span>)
-<span class="co">#&gt; # A tibble: 540 x 5</span>
-<span class="co">#&gt;    construct         variable     is_confounder study    control_quality</span>
-<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;    &lt;ord&gt;          </span>
-<span class="co">#&gt;  1 Sociodemographics Maternal age Y             study_1  adequate       </span>
-<span class="co">#&gt;  2 Sociodemographics Maternal age Y             study_2  some concerns  </span>
-<span class="co">#&gt;  3 Sociodemographics Maternal age Y             study_3  some concerns  </span>
-<span class="co">#&gt;  4 Sociodemographics Maternal age Y             study_4  adequate       </span>
-<span class="co">#&gt;  5 Sociodemographics Maternal age Y             study_5  adequate       </span>
-<span class="co">#&gt;  6 Sociodemographics Maternal age Y             study_6  adequate       </span>
-<span class="co">#&gt;  7 Sociodemographics Maternal age Y             study_7  some concerns  </span>
-<span class="co">#&gt;  8 Sociodemographics Maternal age Y             study_8  some concerns  </span>
-<span class="co">#&gt;  9 Sociodemographics Maternal age Y             study_9  some concerns  </span>
-<span class="co">#&gt; 10 Sociodemographics Maternal age Y             study_10 some concerns  </span>
-<span class="co">#&gt; # … with 530 more rows</span>
+<span class="co">#&gt; # A tibble: 407 x 5</span>
+<span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span>
+<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;        &lt;ord&gt;          </span>
+<span class="co">#&gt;  1 Sociodemographics Maternal Age Y             Zhu 2001a    some concerns  </span>
+<span class="co">#&gt;  2 Sociodemographics Maternal Age Y             Zhu 2001b    some concerns  </span>
+<span class="co">#&gt;  3 Sociodemographics Maternal Age Y             Zhu 1999     some concerns  </span>
+<span class="co">#&gt;  4 Sociodemographics Maternal Age Y             Salihu 2012a some concerns  </span>
+<span class="co">#&gt;  5 Sociodemographics Maternal Age Y             Salihu 2012b some concerns  </span>
+<span class="co">#&gt;  6 Sociodemographics Maternal Age Y             Smith 2003   some concerns  </span>
+<span class="co">#&gt;  7 Sociodemographics Maternal Age Y             Shachar 2016 some concerns  </span>
+<span class="co">#&gt;  8 Sociodemographics Maternal Age Y             Ball 2014    some concerns  </span>
+<span class="co">#&gt;  9 Sociodemographics Maternal Age Y             Coo 2017     some concerns  </span>
+<span class="co">#&gt; 10 Sociodemographics Maternal Age Y             Hanley 2017  some concerns  </span>
+<span class="co">#&gt; # … with 397 more rows</span>
 </pre></div>
 <p>The vignette on evaluating studies has more detail, but in brief, the goal is to create a data frame where there are five columns and a row for each confounder and study. The columns are <code>construct</code>, the domain to which a confounder might belong (e.g., “Sociodemographics”); <code>variable</code>, the name of the variable (e.g. “age”); <code>is_confounder</code>, an indicator if the variable is a confounder; <code>study</code>, the name of the study (or another unique ID); and <code>control_quality</code>, an indicator of the level of control for a confounder. <code>control_quality</code> is one of “adequate”, “some concerns”, or “inadequate”. metaconfoundr attempts to automatically detect the layout of your data, but you have full control (see <code><a href="../reference/mc_detect_layout.html">?mc_detect_layout</a></code>). You can also specify the data in this format manually.</p>
 <p>Data that you provide <code><a href="../reference/metaconfoundr().html">metaconfoundr()</a></code> can be in two basic formats: a long and wide. With the long format, metaconfoundr assumes that five columns match the above layout and standardizes them. If there are more than five, <code><a href="../reference/metaconfoundr().html">metaconfoundr()</a></code> treats any additional columns as studies, (e.g., they are in wide format). It will automatically transform your wide data to the format expected by metaconfoundr plotting functions. <code>ipi</code> has a wide cousin, <code>ipi_wide</code>, which <code><a href="../reference/metaconfoundr().html">metaconfoundr()</a></code> can prepare seamlessly:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="kw">ipi_wide</span>
-<span class="co">#&gt; # A tibble: 36 x 18</span>
-<span class="co">#&gt;    construct factor confounder_y_n study_1 study_2 study_3 study_4 study_5</span>
-<span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 Sociodem… Mater… Y                    2       1       1       2       2</span>
-<span class="co">#&gt;  2 Sociodem… Pater… Y                    0       0       0       0       0</span>
-<span class="co">#&gt;  3 Sociodem… Race/… Y                    1       1       1       1       1</span>
-<span class="co">#&gt;  4 Sociodem… Marit… Y                    2       2       2       1       1</span>
-<span class="co">#&gt;  5 Sociodem… pater… Y                    0       0       0       0       0</span>
-<span class="co">#&gt;  6 Sociodem… Geogr… Y                    0       0       0       0       0</span>
-<span class="co">#&gt;  7 Socioeco… SES c… Y                    2       1       2       0       0</span>
-<span class="co">#&gt;  8 Socioeco… Incom… Y                    0       0       0       0       0</span>
-<span class="co">#&gt;  9 Socioeco… Educa… Y                    2       2       1       1       1</span>
-<span class="co">#&gt; 10 Socioeco… Insur… Y                    0       0       0       0       0</span>
-<span class="co">#&gt; # … with 26 more rows, and 10 more variables: study_6 &lt;dbl&gt;, study_7 &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   study_8 &lt;dbl&gt;, study_9 &lt;dbl&gt;, study_10 &lt;dbl&gt;, study_11 &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   study_12 &lt;dbl&gt;, study_13 &lt;dbl&gt;, study_14 &lt;dbl&gt;, study_15 &lt;dbl&gt;</span>
+<span class="co">#&gt; # A tibble: 37 x 14</span>
+<span class="co">#&gt;    construct factor confounder_y_n zhu_2001a zhu_2001b zhu_1999 salihu_2012a</span>
+<span class="co">#&gt;    &lt;chr&gt;     &lt;chr&gt;  &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;</span>
+<span class="co">#&gt;  1 Sociodem… Mater… Y                      1         1        1            1</span>
+<span class="co">#&gt;  2 Sociodem… Race/… Y                      0         0        0            0</span>
+<span class="co">#&gt;  3 Sociodem… Marit… Y                      1         1        1            1</span>
+<span class="co">#&gt;  4 Sociodem… Pater… Y                      2         2        2            2</span>
+<span class="co">#&gt;  5 Sociodem… Geogr… Y                      2         2        1            2</span>
+<span class="co">#&gt;  6 Socioeco… SES C… Y                      2         2        2            2</span>
+<span class="co">#&gt;  7 Socioeco… Incom… Y                      2         2        2            2</span>
+<span class="co">#&gt;  8 Socioeco… Educa… Y                      1         1        1            1</span>
+<span class="co">#&gt;  9 Socioeco… Insur… Y                      2         2        2            2</span>
+<span class="co">#&gt; 10 Reproduc… Prior… Y                      0         0        0            0</span>
+<span class="co">#&gt; # … with 27 more rows, and 7 more variables: salihu_2012b &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   smith_2003 &lt;dbl&gt;, shachar_2016 &lt;dbl&gt;, ball_2014 &lt;dbl&gt;, coo_2017 &lt;dbl&gt;,</span>
+<span class="co">#&gt; #   hanley_2017 &lt;dbl&gt;, de_weger_2016 &lt;dbl&gt;</span>
 
 <span class="fu"><a href="../reference/metaconfoundr().html">metaconfoundr</a></span>(<span class="kw">ipi_wide</span>)
-<span class="co">#&gt; # A tibble: 540 x 5</span>
-<span class="co">#&gt;    construct         variable     is_confounder study    control_quality</span>
-<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;    &lt;ord&gt;          </span>
-<span class="co">#&gt;  1 Sociodemographics Maternal age Y             study_1  adequate       </span>
-<span class="co">#&gt;  2 Sociodemographics Maternal age Y             study_2  some concerns  </span>
-<span class="co">#&gt;  3 Sociodemographics Maternal age Y             study_3  some concerns  </span>
-<span class="co">#&gt;  4 Sociodemographics Maternal age Y             study_4  adequate       </span>
-<span class="co">#&gt;  5 Sociodemographics Maternal age Y             study_5  adequate       </span>
-<span class="co">#&gt;  6 Sociodemographics Maternal age Y             study_6  adequate       </span>
-<span class="co">#&gt;  7 Sociodemographics Maternal age Y             study_7  some concerns  </span>
-<span class="co">#&gt;  8 Sociodemographics Maternal age Y             study_8  some concerns  </span>
-<span class="co">#&gt;  9 Sociodemographics Maternal age Y             study_9  some concerns  </span>
-<span class="co">#&gt; 10 Sociodemographics Maternal age Y             study_10 some concerns  </span>
-<span class="co">#&gt; # … with 530 more rows</span>
+<span class="co">#&gt; # A tibble: 407 x 5</span>
+<span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span>
+<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;        &lt;ord&gt;          </span>
+<span class="co">#&gt;  1 Sociodemographics Maternal Age Y             zhu_2001a    some concerns  </span>
+<span class="co">#&gt;  2 Sociodemographics Maternal Age Y             zhu_2001b    some concerns  </span>
+<span class="co">#&gt;  3 Sociodemographics Maternal Age Y             zhu_1999     some concerns  </span>
+<span class="co">#&gt;  4 Sociodemographics Maternal Age Y             salihu_2012a some concerns  </span>
+<span class="co">#&gt;  5 Sociodemographics Maternal Age Y             salihu_2012b some concerns  </span>
+<span class="co">#&gt;  6 Sociodemographics Maternal Age Y             smith_2003   some concerns  </span>
+<span class="co">#&gt;  7 Sociodemographics Maternal Age Y             shachar_2016 some concerns  </span>
+<span class="co">#&gt;  8 Sociodemographics Maternal Age Y             ball_2014    some concerns  </span>
+<span class="co">#&gt;  9 Sociodemographics Maternal Age Y             coo_2017     some concerns  </span>
+<span class="co">#&gt; 10 Sociodemographics Maternal Age Y             hanley_2017  some concerns  </span>
+<span class="co">#&gt; # … with 397 more rows</span>
 </pre></div>
 <div id="creating-plots" class="section level1">
 <h1 class="hasAnchor">
@@ -205,26 +205,26 @@
 <div class="sourceCode" id="cb9"><pre class="downlit">
 <span class="kw">summary_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summarize_control_quality.html">summarize_control_quality</a></span>(
   <span class="fu"><a href="../reference/metaconfoundr().html">metaconfoundr</a></span>(<span class="kw">ipi</span>),
-  Sociodemographics = <span class="kw">`Maternal age`</span> <span class="op">&amp;</span> <span class="kw">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="kw">`Marital status`</span>,
-  Socioeconomics = <span class="kw">`SES category`</span> <span class="op">|</span> <span class="kw">Insurance</span> <span class="op">&amp;</span> <span class="kw">Education</span>,
-  <span class="st">"Reproductive Hx"</span> = <span class="kw">`Prior pregnancy outcome`</span>
+  Sociodemographics = <span class="kw">`Maternal Age`</span> <span class="op">&amp;</span> <span class="kw">`Race/Ethnicity`</span> <span class="op">&amp;</span> <span class="kw">`Marital Status`</span>,
+  Socioeconomics = <span class="kw">`SES Category`</span> <span class="op">|</span> <span class="kw">Insurance</span> <span class="op">&amp;</span> <span class="kw">Education</span>,
+  <span class="st">"Reproductive Hx"</span> = <span class="kw">`Prior Pregnancy Outcome`</span>
 )
 
 <span class="kw">summary_df</span>
-<span class="co">#&gt; # A tibble: 60 x 4</span>
-<span class="co">#&gt;    study   variable          control_quality construct</span>
-<span class="co">#&gt;    &lt;chr&gt;   &lt;fct&gt;             &lt;ord&gt;           &lt;fct&gt;    </span>
-<span class="co">#&gt;  1 study_1 overall           some concerns   overall  </span>
-<span class="co">#&gt;  2 study_1 Sociodemographics inadequate      domains  </span>
-<span class="co">#&gt;  3 study_1 Socioeconomics    adequate        domains  </span>
-<span class="co">#&gt;  4 study_1 Reproductive Hx   inadequate      domains  </span>
-<span class="co">#&gt;  5 study_2 overall           some concerns   overall  </span>
-<span class="co">#&gt;  6 study_2 Sociodemographics inadequate      domains  </span>
-<span class="co">#&gt;  7 study_2 Socioeconomics    some concerns   domains  </span>
-<span class="co">#&gt;  8 study_2 Reproductive Hx   inadequate      domains  </span>
-<span class="co">#&gt;  9 study_3 overall           some concerns   overall  </span>
-<span class="co">#&gt; 10 study_3 Sociodemographics inadequate      domains  </span>
-<span class="co">#&gt; # … with 50 more rows</span>
+<span class="co">#&gt; # A tibble: 44 x 4</span>
+<span class="co">#&gt;    study     variable          control_quality construct</span>
+<span class="co">#&gt;    &lt;chr&gt;     &lt;fct&gt;             &lt;ord&gt;           &lt;fct&gt;    </span>
+<span class="co">#&gt;  1 Zhu 2001a overall           some concerns   overall  </span>
+<span class="co">#&gt;  2 Zhu 2001a Sociodemographics inadequate      domains  </span>
+<span class="co">#&gt;  3 Zhu 2001a Socioeconomics    adequate        domains  </span>
+<span class="co">#&gt;  4 Zhu 2001a Reproductive Hx   inadequate      domains  </span>
+<span class="co">#&gt;  5 Zhu 2001b overall           some concerns   overall  </span>
+<span class="co">#&gt;  6 Zhu 2001b Sociodemographics inadequate      domains  </span>
+<span class="co">#&gt;  7 Zhu 2001b Socioeconomics    adequate        domains  </span>
+<span class="co">#&gt;  8 Zhu 2001b Reproductive Hx   inadequate      domains  </span>
+<span class="co">#&gt;  9 Zhu 1999  overall           some concerns   overall  </span>
+<span class="co">#&gt; 10 Zhu 1999  Sociodemographics inadequate      domains  </span>
+<span class="co">#&gt; # … with 34 more rows</span>
 </pre></div>
 <p>Summarizing control quality creates a more straightforward visualization. You can also visualize just the overall control quality of a study by using the <code>domains = FALSE</code> argument in <code><a href="../reference/summarize_control_quality.html">summarize_control_quality()</a></code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit">
@@ -275,15 +275,16 @@
 <span class="kw">fp</span> <span class="op">&lt;-</span> <span class="fu">forest_plot</span>(<span class="kw">ipi_metaanalysis</span>)
 
 <span class="kw">fp</span>
+<span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 </pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-11-1.png" width="768"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit">
 <span class="kw">tl_plot</span> <span class="op">&lt;-</span> 
   <span class="kw">mc_ipi</span> <span class="op">%&gt;%</span> 
   <span class="fu"><a href="../reference/summarize_control_quality.html">summarize_control_quality</a></span>(
-    <span class="st">"Socio-\ndemo-\ngraphics"</span> = <span class="kw">`Maternal age`</span> <span class="op">&amp;</span> <span class="kw">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="kw">`Marital status`</span>,
-    <span class="st">"Socio-\neconomic\nFactors"</span> = <span class="kw">`SES category`</span> <span class="op">|</span> <span class="kw">Insurance</span> <span class="op">&amp;</span> <span class="kw">Education</span>,
-    <span class="st">"Repro-\nductive Hx"</span> = <span class="kw">`Prior pregnancy outcome`</span>
+    <span class="st">"Socio-\ndemo-\ngraphics"</span> = <span class="kw">`Maternal Age`</span> <span class="op">&amp;</span> <span class="kw">`Race/Ethnicity`</span> <span class="op">&amp;</span> <span class="kw">`Marital Status`</span>,
+    <span class="st">"Socio-\neconomic\nFactors"</span> = <span class="kw">`SES Category`</span> <span class="op">|</span> <span class="kw">Insurance</span> <span class="op">&amp;</span> <span class="kw">Education</span>,
+    <span class="st">"Repro-\nductive Hx"</span> = <span class="kw">`Prior Pregnancy Outcome`</span>
   ) <span class="op">%&gt;%</span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html">left_join</a></span>(<span class="kw">ipi_metaanalysis</span>, by = <span class="st">"study"</span>) <span class="op">%&gt;%</span> 
   <span class="fu">sort_by_year</span>() <span class="op">%&gt;%</span> 
@@ -309,6 +310,7 @@
   <span class="kw">tl_plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(axis.text.y = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), legend.position = <span class="st">"none"</span>) <span class="op">+</span>
   <span class="co"># make the FP thrice as as wide as the TLP</span>
   <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html">plot_layout</a></span>(widths = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">1</span>))
+<span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 </pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-13-1.png" width="960"></p>
 <div id="using-control-quality-as-an-analytic-category" class="section level2">
@@ -324,41 +326,20 @@
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_map.html">group_map</a></span>(<span class="op">~</span><span class="fu"><a href="https://rdrr.io/pkg/metafor/man/rma.uni.html">rma</a></span>(data = <span class="kw">.x</span>, yi = <span class="kw">estimate</span>, sei = <span class="kw">se</span>)) 
 <span class="co">#&gt; [[1]]</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; Random-Effects Model (k = 2; tau^2 estimator: REML)</span>
+<span class="co">#&gt; Random-Effects Model (k = 11; tau^2 estimator: REML)</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; tau^2 (estimated amount of total heterogeneity): 0 (SE = 0.6059)</span>
+<span class="co">#&gt; tau^2 (estimated amount of total heterogeneity): 0 (SE = 0.0299)</span>
 <span class="co">#&gt; tau (square root of estimated tau^2 value):      0</span>
 <span class="co">#&gt; I^2 (total heterogeneity / total variability):   0.00%</span>
 <span class="co">#&gt; H^2 (total variability / sampling variability):  1.00</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Test for Heterogeneity:</span>
-<span class="co">#&gt; Q(df = 1) = 0.1867, p-val = 0.6657</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Model Results:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; estimate      se    zval    pval   ci.lb   ci.ub </span>
-<span class="co">#&gt;   1.5269  0.4309  3.5440  0.0004  0.6825  2.3714  *** </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ---</span>
-<span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; [[2]]</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Random-Effects Model (k = 13; tau^2 estimator: REML)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; tau^2 (estimated amount of total heterogeneity): 0.0484 (SE = 0.0424)</span>
-<span class="co">#&gt; tau (square root of estimated tau^2 value):      0.2199</span>
-<span class="co">#&gt; I^2 (total heterogeneity / total variability):   51.70%</span>
-<span class="co">#&gt; H^2 (total variability / sampling variability):  2.07</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Test for Heterogeneity:</span>
-<span class="co">#&gt; Q(df = 12) = 29.1122, p-val = 0.0038</span>
+<span class="co">#&gt; Q(df = 10) = 5.7452, p-val = 0.8362</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Model Results:</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; estimate      se     zval    pval   ci.lb   ci.ub </span>
-<span class="co">#&gt;   1.3093  0.0923  14.1783  &lt;.0001  1.1283  1.4903  *** </span>
+<span class="co">#&gt;   1.4211  0.0841  16.9044  &lt;.0001  1.2563  1.5858  *** </span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; ---</span>
 <span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span>

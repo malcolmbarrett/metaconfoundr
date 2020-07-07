@@ -163,25 +163,25 @@ returns overall control quality.</p></td>
     <pre class="examples"><div class='input'>
 <span class='kw'>summary_df</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/summarize_control_quality.html'>summarize_control_quality</a></span>(
   <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr</a></span>(<span class='kw'>ipi</span>),
-  Sociodemographics = <span class='kw'>`Maternal age`</span> <span class='op'>&amp;</span> <span class='kw'>`Race/ethnicity`</span> <span class='op'>&amp;</span> <span class='kw'>`Marital status`</span>,
-  Socioeconomics = <span class='kw'>`SES category`</span> <span class='op'>|</span> <span class='kw'>Insurance</span> <span class='op'>&amp;</span> <span class='kw'>Education</span>,
-  <span class='st'>"Reproductive Hx"</span> = <span class='kw'>`Prior pregnancy outcome`</span>
+  Sociodemographics = <span class='kw'>`Maternal Age`</span> <span class='op'>&amp;</span> <span class='kw'>`Race/Ethnicity`</span> <span class='op'>&amp;</span> <span class='kw'>`Marital Status`</span>,
+  Socioeconomics = <span class='kw'>`SES Category`</span> <span class='op'>|</span> <span class='kw'>Insurance</span> <span class='op'>&amp;</span> <span class='kw'>Education</span>,
+  <span class='st'>"Reproductive Hx"</span> = <span class='kw'>`Prior Pregnancy Outcome`</span>
 )
 
-<span class='kw'>summary_df</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 60 x 4</span><span>
-#&gt;    study   variable          control_quality construct
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>   </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>             </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>    
-#&gt; </span><span style='color: #555555;'> 1</span><span> study_1 overall           some concerns   overall  
-#&gt; </span><span style='color: #555555;'> 2</span><span> study_1 Sociodemographics inadequate      domains  
-#&gt; </span><span style='color: #555555;'> 3</span><span> study_1 Socioeconomics    adequate        domains  
-#&gt; </span><span style='color: #555555;'> 4</span><span> study_1 Reproductive Hx   inadequate      domains  
-#&gt; </span><span style='color: #555555;'> 5</span><span> study_2 overall           some concerns   overall  
-#&gt; </span><span style='color: #555555;'> 6</span><span> study_2 Sociodemographics inadequate      domains  
-#&gt; </span><span style='color: #555555;'> 7</span><span> study_2 Socioeconomics    some concerns   domains  
-#&gt; </span><span style='color: #555555;'> 8</span><span> study_2 Reproductive Hx   inadequate      domains  
-#&gt; </span><span style='color: #555555;'> 9</span><span> study_3 overall           some concerns   overall  
-#&gt; </span><span style='color: #555555;'>10</span><span> study_3 Sociodemographics inadequate      domains  
-#&gt; </span><span style='color: #555555;'># … with 50 more rows</span><span></div><div class='input'>
+<span class='kw'>summary_df</span></div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 44 x 4</span><span>
+#&gt;    study     variable          control_quality construct
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>     </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>             </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;fct&gt;</span><span>    
+#&gt; </span><span style='color: #555555;'> 1</span><span> Zhu 2001a overall           some concerns   overall  
+#&gt; </span><span style='color: #555555;'> 2</span><span> Zhu 2001a Sociodemographics inadequate      domains  
+#&gt; </span><span style='color: #555555;'> 3</span><span> Zhu 2001a Socioeconomics    adequate        domains  
+#&gt; </span><span style='color: #555555;'> 4</span><span> Zhu 2001a Reproductive Hx   inadequate      domains  
+#&gt; </span><span style='color: #555555;'> 5</span><span> Zhu 2001b overall           some concerns   overall  
+#&gt; </span><span style='color: #555555;'> 6</span><span> Zhu 2001b Sociodemographics inadequate      domains  
+#&gt; </span><span style='color: #555555;'> 7</span><span> Zhu 2001b Socioeconomics    adequate        domains  
+#&gt; </span><span style='color: #555555;'> 8</span><span> Zhu 2001b Reproductive Hx   inadequate      domains  
+#&gt; </span><span style='color: #555555;'> 9</span><span> Zhu 1999  overall           some concerns   overall  
+#&gt; </span><span style='color: #555555;'>10</span><span> Zhu 1999  Sociodemographics inadequate      domains  
+#&gt; </span><span style='color: #555555;'># … with 34 more rows</span><span></div><div class='input'>
 <span class='kw'>summary_df</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_heatmap.html'>mc_trafficlight</a></span>() <span class='op'>+</span>
   <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/theme_mc.html'>theme_mc</a></span>() <span class='op'>+</span>

@@ -167,20 +167,20 @@ including <code>some concerns</code> control, is present.</p></td>
   <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr</a></span>() <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>is_confounder</span> <span class='op'>==</span> <span class='st'>"Y"</span>) <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/score_control.html'>score_control</a></span>(<span class='st'>"controlled"</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span>(<span class='kw'>score</span>))</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 435 x 6</span><span>
-#&gt;    construct         variable     is_confounder study    control_quality score
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>    </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> Sociodemographics Maternal age Y             study_1  adequate        0.933
-#&gt; </span><span style='color: #555555;'> 2</span><span> Sociodemographics Maternal age Y             study_2  some concerns   0.933
-#&gt; </span><span style='color: #555555;'> 3</span><span> Sociodemographics Maternal age Y             study_3  some concerns   0.933
-#&gt; </span><span style='color: #555555;'> 4</span><span> Sociodemographics Maternal age Y             study_4  adequate        0.933
-#&gt; </span><span style='color: #555555;'> 5</span><span> Sociodemographics Maternal age Y             study_5  adequate        0.933
-#&gt; </span><span style='color: #555555;'> 6</span><span> Sociodemographics Maternal age Y             study_6  adequate        0.933
-#&gt; </span><span style='color: #555555;'> 7</span><span> Sociodemographics Maternal age Y             study_7  some concerns   0.933
-#&gt; </span><span style='color: #555555;'> 8</span><span> Sociodemographics Maternal age Y             study_8  some concerns   0.933
-#&gt; </span><span style='color: #555555;'> 9</span><span> Sociodemographics Maternal age Y             study_9  some concerns   0.933
-#&gt; </span><span style='color: #555555;'>10</span><span> Sociodemographics Maternal age Y             study_10 some concerns   0.933
-#&gt; </span><span style='color: #555555;'># … with 425 more rows</span><span></div><div class='input'></div></span></pre>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span>(<span class='kw'>score</span>))</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 319 x 6</span><span>
+#&gt;    construct        variable      is_confounder study      control_quality score
+#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
+#&gt; </span><span style='color: #555555;'> 1</span><span> Sociodemographi… Marital Stat… Y             Zhu 2001a  some concerns       1
+#&gt; </span><span style='color: #555555;'> 2</span><span> Sociodemographi… Marital Stat… Y             Zhu 2001b  some concerns       1
+#&gt; </span><span style='color: #555555;'> 3</span><span> Sociodemographi… Marital Stat… Y             Zhu 1999   some concerns       1
+#&gt; </span><span style='color: #555555;'> 4</span><span> Sociodemographi… Marital Stat… Y             Salihu 20… some concerns       1
+#&gt; </span><span style='color: #555555;'> 5</span><span> Sociodemographi… Marital Stat… Y             Salihu 20… some concerns       1
+#&gt; </span><span style='color: #555555;'> 6</span><span> Sociodemographi… Marital Stat… Y             Smith 2003 some concerns       1
+#&gt; </span><span style='color: #555555;'> 7</span><span> Sociodemographi… Marital Stat… Y             Shachar 2… adequate            1
+#&gt; </span><span style='color: #555555;'> 8</span><span> Sociodemographi… Marital Stat… Y             Ball 2014  adequate            1
+#&gt; </span><span style='color: #555555;'> 9</span><span> Sociodemographi… Marital Stat… Y             Coo 2017   adequate            1
+#&gt; </span><span style='color: #555555;'>10</span><span> Sociodemographi… Marital Stat… Y             Hanley 20… adequate            1
+#&gt; </span><span style='color: #555555;'># … with 309 more rows</span><span></div><div class='input'></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
