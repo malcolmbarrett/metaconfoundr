@@ -54,20 +54,20 @@ mc_ipi <- metaconfoundr(ipi) %>%
   dplyr::filter(construct == "Sociodemographics")
 
 mc_ipi
-#> # A tibble: 90 x 5
-#>    construct         variable     is_confounder study    control_quality
-#>    <chr>             <chr>        <chr>         <chr>    <ord>          
-#>  1 Sociodemographics Maternal age Y             study_1  adequate       
-#>  2 Sociodemographics Maternal age Y             study_2  some concerns  
-#>  3 Sociodemographics Maternal age Y             study_3  some concerns  
-#>  4 Sociodemographics Maternal age Y             study_4  adequate       
-#>  5 Sociodemographics Maternal age Y             study_5  adequate       
-#>  6 Sociodemographics Maternal age Y             study_6  adequate       
-#>  7 Sociodemographics Maternal age Y             study_7  some concerns  
-#>  8 Sociodemographics Maternal age Y             study_8  some concerns  
-#>  9 Sociodemographics Maternal age Y             study_9  some concerns  
-#> 10 Sociodemographics Maternal age Y             study_10 some concerns  
-#> # … with 80 more rows
+#> # A tibble: 55 x 5
+#>    construct         variable     is_confounder study        control_quality
+#>    <chr>             <chr>        <chr>         <chr>        <ord>          
+#>  1 Sociodemographics Maternal Age Y             Zhu 2001a    some concerns  
+#>  2 Sociodemographics Maternal Age Y             Zhu 2001b    some concerns  
+#>  3 Sociodemographics Maternal Age Y             Zhu 1999     some concerns  
+#>  4 Sociodemographics Maternal Age Y             Salihu 2012a some concerns  
+#>  5 Sociodemographics Maternal Age Y             Salihu 2012b some concerns  
+#>  6 Sociodemographics Maternal Age Y             Smith 2003   some concerns  
+#>  7 Sociodemographics Maternal Age Y             Shachar 2016 some concerns  
+#>  8 Sociodemographics Maternal Age Y             Ball 2014    some concerns  
+#>  9 Sociodemographics Maternal Age Y             Coo 2017     some concerns  
+#> 10 Sociodemographics Maternal Age Y             Hanley 2017  some concerns  
+#> # … with 45 more rows
 ```
 
 metaconfoundr includes several tools for visualizing the results of a
