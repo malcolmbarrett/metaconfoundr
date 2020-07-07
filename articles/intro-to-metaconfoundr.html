@@ -243,16 +243,15 @@
 <div class="sourceCode" id="cb11"><pre class="downlit">
 <span class="kw">sort_by_year</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">.df</span>) {
   <span class="kw">.df</span> <span class="op">%&gt;%</span> 
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(<span class="kw">year</span>)) <span class="op">%&gt;%</span> 
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(
-      study = <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste0</a></span>(<span class="kw">lead_author</span>, <span class="st">" "</span>, <span class="kw">year</span>, <span class="st">" ("</span>, <span class="kw">design</span>, <span class="st">")"</span>),
-      study = <span class="kw">forcats</span>::<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_inorder.html">fct_inorder</a></span>(<span class="kw">study</span>)
-    )
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(<span class="kw">year</span>), <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(<span class="kw">study</span>)) <span class="op">%&gt;%</span> 
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(study = <span class="kw">forcats</span>::<span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_inorder.html">fct_inorder</a></span>(<span class="kw">study</span>))
 }
 
 <span class="kw">forest_plot</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">.df</span>) {
    <span class="kw">.df</span> <span class="op">%&gt;%</span> 
     <span class="fu">sort_by_year</span>() <span class="op">%&gt;%</span> 
+    <span class="co"># set small weight for missing sample size</span>
+    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span>(sample_size = <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span>(<span class="kw">sample_size</span>), <span class="fl">1</span>, <span class="kw">sample_size</span>)) <span class="op">%&gt;%</span> 
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(x = <span class="kw">estimate</span>, y = <span class="kw">study</span>)) <span class="op">+</span> 
     <span class="co">#  add effect estimates</span>
     <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span>(<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span>(size = <span class="kw">sample_size</span>), shape = <span class="fl">15</span>) <span class="op">+</span>
@@ -275,7 +274,6 @@
 <span class="kw">fp</span> <span class="op">&lt;-</span> <span class="fu">forest_plot</span>(<span class="kw">ipi_metaanalysis</span>)
 
 <span class="kw">fp</span>
-<span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 </pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-11-1.png" width="768"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit">
@@ -310,7 +308,6 @@
   <span class="kw">tl_plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span>(axis.text.y = <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span>(), legend.position = <span class="st">"none"</span>) <span class="op">+</span>
   <span class="co"># make the FP thrice as as wide as the TLP</span>
   <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html">plot_layout</a></span>(widths = <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">3</span>, <span class="fl">1</span>))
-<span class="co">#&gt; Warning: Removed 2 rows containing missing values (geom_point).</span>
 </pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-13-1.png" width="960"></p>
 <div id="using-control-quality-as-an-analytic-category" class="section level2">
