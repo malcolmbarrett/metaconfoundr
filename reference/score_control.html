@@ -47,6 +47,8 @@ plots." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -58,9 +60,15 @@ plots." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -82,7 +90,7 @@ plots." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -105,7 +113,7 @@ plots." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/malcolmbarrett/metaconfoundr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -128,19 +136,19 @@ plots." />
     </div>
 
     <div class="ref-description">
-    <p><code><a href='https://rdrr.io/pkg/metaconfoundr/man/score_control.html'>score_control()</a></code> adds a variable, <code>score</code>, that summarizes how well a study
+    <p><code>score_control()</code> adds a variable, <code>score</code>, that summarizes how well a study
 controls for a domain or construct. Used to sort heatmaps and traffic light
 plots.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/score_control.html'>score_control</a></span>(<span class='kw'>.df</span>, score = <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"adequate"</span>, <span class='st'>"sum"</span>, <span class='st'>"controlled"</span>))</pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>score_control</span><span class='op'>(</span><span class='va'>.df</span>, score <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"adequate"</span>, <span class='st'>"sum"</span>, <span class='st'>"controlled"</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>.df</th>
-      <td><p>A data frame, usually the result of <code><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr()</a></code></p></td>
+      <td><p>A data frame, usually the result of <code><a href='metaconfoundr-open-paren-close-paren.html'>metaconfoundr()</a></code></p></td>
     </tr>
     <tr>
       <th>score</th>
@@ -157,30 +165,37 @@ including <code>some concerns</code> control, is present.</p></td>
     <p>a tibble</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='https://dplyr.tidyverse.org'>dplyr</a></span>)</div><div class='output co'>#&gt; <span class='message'></span>
-#&gt; <span class='message'>Attaching package: ‘dplyr’</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:stats’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    filter, lag</span></div><div class='output co'>#&gt; <span class='message'>The following objects are masked from ‘package:base’:</span>
-#&gt; <span class='message'></span>
-#&gt; <span class='message'>    intersect, setdiff, setequal, union</span></div><div class='input'>
-<span class='kw'>ipi</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr</a></span>() <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span>(<span class='kw'>is_confounder</span> <span class='op'>==</span> <span class='st'>"Y"</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/score_control.html'>score_control</a></span>(<span class='st'>"controlled"</span>) <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span>(<span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span>(<span class='kw'>score</span>))</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 319 x 6</span><span>
-#&gt;    construct        variable      is_confounder study      control_quality score
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>            </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>      </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>           </span><span style='color: #555555;font-style: italic;'>&lt;dbl&gt;</span><span>
-#&gt; </span><span style='color: #555555;'> 1</span><span> Sociodemographi… Marital Stat… Y             Zhu 2001a  some concerns       1
-#&gt; </span><span style='color: #555555;'> 2</span><span> Sociodemographi… Marital Stat… Y             Zhu 2001b  some concerns       1
-#&gt; </span><span style='color: #555555;'> 3</span><span> Sociodemographi… Marital Stat… Y             Zhu 1999   some concerns       1
-#&gt; </span><span style='color: #555555;'> 4</span><span> Sociodemographi… Marital Stat… Y             Salihu 20… some concerns       1
-#&gt; </span><span style='color: #555555;'> 5</span><span> Sociodemographi… Marital Stat… Y             Salihu 20… some concerns       1
-#&gt; </span><span style='color: #555555;'> 6</span><span> Sociodemographi… Marital Stat… Y             Smith 2003 some concerns       1
-#&gt; </span><span style='color: #555555;'> 7</span><span> Sociodemographi… Marital Stat… Y             Shachar 2… adequate            1
-#&gt; </span><span style='color: #555555;'> 8</span><span> Sociodemographi… Marital Stat… Y             Ball 2014  adequate            1
-#&gt; </span><span style='color: #555555;'> 9</span><span> Sociodemographi… Marital Stat… Y             Coo 2017   adequate            1
-#&gt; </span><span style='color: #555555;'>10</span><span> Sociodemographi… Marital Stat… Y             Hanley 20… adequate            1
-#&gt; </span><span style='color: #555555;'># … with 309 more rows</span><span></div><div class='input'></div></span></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span></span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> Attaching package: ‘dplyr’</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> The following objects are masked from ‘package:stats’:</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>     filter, lag</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> The following objects are masked from ‘package:base’:</span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-msg co'><span class='r-pr'>#&gt;</span>     intersect, setdiff, setequal, union</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>ipi</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='metaconfoundr-open-paren-close-paren.html'>metaconfoundr</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>is_confounder</span> <span class='op'>==</span> <span class='st'>"Y"</span><span class='op'>)</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>score_control</span><span class='op'>(</span><span class='st'>"controlled"</span><span class='op'>)</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>score</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 319 × 6</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    construct         variable       is_confounder study    control_quality score</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>          <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;ord&gt;</span>           <span style='color: #949494; font-style: italic;'>&lt;dbl&gt;</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Marital Status Y             Zhu 200… some concerns       1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Marital Status Y             Zhu 200… some concerns       1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Marital Status Y             Zhu 1999 some concerns       1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Marital Status Y             Salihu … some concerns       1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Marital Status Y             Salihu … some concerns       1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Marital Status Y             Smith 2… some concerns       1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Marital Status Y             Shachar… adequate            1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Marital Status Y             Ball 20… adequate            1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Marital Status Y             Coo 2017 adequate            1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Marital Status Y             Hanley … adequate            1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 309 more rows</span></span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -192,11 +207,11 @@ including <code>some concerns</code> control, is present.</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Malcolm Barrett, Julie M. Petersen, Ludovic Trinquart.</p>
+  <p><p>Developed by Malcolm Barrett, Julie M. Petersen, Ludovic Trinquart.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -204,6 +219,8 @@ including <code>some concerns</code> control, is present.</p></td>
 
   
 
+
+  
 
   </body>
 </html>

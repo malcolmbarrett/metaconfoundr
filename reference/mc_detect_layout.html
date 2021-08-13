@@ -49,6 +49,8 @@ evaluations of control quality." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -60,9 +62,15 @@ evaluations of control quality." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -84,7 +92,7 @@ evaluations of control quality." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -107,7 +115,7 @@ evaluations of control quality." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/malcolmbarrett/metaconfoundr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -130,40 +138,40 @@ evaluations of control quality." />
     </div>
 
     <div class="ref-description">
-    <p><code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_longer()</a></code> and <code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_wider()</a></code> are helper functions to put <code><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr()</a></code>
+    <p><code>mc_longer()</code> and <code>mc_wider()</code> are helper functions to put <code><a href='metaconfoundr-open-paren-close-paren.html'>metaconfoundr()</a></code>
 for long and wide data sets, respectively. results into a tidy format.
-<code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_detect_layout()</a></code> chooses between the two automatically based on the
-number of variables in the data frame. <code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_study_values()</a></code> helps standardize
+<code>mc_detect_layout()</code> chooses between the two automatically based on the
+number of variables in the data frame. <code>mc_study_values()</code> helps standardize
 evaluations of control quality.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_detect_layout</a></span>(<span class='kw'>...</span>)
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>mc_detect_layout</span><span class='op'>(</span><span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_longer</a></span>(
-  study = <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span>(<span class='st'>"construct"</span>),
-  construct = <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span>(<span class='st'>"construct"</span>),
-  variable = <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>matches</a></span>(<span class='st'>"variable|factor"</span>),
-  control_quality = <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span>(<span class='st'>"control_quality"</span>),
-  is_confounder = <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span>(<span class='st'>"confounder"</span>),
-  study_values = <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_study_values</a></span>()
-)
+<span class='fu'>mc_longer</span><span class='op'>(</span>
+  study <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span><span class='op'>(</span><span class='st'>"construct"</span><span class='op'>)</span>,
+  construct <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span><span class='op'>(</span><span class='st'>"construct"</span><span class='op'>)</span>,
+  variable <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>matches</a></span><span class='op'>(</span><span class='st'>"variable|factor"</span><span class='op'>)</span>,
+  control_quality <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span><span class='op'>(</span><span class='st'>"control_quality"</span><span class='op'>)</span>,
+  is_confounder <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span><span class='op'>(</span><span class='st'>"confounder"</span><span class='op'>)</span>,
+  study_values <span class='op'>=</span> <span class='fu'>mc_study_values</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_study_values</a></span>(inadequate = <span class='fl'>0</span>, some_concerns = <span class='fl'>1</span>, adequate = <span class='fl'>2</span>)
+<span class='fu'>mc_study_values</span><span class='op'>(</span>inadequate <span class='op'>=</span> <span class='fl'>0</span>, some_concerns <span class='op'>=</span> <span class='fl'>1</span>, adequate <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span>
 
-<span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_wider</a></span>(
-  construct = <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span>(<span class='st'>"construct"</span>),
-  variable = <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>matches</a></span>(<span class='st'>"variable|factor"</span>),
-  is_confounder = <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span>(<span class='st'>"confounder"</span>),
-  study = <span class='fu'><a href='https://tidyselect.r-lib.org/reference/everything.html'>everything</a></span>(),
-  study_values = <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_study_values</a></span>()
-)</pre>
+<span class='fu'>mc_wider</span><span class='op'>(</span>
+  construct <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span><span class='op'>(</span><span class='st'>"construct"</span><span class='op'>)</span>,
+  variable <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>matches</a></span><span class='op'>(</span><span class='st'>"variable|factor"</span><span class='op'>)</span>,
+  is_confounder <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>contains</a></span><span class='op'>(</span><span class='st'>"confounder"</span><span class='op'>)</span>,
+  study <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/everything.html'>everything</a></span><span class='op'>(</span><span class='op'>)</span>,
+  study_values <span class='op'>=</span> <span class='fu'>mc_study_values</span><span class='op'>(</span><span class='op'>)</span>
+<span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments passed to <code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_wider()</a></code> or <code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_longer()</a></code></p></td>
+      <td><p>Additional arguments passed to <code>mc_wider()</code> or <code>mc_longer()</code></p></td>
     </tr>
     <tr>
       <th>study</th>
@@ -189,7 +197,7 @@ quality</p></td>
     <tr>
       <th>study_values</th>
       <td><p>What are the levels of <code>control_quality</code>? Use
-<code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_study_values()</a></code> to set up.</p></td>
+<code>mc_study_values()</code> to set up.</p></td>
     </tr>
     <tr>
       <th>inadequate</th>
@@ -220,11 +228,11 @@ quality</p></td>
 
       <footer>
       <div class="copyright">
-  <p>Developed by Malcolm Barrett, Julie M. Petersen, Ludovic Trinquart.</p>
+  <p><p>Developed by Malcolm Barrett, Julie M. Petersen, Ludovic Trinquart.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -232,6 +240,8 @@ quality</p></td>
 
   
 
+
+  
 
   </body>
 </html>

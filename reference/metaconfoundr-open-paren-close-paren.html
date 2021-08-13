@@ -53,6 +53,8 @@ your evaluation." />
 
 
 
+
+
 <!-- mathjax -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script>
@@ -64,9 +66,15 @@ your evaluation." />
 
 
 
+  
+
+  
+
   </head>
 
   <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-reference-topic">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -88,7 +96,7 @@ your evaluation." />
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -111,7 +119,7 @@ your evaluation." />
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/malcolmbarrett/metaconfoundr/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -134,18 +142,18 @@ your evaluation." />
     </div>
 
     <div class="ref-description">
-    <p><code><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr()</a></code> standardizes data frames with information on how well a set
+    <p><code>metaconfoundr()</code> standardizes data frames with information on how well a set
 of studies control for a set of variables. In this approach, a set of domain
 experts agree on the variables that are required to properly control for
 confounding for a scientific question. Then, for a given confounder, the
 studies are described as being adequately controlled, inadequately
-controlled, or controlled with some concerns. <code><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr()</a></code> is intended
-to standardize data for use in <code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_heatmap.html'>mc_heatmap()</a></code> and <code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_heatmap.html'>mc_trafficlight()</a></code>.
+controlled, or controlled with some concerns. <code>metaconfoundr()</code> is intended
+to standardize data for use in <code><a href='mc_heatmap.html'>mc_heatmap()</a></code> and <code><a href='mc_heatmap.html'>mc_trafficlight()</a></code>.
 See the vignette on data preparation for more information on how to set up
 your evaluation.</p>
     </div>
 
-    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr</a></span>(<span class='kw'>.df</span>, data_format = <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_detect_layout</a></span>())</pre>
+    <div class="ref-usage sourceCode"><pre class='sourceCode r'><code><span class='fu'>metaconfoundr</span><span class='op'>(</span><span class='va'>.df</span>, data_format <span class='op'>=</span> <span class='fu'><a href='mc_detect_layout.html'>mc_detect_layout</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span></code></pre></div>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -158,7 +166,7 @@ details.</p></td>
     <tr>
       <th>data_format</th>
       <td><p>The format of the data. Detected automatically by default,
-but explicit options include <code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_longer()</a></code> and <code><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_wider()</a></code></p></td>
+but explicit options include <code><a href='mc_detect_layout.html'>mc_longer()</a></code> and <code><a href='mc_detect_layout.html'>mc_wider()</a></code></p></td>
     </tr>
     </table>
 
@@ -167,53 +175,60 @@ but explicit options include <code><a href='https://rdrr.io/pkg/metaconfoundr/ma
     <p>a tibble</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr</a></span>(<span class='kw'>ipi</span>)</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 407 x 5</span><span>
-#&gt;    construct         variable     is_confounder study        control_quality
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>          
-#&gt; </span><span style='color: #555555;'> 1</span><span> Sociodemographics Maternal Age Y             Zhu 2001a    some concerns  
-#&gt; </span><span style='color: #555555;'> 2</span><span> Sociodemographics Maternal Age Y             Zhu 2001b    some concerns  
-#&gt; </span><span style='color: #555555;'> 3</span><span> Sociodemographics Maternal Age Y             Zhu 1999     some concerns  
-#&gt; </span><span style='color: #555555;'> 4</span><span> Sociodemographics Maternal Age Y             Salihu 2012a some concerns  
-#&gt; </span><span style='color: #555555;'> 5</span><span> Sociodemographics Maternal Age Y             Salihu 2012b some concerns  
-#&gt; </span><span style='color: #555555;'> 6</span><span> Sociodemographics Maternal Age Y             Smith 2003   some concerns  
-#&gt; </span><span style='color: #555555;'> 7</span><span> Sociodemographics Maternal Age Y             Shachar 2016 some concerns  
-#&gt; </span><span style='color: #555555;'> 8</span><span> Sociodemographics Maternal Age Y             Ball 2014    some concerns  
-#&gt; </span><span style='color: #555555;'> 9</span><span> Sociodemographics Maternal Age Y             Coo 2017     some concerns  
-#&gt; </span><span style='color: #555555;'>10</span><span> Sociodemographics Maternal Age Y             Hanley 2017  some concerns  
-#&gt; </span><span style='color: #555555;'># … with 397 more rows</span><span></div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr</a></span>(<span class='kw'>ipi_wide</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 407 x 5</span><span>
-#&gt;    construct         variable     is_confounder study        control_quality
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>          
-#&gt; </span><span style='color: #555555;'> 1</span><span> Sociodemographics Maternal Age Y             zhu_2001a    some concerns  
-#&gt; </span><span style='color: #555555;'> 2</span><span> Sociodemographics Maternal Age Y             zhu_2001b    some concerns  
-#&gt; </span><span style='color: #555555;'> 3</span><span> Sociodemographics Maternal Age Y             zhu_1999     some concerns  
-#&gt; </span><span style='color: #555555;'> 4</span><span> Sociodemographics Maternal Age Y             salihu_2012a some concerns  
-#&gt; </span><span style='color: #555555;'> 5</span><span> Sociodemographics Maternal Age Y             salihu_2012b some concerns  
-#&gt; </span><span style='color: #555555;'> 6</span><span> Sociodemographics Maternal Age Y             smith_2003   some concerns  
-#&gt; </span><span style='color: #555555;'> 7</span><span> Sociodemographics Maternal Age Y             shachar_2016 some concerns  
-#&gt; </span><span style='color: #555555;'> 8</span><span> Sociodemographics Maternal Age Y             ball_2014    some concerns  
-#&gt; </span><span style='color: #555555;'> 9</span><span> Sociodemographics Maternal Age Y             coo_2017     some concerns  
-#&gt; </span><span style='color: #555555;'>10</span><span> Sociodemographics Maternal Age Y             hanley_2017  some concerns  
-#&gt; </span><span style='color: #555555;'># … with 397 more rows</span><span></div><div class='input'>
-<span class='kw'>ipi_wide2</span> <span class='op'>&lt;-</span> <span class='kw'>ipi_wide</span> <span class='op'>%&gt;%</span>
-  <span class='kw'>dplyr</span>::<span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span>(scope = <span class='kw'>construct</span>)
-
-<span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/metaconfoundr-open-paren-close-paren.html'>metaconfoundr</a></span>(<span class='kw'>ipi_wide2</span>, <span class='fu'><a href='https://rdrr.io/pkg/metaconfoundr/man/mc_detect_layout.html'>mc_wider</a></span>(construct = <span class='st'>"scope"</span>))</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 407 x 5</span><span>
-#&gt;    construct         variable     is_confounder study        control_quality
-#&gt;    </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>             </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>         </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>        </span><span style='color: #555555;font-style: italic;'>&lt;ord&gt;</span><span>          
-#&gt; </span><span style='color: #555555;'> 1</span><span> Sociodemographics Maternal Age Y             zhu_2001a    some concerns  
-#&gt; </span><span style='color: #555555;'> 2</span><span> Sociodemographics Maternal Age Y             zhu_2001b    some concerns  
-#&gt; </span><span style='color: #555555;'> 3</span><span> Sociodemographics Maternal Age Y             zhu_1999     some concerns  
-#&gt; </span><span style='color: #555555;'> 4</span><span> Sociodemographics Maternal Age Y             salihu_2012a some concerns  
-#&gt; </span><span style='color: #555555;'> 5</span><span> Sociodemographics Maternal Age Y             salihu_2012b some concerns  
-#&gt; </span><span style='color: #555555;'> 6</span><span> Sociodemographics Maternal Age Y             smith_2003   some concerns  
-#&gt; </span><span style='color: #555555;'> 7</span><span> Sociodemographics Maternal Age Y             shachar_2016 some concerns  
-#&gt; </span><span style='color: #555555;'> 8</span><span> Sociodemographics Maternal Age Y             ball_2014    some concerns  
-#&gt; </span><span style='color: #555555;'> 9</span><span> Sociodemographics Maternal Age Y             coo_2017     some concerns  
-#&gt; </span><span style='color: #555555;'>10</span><span> Sociodemographics Maternal Age Y             hanley_2017  some concerns  
-#&gt; </span><span style='color: #555555;'># … with 397 more rows</span><span></div><div class='input'>
-</div></span></pre>
+    <div class="ref-examples sourceCode"><pre class='sourceCode r'><code><span class='r-in'></span>
+<span class='r-in'><span class='fu'>metaconfoundr</span><span class='op'>(</span><span class='va'>ipi</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 407 × 5</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    construct         variable     is_confounder study        control_quality</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;ord&gt;</span>          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Maternal Age Y             Zhu 2001a    some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Maternal Age Y             Zhu 2001b    some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Maternal Age Y             Zhu 1999     some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Maternal Age Y             Salihu 2012a some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Maternal Age Y             Salihu 2012b some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Maternal Age Y             Smith 2003   some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Maternal Age Y             Shachar 2016 some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Maternal Age Y             Ball 2014    some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Maternal Age Y             Coo 2017     some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Maternal Age Y             Hanley 2017  some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 397 more rows</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>metaconfoundr</span><span class='op'>(</span><span class='va'>ipi_wide</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 407 × 5</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    construct         variable     is_confounder study        control_quality</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;ord&gt;</span>          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Maternal Age Y             zhu_2001a    some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Maternal Age Y             zhu_2001b    some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Maternal Age Y             zhu_1999     some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Maternal Age Y             salihu_2012a some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Maternal Age Y             salihu_2012b some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Maternal Age Y             smith_2003   some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Maternal Age Y             shachar_2016 some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Maternal Age Y             ball_2014    some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Maternal Age Y             coo_2017     some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Maternal Age Y             hanley_2017  some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 397 more rows</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>ipi_wide2</span> <span class='op'>&lt;-</span> <span class='va'>ipi_wide</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
+<span class='r-in'>  <span class='fu'>dplyr</span><span class='fu'>::</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>scope <span class='op'>=</span> <span class='va'>construct</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='fu'>metaconfoundr</span><span class='op'>(</span><span class='va'>ipi_wide2</span>, <span class='fu'><a href='mc_detect_layout.html'>mc_wider</a></span><span class='op'>(</span>construct <span class='op'>=</span> <span class='st'>"scope"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 407 × 5</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    construct         variable     is_confounder study        control_quality</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;ord&gt;</span>          </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Maternal Age Y             zhu_2001a    some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Maternal Age Y             zhu_2001b    some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Maternal Age Y             zhu_1999     some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Maternal Age Y             salihu_2012a some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Maternal Age Y             salihu_2012b some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Maternal Age Y             smith_2003   some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Maternal Age Y             shachar_2016 some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Maternal Age Y             ball_2014    some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Maternal Age Y             coo_2017     some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Maternal Age Y             hanley_2017  some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 397 more rows</span></span>
+<span class='r-in'></span>
+<span class='r-in'></span>
+</code></pre></div>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -225,11 +240,11 @@ but explicit options include <code><a href='https://rdrr.io/pkg/metaconfoundr/ma
 
       <footer>
       <div class="copyright">
-  <p>Developed by Malcolm Barrett, Julie M. Petersen, Ludovic Trinquart.</p>
+  <p><p>Developed by Malcolm Barrett, Julie M. Petersen, Ludovic Trinquart.</p></p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
 </div>
 
       </footer>
@@ -237,6 +252,8 @@ but explicit options include <code><a href='https://rdrr.io/pkg/metaconfoundr/ma
 
   
 
+
+  
 
   </body>
 </html>
