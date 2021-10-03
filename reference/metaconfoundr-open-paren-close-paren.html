@@ -88,7 +88,7 @@ your evaluation." />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">metaconfoundr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9000</span>
       </span>
     </div>
 
@@ -180,32 +180,32 @@ but explicit options include <code><a href='mc_detect_layout.html'>mc_longer()</
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 407 × 5</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    construct         variable     is_confounder study        control_quality</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;ord&gt;</span>          </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Maternal Age Y             Zhu 2001a    some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Maternal Age Y             Zhu 2001b    some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Maternal Age Y             Zhu 1999     some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Maternal Age Y             Salihu 2012a some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Maternal Age Y             Salihu 2012b some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Maternal Age Y             Smith 2003   some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Maternal Age Y             Shachar 2016 some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Maternal Age Y             Ball 2014    some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Maternal Age Y             Coo 2017     some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Maternal Age Y             Hanley 2017  some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Maternal age Y             Zhu_1999     adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Maternal age Y             Smith_2003   adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Maternal age Y             Shachar_2016 adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Maternal age Y             Salihu_2012a adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Maternal age Y             Salihu_2012b adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 397 more rows</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='fu'>metaconfoundr</span><span class='op'>(</span><span class='va'>ipi_wide</span><span class='op'>)</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 407 × 5</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    construct         variable     is_confounder study        control_quality</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;ord&gt;</span>          </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Maternal Age Y             zhu_2001a    some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Maternal Age Y             zhu_2001b    some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Maternal Age Y             zhu_1999     some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Maternal Age Y             salihu_2012a some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Maternal Age Y             salihu_2012b some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Maternal Age Y             smith_2003   some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Maternal Age Y             shachar_2016 some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Maternal Age Y             ball_2014    some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Maternal Age Y             coo_2017     some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Maternal Age Y             hanley_2017  some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Maternal age Y             Zhu_1999     adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Maternal age Y             Smith_2003   adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Maternal age Y             Shachar_2016 adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Maternal age Y             Salihu_2012a adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Maternal age Y             Salihu_2012b adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 397 more rows</span></span>
 <span class='r-in'></span>
 <span class='r-in'><span class='va'>ipi_wide2</span> <span class='op'>&lt;-</span> <span class='va'>ipi_wide</span> <span class='op'><a href='pipe.html'>%&gt;%</a></span></span>
@@ -215,16 +215,16 @@ but explicit options include <code><a href='mc_detect_layout.html'>mc_longer()</
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># A tibble: 407 × 5</span></span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    construct         variable     is_confounder study        control_quality</span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span>    <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>             <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>         <span style='color: #949494; font-style: italic;'>&lt;chr&gt;</span>        <span style='color: #949494; font-style: italic;'>&lt;ord&gt;</span>          </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Maternal Age Y             zhu_2001a    some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Maternal Age Y             zhu_2001b    some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Maternal Age Y             zhu_1999     some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Maternal Age Y             salihu_2012a some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Maternal Age Y             salihu_2012b some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Maternal Age Y             smith_2003   some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Maternal Age Y             shachar_2016 some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Maternal Age Y             ball_2014    some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Maternal Age Y             coo_2017     some concerns  </span>
-<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Maternal Age Y             hanley_2017  some concerns  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 1</span> Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 2</span> Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 3</span> Sociodemographics Maternal age Y             Zhu_1999     adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 4</span> Sociodemographics Maternal age Y             Smith_2003   adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 5</span> Sociodemographics Maternal age Y             Shachar_2016 adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 6</span> Sociodemographics Maternal age Y             Salihu_2012a adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 7</span> Sociodemographics Maternal age Y             Salihu_2012b adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #BCBCBC;'>10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
 <span class='r-out co'><span class='r-pr'>#&gt;</span> <span style='color: #949494;'># … with 397 more rows</span></span>
 <span class='r-in'></span>
 <span class='r-in'></span>
@@ -244,7 +244,7 @@ but explicit options include <code><a href='mc_detect_layout.html'>mc_longer()</
 </div>
 
 <div class="pkgdown">
-  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.6.1.9001.</p></p>
+  <p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p></p>
 </div>
 
       </footer>

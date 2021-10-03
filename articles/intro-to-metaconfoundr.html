@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">metaconfoundr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9000</span>
       </span>
     </div>
 
@@ -100,56 +100,56 @@
 <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
 
 <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 407 × 5</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 407 × 5</span></span>
 <span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span>
-<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;        &lt;ord&gt;          </span>
-<span class="co">#&gt;  1 Sociodemographics Maternal Age Y             Zhu 2001a    some concerns  </span>
-<span class="co">#&gt;  2 Sociodemographics Maternal Age Y             Zhu 2001b    some concerns  </span>
-<span class="co">#&gt;  3 Sociodemographics Maternal Age Y             Zhu 1999     some concerns  </span>
-<span class="co">#&gt;  4 Sociodemographics Maternal Age Y             Salihu 2012a some concerns  </span>
-<span class="co">#&gt;  5 Sociodemographics Maternal Age Y             Salihu 2012b some concerns  </span>
-<span class="co">#&gt;  6 Sociodemographics Maternal Age Y             Smith 2003   some concerns  </span>
-<span class="co">#&gt;  7 Sociodemographics Maternal Age Y             Shachar 2016 some concerns  </span>
-<span class="co">#&gt;  8 Sociodemographics Maternal Age Y             Ball 2014    some concerns  </span>
-<span class="co">#&gt;  9 Sociodemographics Maternal Age Y             Coo 2017     some concerns  </span>
-<span class="co">#&gt; 10 Sociodemographics Maternal Age Y             Hanley 2017  some concerns  </span>
-<span class="co">#&gt; # … with 397 more rows</span></code></pre></div>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>          </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Sociodemographics Maternal age Y             Zhu_1999     adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Sociodemographics Maternal age Y             Smith_2003   adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Sociodemographics Maternal age Y             Shachar_2016 adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Sociodemographics Maternal age Y             Salihu_2012a adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Sociodemographics Maternal age Y             Salihu_2012b adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></code></pre></div>
 <p>The vignette on evaluating studies has more detail, but in brief, the goal is to create a data frame where there are five columns and a row for each confounder and study. The columns are <code>construct</code>, the domain to which a confounder might belong (e.g., “Sociodemographics”); <code>variable</code>, the name of the variable (e.g. “age”); <code>is_confounder</code>, an indicator if the variable is a confounder; <code>study</code>, the name of the study (or another unique ID); and <code>control_quality</code>, an indicator of the level of control for a confounder. <code>control_quality</code> is one of “adequate”, “some concerns”, or “inadequate”. metaconfoundr attempts to automatically detect the layout of your data, but you have full control (see <code><a href="../reference/mc_detect_layout.html">?mc_detect_layout</a></code>). You can also specify the data in this format manually.</p>
 <p>Data that you provide <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> can be in two basic formats: a long and wide. With the long format, metaconfoundr assumes that five columns match the above layout and standardizes them. If there are more than five, <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> treats any additional columns as studies, (e.g., they are in wide format). It will automatically transform your wide data to the format expected by metaconfoundr plotting functions. <code>ipi</code> has a wide cousin, <code>ipi_wide</code>, which <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> can prepare seamlessly:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ipi_wide</span>
-<span class="co">#&gt; # A tibble: 37 × 14</span>
-<span class="co">#&gt;    construct   factor   confounder_y_n zhu_2001a zhu_2001b zhu_1999 salihu_2012a</span>
-<span class="co">#&gt;    &lt;chr&gt;       &lt;chr&gt;    &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;        &lt;dbl&gt;</span>
-<span class="co">#&gt;  1 Sociodemog… Materna… Y                      1         1        1            1</span>
-<span class="co">#&gt;  2 Sociodemog… Race/Et… Y                      0         0        0            0</span>
-<span class="co">#&gt;  3 Sociodemog… Marital… Y                      1         1        1            1</span>
-<span class="co">#&gt;  4 Sociodemog… Paterni… Y                      2         2        2            2</span>
-<span class="co">#&gt;  5 Sociodemog… Geograp… Y                      2         2        1            2</span>
-<span class="co">#&gt;  6 Socioecono… SES Cat… Y                      2         2        2            2</span>
-<span class="co">#&gt;  7 Socioecono… Income … Y                      2         2        2            2</span>
-<span class="co">#&gt;  8 Socioecono… Educati… Y                      1         1        1            1</span>
-<span class="co">#&gt;  9 Socioecono… Insuran… Y                      2         2        2            2</span>
-<span class="co">#&gt; 10 Reproducti… Prior P… Y                      0         0        0            0</span>
-<span class="co">#&gt; # … with 27 more rows, and 7 more variables: salihu_2012b &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   smith_2003 &lt;dbl&gt;, shachar_2016 &lt;dbl&gt;, ball_2014 &lt;dbl&gt;, coo_2017 &lt;dbl&gt;,</span>
-<span class="co">#&gt; #   hanley_2017 &lt;dbl&gt;, de_weger_2016 &lt;dbl&gt;</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 37 × 14</span></span>
+<span class="co">#&gt;    construct   factor     confounder_y_n Zhu_2001a Zhu_2001b Zhu_1999 Smith_2003</span>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sociodemog… Maternal … Y                      2         2        2          2</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sociodemog… Race/ethn… Y                      2         2        2          0</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Sociodemog… Marital s… Y                      2         2        2          2</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Sociodemog… Paternity  Y                      0         0        0          0</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Sociodemog… Geographi… Y                      0         0        2          0</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Socioecono… SES categ… Y                      0         0        0          2</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Socioecono… Income as… Y                      0         0        0          0</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Socioecono… Education  Y                      2         2        2          0</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Socioecono… Insurance  Y                      0         0        0          0</span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Reproducti… Prior pre… Y                      2         2        2          2</span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 27 more rows, and 7 more variables: Shachar_2016 &lt;dbl&gt;,</span></span>
+<span class="co">#&gt; <span style="color: #949494;">#   Salihu_2012a &lt;dbl&gt;, Salihu_2012b &lt;dbl&gt;, Hanley_2017 &lt;dbl&gt;,</span></span>
+<span class="co">#&gt; <span style="color: #949494;">#   deWeger_2011 &lt;dbl&gt;, Coo_2017 &lt;dbl&gt;, Ball_2014 &lt;dbl&gt;</span></span>
 
 <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi_wide</span><span class="op">)</span>
-<span class="co">#&gt; # A tibble: 407 × 5</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 407 × 5</span></span>
 <span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span>
-<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;        &lt;ord&gt;          </span>
-<span class="co">#&gt;  1 Sociodemographics Maternal Age Y             zhu_2001a    some concerns  </span>
-<span class="co">#&gt;  2 Sociodemographics Maternal Age Y             zhu_2001b    some concerns  </span>
-<span class="co">#&gt;  3 Sociodemographics Maternal Age Y             zhu_1999     some concerns  </span>
-<span class="co">#&gt;  4 Sociodemographics Maternal Age Y             salihu_2012a some concerns  </span>
-<span class="co">#&gt;  5 Sociodemographics Maternal Age Y             salihu_2012b some concerns  </span>
-<span class="co">#&gt;  6 Sociodemographics Maternal Age Y             smith_2003   some concerns  </span>
-<span class="co">#&gt;  7 Sociodemographics Maternal Age Y             shachar_2016 some concerns  </span>
-<span class="co">#&gt;  8 Sociodemographics Maternal Age Y             ball_2014    some concerns  </span>
-<span class="co">#&gt;  9 Sociodemographics Maternal Age Y             coo_2017     some concerns  </span>
-<span class="co">#&gt; 10 Sociodemographics Maternal Age Y             hanley_2017  some concerns  </span>
-<span class="co">#&gt; # … with 397 more rows</span></code></pre></div>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>          </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Sociodemographics Maternal age Y             Zhu_1999     adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Sociodemographics Maternal age Y             Smith_2003   adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Sociodemographics Maternal age Y             Shachar_2016 adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Sociodemographics Maternal age Y             Salihu_2012a adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Sociodemographics Maternal age Y             Salihu_2012b adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></code></pre></div>
 <div id="creating-plots" class="section level1">
 <h1 class="hasAnchor">
 <a href="#creating-plots" class="anchor" aria-hidden="true"></a>Creating plots</h1>
@@ -199,26 +199,26 @@
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">summary_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summarize_control_quality.html">summarize_control_quality</a></span><span class="op">(</span>
   <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span>,
-  Sociodemographics <span class="op">=</span> <span class="va">`Maternal Age`</span> <span class="op">&amp;</span> <span class="va">`Race/Ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital Status`</span>,
-  Socioeconomics <span class="op">=</span> <span class="va">`SES Category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,
-  <span class="st">"Reproductive Hx"</span> <span class="op">=</span> <span class="va">`Prior Pregnancy Outcome`</span>
+  Sociodemographics <span class="op">=</span> <span class="va">`Maternal age`</span> <span class="op">&amp;</span> <span class="va">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital status`</span>,
+  Socioeconomics <span class="op">=</span> <span class="va">`SES category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,
+  <span class="st">"Reproductive Hx"</span> <span class="op">=</span> <span class="va">`Prior pregnancy outcome`</span>
 <span class="op">)</span>
 
 <span class="va">summary_df</span>
-<span class="co">#&gt; # A tibble: 44 × 4</span>
+<span class="co">#&gt; <span style="color: #949494;"># A tibble: 44 × 4</span></span>
 <span class="co">#&gt;    study     variable          control_quality construct</span>
-<span class="co">#&gt;    &lt;chr&gt;     &lt;fct&gt;             &lt;ord&gt;           &lt;fct&gt;    </span>
-<span class="co">#&gt;  1 Zhu 2001a overall           some concerns   overall  </span>
-<span class="co">#&gt;  2 Zhu 2001a Sociodemographics inadequate      domains  </span>
-<span class="co">#&gt;  3 Zhu 2001a Socioeconomics    adequate        domains  </span>
-<span class="co">#&gt;  4 Zhu 2001a Reproductive Hx   inadequate      domains  </span>
-<span class="co">#&gt;  5 Zhu 2001b overall           some concerns   overall  </span>
-<span class="co">#&gt;  6 Zhu 2001b Sociodemographics inadequate      domains  </span>
-<span class="co">#&gt;  7 Zhu 2001b Socioeconomics    adequate        domains  </span>
-<span class="co">#&gt;  8 Zhu 2001b Reproductive Hx   inadequate      domains  </span>
-<span class="co">#&gt;  9 Zhu 1999  overall           some concerns   overall  </span>
-<span class="co">#&gt; 10 Zhu 1999  Sociodemographics inadequate      domains  </span>
-<span class="co">#&gt; # … with 34 more rows</span></code></pre></div>
+<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Zhu_2001a overall           some concerns   overall  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Zhu_2001a Sociodemographics adequate        domains  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Zhu_2001a Socioeconomics    inadequate      domains  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Zhu_2001a Reproductive Hx   adequate        domains  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Zhu_2001b overall           some concerns   overall  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Zhu_2001b Sociodemographics adequate        domains  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Zhu_2001b Socioeconomics    inadequate      domains  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Zhu_2001b Reproductive Hx   adequate        domains  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Zhu_1999  overall           some concerns   overall  </span>
+<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zhu_1999  Sociodemographics adequate        domains  </span>
+<span class="co">#&gt; <span style="color: #949494;"># … with 34 more rows</span></span></code></pre></div>
 <p>Summarizing control quality creates a more straightforward visualization. You can also visualize just the overall control quality of a study by using the <code>domains = FALSE</code> argument in <code><a href="../reference/summarize_control_quality.html">summarize_control_quality()</a></code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">summary_df</span><span class="op">)</span> <span class="op">+</span>
@@ -271,9 +271,9 @@
 <code class="sourceCode R"><span class="va">tl_plot</span> <span class="op">&lt;-</span> 
   <span class="va">mc_ipi</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="../reference/summarize_control_quality.html">summarize_control_quality</a></span><span class="op">(</span>
-    <span class="st">"Socio-\ndemo-\ngraphics"</span> <span class="op">=</span> <span class="va">`Maternal Age`</span> <span class="op">&amp;</span> <span class="va">`Race/Ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital Status`</span>,
-    <span class="st">"Socio-\neconomic\nFactors"</span> <span class="op">=</span> <span class="va">`SES Category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,
-    <span class="st">"Repro-\nductive Hx"</span> <span class="op">=</span> <span class="va">`Prior Pregnancy Outcome`</span>
+    <span class="st">"Socio-\ndemo-\ngraphics"</span> <span class="op">=</span> <span class="va">`Maternal age`</span> <span class="op">&amp;</span> <span class="va">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital status`</span>,
+    <span class="st">"Socio-\neconomic\nFactors"</span> <span class="op">=</span> <span class="va">`SES category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,
+    <span class="st">"Repro-\nductive Hx"</span> <span class="op">=</span> <span class="va">`Prior pregnancy outcome`</span>
   <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">ipi_metaanalysis</span>, by <span class="op">=</span> <span class="st">"study"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
   <span class="fu">sort_by_year</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
@@ -360,7 +360,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.6.1.9001.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>
