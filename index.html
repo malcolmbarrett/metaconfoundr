@@ -129,20 +129,20 @@
 <span class="co">#&gt;  9 Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
 <span class="co">#&gt; 10 Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
 <span class="co">#&gt; # â¦ with 45 more rows</span></code></pre></div>
-<p>metaconfoundr includes several tools for visualizing the results of a confounding control assesment. The most common are <code><a href="reference/mc_heatmap.html">mc_heatmap()</a></code> and <code><a href="reference/mc_heatmap.html">mc_trafficlight()</a></code></p>
+<p>metaconfoundr includes several tools for visualizing the results of a confounding control assesment. The most common are <code><a href="reference/mc_heatmap.html">mc_heatmap()</a></code> and <code><a href="reference/mc_heatmap.html">mc_trafficlight()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-2.png" width="100%"></p>
-<p>These plotting functions return ggplots, so they are easy to modify</p>
+<p>These plotting functions return ggplots, so they are easy to modify.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
-<p>metaconfoundr also includes geoms and scales to make output similar to other types of bias assessments for meta-analyses</p>
+<p>metaconfoundr also includes geoms and scales to make output similar to other types of bias assessments for meta-analyses.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
