@@ -1,0 +1,408 @@
+,construct,factor,confounder_y_n,study,control_quality
+1,Sociodemographics,Maternal age,Y,Zhu_2001a,2
+2,Sociodemographics,Maternal age,Y,Zhu_2001b,2
+3,Sociodemographics,Maternal age,Y,Zhu_1999,2
+4,Sociodemographics,Maternal age,Y,Smith_2003,2
+5,Sociodemographics,Maternal age,Y,Shachar_2016,2
+6,Sociodemographics,Maternal age,Y,Salihu_2012a,2
+7,Sociodemographics,Maternal age,Y,Salihu_2012b,2
+8,Sociodemographics,Maternal age,Y,Hanley_2017,2
+9,Sociodemographics,Maternal age,Y,deWeger_2011,2
+10,Sociodemographics,Maternal age,Y,Coo_2017,2
+11,Sociodemographics,Maternal age,Y,Ball_2014,2
+12,Sociodemographics,Race/ethnicity,Y,Zhu_2001a,2
+13,Sociodemographics,Race/ethnicity,Y,Zhu_2001b,2
+14,Sociodemographics,Race/ethnicity,Y,Zhu_1999,2
+15,Sociodemographics,Race/ethnicity,Y,Smith_2003,0
+16,Sociodemographics,Race/ethnicity,Y,Shachar_2016,2
+17,Sociodemographics,Race/ethnicity,Y,Salihu_2012a,2
+18,Sociodemographics,Race/ethnicity,Y,Salihu_2012b,2
+19,Sociodemographics,Race/ethnicity,Y,Hanley_2017,0
+20,Sociodemographics,Race/ethnicity,Y,deWeger_2011,2
+21,Sociodemographics,Race/ethnicity,Y,Coo_2017,0
+22,Sociodemographics,Race/ethnicity,Y,Ball_2014,2
+23,Sociodemographics,Marital status,Y,Zhu_2001a,2
+24,Sociodemographics,Marital status,Y,Zhu_2001b,2
+25,Sociodemographics,Marital status,Y,Zhu_1999,2
+26,Sociodemographics,Marital status,Y,Smith_2003,2
+27,Sociodemographics,Marital status,Y,Shachar_2016,0
+28,Sociodemographics,Marital status,Y,Salihu_2012a,2
+29,Sociodemographics,Marital status,Y,Salihu_2012b,2
+30,Sociodemographics,Marital status,Y,Hanley_2017,0
+31,Sociodemographics,Marital status,Y,deWeger_2011,0
+32,Sociodemographics,Marital status,Y,Coo_2017,0
+33,Sociodemographics,Marital status,Y,Ball_2014,0
+34,Sociodemographics,Paternity,Y,Zhu_2001a,0
+35,Sociodemographics,Paternity,Y,Zhu_2001b,0
+36,Sociodemographics,Paternity,Y,Zhu_1999,0
+37,Sociodemographics,Paternity,Y,Smith_2003,0
+38,Sociodemographics,Paternity,Y,Shachar_2016,0
+39,Sociodemographics,Paternity,Y,Salihu_2012a,0
+40,Sociodemographics,Paternity,Y,Salihu_2012b,0
+41,Sociodemographics,Paternity,Y,Hanley_2017,0
+42,Sociodemographics,Paternity,Y,deWeger_2011,0
+43,Sociodemographics,Paternity,Y,Coo_2017,0
+44,Sociodemographics,Paternity,Y,Ball_2014,0
+45,Sociodemographics,Geographic area,Y,Zhu_2001a,0
+46,Sociodemographics,Geographic area,Y,Zhu_2001b,0
+47,Sociodemographics,Geographic area,Y,Zhu_1999,2
+48,Sociodemographics,Geographic area,Y,Smith_2003,0
+49,Sociodemographics,Geographic area,Y,Shachar_2016,0
+50,Sociodemographics,Geographic area,Y,Salihu_2012a,0
+51,Sociodemographics,Geographic area,Y,Salihu_2012b,2
+52,Sociodemographics,Geographic area,Y,Hanley_2017,0
+53,Sociodemographics,Geographic area,Y,deWeger_2011,0
+54,Sociodemographics,Geographic area,Y,Coo_2017,0
+55,Sociodemographics,Geographic area,Y,Ball_2014,0
+56,Socioeconomics,SES category,Y,Zhu_2001a,0
+57,Socioeconomics,SES category,Y,Zhu_2001b,0
+58,Socioeconomics,SES category,Y,Zhu_1999,0
+59,Socioeconomics,SES category,Y,Smith_2003,2
+60,Socioeconomics,SES category,Y,Shachar_2016,0
+61,Socioeconomics,SES category,Y,Salihu_2012a,0
+62,Socioeconomics,SES category,Y,Salihu_2012b,0
+63,Socioeconomics,SES category,Y,Hanley_2017,0
+64,Socioeconomics,SES category,Y,deWeger_2011,2
+65,Socioeconomics,SES category,Y,Coo_2017,2
+66,Socioeconomics,SES category,Y,Ball_2014,2
+67,Socioeconomics,Income assistance,Y,Zhu_2001a,0
+68,Socioeconomics,Income assistance,Y,Zhu_2001b,0
+69,Socioeconomics,Income assistance,Y,Zhu_1999,0
+70,Socioeconomics,Income assistance,Y,Smith_2003,0
+71,Socioeconomics,Income assistance,Y,Shachar_2016,0
+72,Socioeconomics,Income assistance,Y,Salihu_2012a,0
+73,Socioeconomics,Income assistance,Y,Salihu_2012b,0
+74,Socioeconomics,Income assistance,Y,Hanley_2017,0
+75,Socioeconomics,Income assistance,Y,deWeger_2011,0
+76,Socioeconomics,Income assistance,Y,Coo_2017,2
+77,Socioeconomics,Income assistance,Y,Ball_2014,0
+78,Socioeconomics,Education,Y,Zhu_2001a,2
+79,Socioeconomics,Education,Y,Zhu_2001b,2
+80,Socioeconomics,Education,Y,Zhu_1999,2
+81,Socioeconomics,Education,Y,Smith_2003,0
+82,Socioeconomics,Education,Y,Shachar_2016,2
+83,Socioeconomics,Education,Y,Salihu_2012a,2
+84,Socioeconomics,Education,Y,Salihu_2012b,2
+85,Socioeconomics,Education,Y,Hanley_2017,0
+86,Socioeconomics,Education,Y,deWeger_2011,0
+87,Socioeconomics,Education,Y,Coo_2017,2
+88,Socioeconomics,Education,Y,Ball_2014,0
+89,Socioeconomics,Insurance,Y,Zhu_2001a,0
+90,Socioeconomics,Insurance,Y,Zhu_2001b,0
+91,Socioeconomics,Insurance,Y,Zhu_1999,0
+92,Socioeconomics,Insurance,Y,Smith_2003,0
+93,Socioeconomics,Insurance,Y,Shachar_2016,2
+94,Socioeconomics,Insurance,Y,Salihu_2012a,0
+95,Socioeconomics,Insurance,Y,Salihu_2012b,0
+96,Socioeconomics,Insurance,Y,Hanley_2017,0
+97,Socioeconomics,Insurance,Y,deWeger_2011,0
+98,Socioeconomics,Insurance,Y,Coo_2017,2
+99,Socioeconomics,Insurance,Y,Ball_2014,0
+100,Reproductive Hx,Prior pregnancy outcome,Y,Zhu_2001a,2
+101,Reproductive Hx,Prior pregnancy outcome,Y,Zhu_2001b,2
+102,Reproductive Hx,Prior pregnancy outcome,Y,Zhu_1999,2
+103,Reproductive Hx,Prior pregnancy outcome,Y,Smith_2003,2
+104,Reproductive Hx,Prior pregnancy outcome,Y,Shachar_2016,2
+105,Reproductive Hx,Prior pregnancy outcome,Y,Salihu_2012a,2
+106,Reproductive Hx,Prior pregnancy outcome,Y,Salihu_2012b,2
+107,Reproductive Hx,Prior pregnancy outcome,Y,Hanley_2017,0
+108,Reproductive Hx,Prior pregnancy outcome,Y,deWeger_2011,0
+109,Reproductive Hx,Prior pregnancy outcome,Y,Coo_2017,2
+110,Reproductive Hx,Prior pregnancy outcome,Y,Ball_2014,2
+111,Reproductive Hx,Hx of perinatal death,Y,Zhu_2001a,0
+112,Reproductive Hx,Hx of perinatal death,Y,Zhu_2001b,0
+113,Reproductive Hx,Hx of perinatal death,Y,Zhu_1999,2
+114,Reproductive Hx,Hx of perinatal death,Y,Smith_2003,0
+115,Reproductive Hx,Hx of perinatal death,Y,Shachar_2016,0
+116,Reproductive Hx,Hx of perinatal death,Y,Salihu_2012a,0
+117,Reproductive Hx,Hx of perinatal death,Y,Salihu_2012b,0
+118,Reproductive Hx,Hx of perinatal death,Y,Hanley_2017,2
+119,Reproductive Hx,Hx of perinatal death,Y,deWeger_2011,0
+120,Reproductive Hx,Hx of perinatal death,Y,Coo_2017,0
+121,Reproductive Hx,Hx of perinatal death,Y,Ball_2014,0
+122,Reproductive Hx,Hx of pregnancy loss,Y,Zhu_2001a,0
+123,Reproductive Hx,Hx of pregnancy loss,Y,Zhu_2001b,0
+124,Reproductive Hx,Hx of pregnancy loss,Y,Zhu_1999,2
+125,Reproductive Hx,Hx of pregnancy loss,Y,Smith_2003,0
+126,Reproductive Hx,Hx of pregnancy loss,Y,Shachar_2016,0
+127,Reproductive Hx,Hx of pregnancy loss,Y,Salihu_2012a,0
+128,Reproductive Hx,Hx of pregnancy loss,Y,Salihu_2012b,0
+129,Reproductive Hx,Hx of pregnancy loss,Y,Hanley_2017,0
+130,Reproductive Hx,Hx of pregnancy loss,Y,deWeger_2011,0
+131,Reproductive Hx,Hx of pregnancy loss,Y,Coo_2017,2
+132,Reproductive Hx,Hx of pregnancy loss,Y,Ball_2014,0
+133,Reproductive Hx,Parity/Gravidity,Y,Zhu_2001a,2
+134,Reproductive Hx,Parity/Gravidity,Y,Zhu_2001b,2
+135,Reproductive Hx,Parity/Gravidity,Y,Zhu_1999,2
+136,Reproductive Hx,Parity/Gravidity,Y,Smith_2003,0
+137,Reproductive Hx,Parity/Gravidity,Y,Shachar_2016,2
+138,Reproductive Hx,Parity/Gravidity,Y,Salihu_2012a,2
+139,Reproductive Hx,Parity/Gravidity,Y,Salihu_2012b,2
+140,Reproductive Hx,Parity/Gravidity,Y,Hanley_2017,0
+141,Reproductive Hx,Parity/Gravidity,Y,deWeger_2011,0
+142,Reproductive Hx,Parity/Gravidity,Y,Coo_2017,2
+143,Reproductive Hx,Parity/Gravidity,Y,Ball_2014,2
+144,Reproductive Hx,Hx of preterm birth,Y,Zhu_2001a,0
+145,Reproductive Hx,Hx of preterm birth,Y,Zhu_2001b,0
+146,Reproductive Hx,Hx of preterm birth,Y,Zhu_1999,0
+147,Reproductive Hx,Hx of preterm birth,Y,Smith_2003,0
+148,Reproductive Hx,Hx of preterm birth,Y,Shachar_2016,2
+149,Reproductive Hx,Hx of preterm birth,Y,Salihu_2012a,0
+150,Reproductive Hx,Hx of preterm birth,Y,Salihu_2012b,0
+151,Reproductive Hx,Hx of preterm birth,Y,Hanley_2017,0
+152,Reproductive Hx,Hx of preterm birth,Y,deWeger_2011,0
+153,Reproductive Hx,Hx of preterm birth,Y,Coo_2017,0
+154,Reproductive Hx,Hx of preterm birth,Y,Ball_2014,0
+155,Reproductive Hx,Previous birth weight,Y,Zhu_2001a,0
+156,Reproductive Hx,Previous birth weight,Y,Zhu_2001b,0
+157,Reproductive Hx,Previous birth weight,Y,Zhu_1999,0
+158,Reproductive Hx,Previous birth weight,Y,Smith_2003,2
+159,Reproductive Hx,Previous birth weight,Y,Shachar_2016,0
+160,Reproductive Hx,Previous birth weight,Y,Salihu_2012a,0
+161,Reproductive Hx,Previous birth weight,Y,Salihu_2012b,0
+162,Reproductive Hx,Previous birth weight,Y,Hanley_2017,0
+163,Reproductive Hx,Previous birth weight,Y,deWeger_2011,0
+164,Reproductive Hx,Previous birth weight,Y,Coo_2017,0
+165,Reproductive Hx,Previous birth weight,Y,Ball_2014,0
+166,Reproductive Hx,Hx of abortion,Y,Zhu_2001a,0
+167,Reproductive Hx,Hx of abortion,Y,Zhu_2001b,0
+168,Reproductive Hx,Hx of abortion,Y,Zhu_1999,2
+169,Reproductive Hx,Hx of abortion,Y,Smith_2003,0
+170,Reproductive Hx,Hx of abortion,Y,Shachar_2016,0
+171,Reproductive Hx,Hx of abortion,Y,Salihu_2012a,0
+172,Reproductive Hx,Hx of abortion,Y,Salihu_2012b,0
+173,Reproductive Hx,Hx of abortion,Y,Hanley_2017,0
+174,Reproductive Hx,Hx of abortion,Y,deWeger_2011,0
+175,Reproductive Hx,Hx of abortion,Y,Coo_2017,0
+176,Reproductive Hx,Hx of abortion,Y,Ball_2014,0
+177,Reproductive Hx,Previous C-section,Y,Zhu_2001a,0
+178,Reproductive Hx,Previous C-section,Y,Zhu_2001b,0
+179,Reproductive Hx,Previous C-section,Y,Zhu_1999,0
+180,Reproductive Hx,Previous C-section,Y,Smith_2003,2
+181,Reproductive Hx,Previous C-section,Y,Shachar_2016,0
+182,Reproductive Hx,Previous C-section,Y,Salihu_2012a,0
+183,Reproductive Hx,Previous C-section,Y,Salihu_2012b,0
+184,Reproductive Hx,Previous C-section,Y,Hanley_2017,0
+185,Reproductive Hx,Previous C-section,Y,deWeger_2011,0
+186,Reproductive Hx,Previous C-section,Y,Coo_2017,0
+187,Reproductive Hx,Previous C-section,Y,Ball_2014,0
+188,Family Planning,1st trimester care,Y,Zhu_2001a,0
+189,Family Planning,1st trimester care,Y,Zhu_2001b,0
+190,Family Planning,1st trimester care,Y,Zhu_1999,2
+191,Family Planning,1st trimester care,Y,Smith_2003,0
+192,Family Planning,1st trimester care,Y,Shachar_2016,0
+193,Family Planning,1st trimester care,Y,Salihu_2012a,0
+194,Family Planning,1st trimester care,Y,Salihu_2012b,0
+195,Family Planning,1st trimester care,Y,Hanley_2017,0
+196,Family Planning,1st trimester care,Y,deWeger_2011,0
+197,Family Planning,1st trimester care,Y,Coo_2017,0
+198,Family Planning,1st trimester care,Y,Ball_2014,0
+199,Family Planning,Use of ART,Y,Zhu_2001a,0
+200,Family Planning,Use of ART,Y,Zhu_2001b,0
+201,Family Planning,Use of ART,Y,Zhu_1999,0
+202,Family Planning,Use of ART,Y,Smith_2003,0
+203,Family Planning,Use of ART,Y,Shachar_2016,0
+204,Family Planning,Use of ART,Y,Salihu_2012a,0
+205,Family Planning,Use of ART,Y,Salihu_2012b,0
+206,Family Planning,Use of ART,Y,Hanley_2017,0
+207,Family Planning,Use of ART,Y,deWeger_2011,2
+208,Family Planning,Use of ART,Y,Coo_2017,0
+209,Family Planning,Use of ART,Y,Ball_2014,0
+210,Health Behaviors,Smoking,Y,Zhu_2001a,2
+211,Health Behaviors,Smoking,Y,Zhu_2001b,2
+212,Health Behaviors,Smoking,Y,Zhu_1999,2
+213,Health Behaviors,Smoking,Y,Smith_2003,2
+214,Health Behaviors,Smoking,Y,Shachar_2016,2
+215,Health Behaviors,Smoking,Y,Salihu_2012a,2
+216,Health Behaviors,Smoking,Y,Salihu_2012b,2
+217,Health Behaviors,Smoking,Y,Hanley_2017,2
+218,Health Behaviors,Smoking,Y,deWeger_2011,0
+219,Health Behaviors,Smoking,Y,Coo_2017,2
+220,Health Behaviors,Smoking,Y,Ball_2014,0
+221,Health Behaviors,Drinking,Y,Zhu_2001a,2
+222,Health Behaviors,Drinking,Y,Zhu_2001b,2
+223,Health Behaviors,Drinking,Y,Zhu_1999,2
+224,Health Behaviors,Drinking,Y,Smith_2003,0
+225,Health Behaviors,Drinking,Y,Shachar_2016,0
+226,Health Behaviors,Drinking,Y,Salihu_2012a,0
+227,Health Behaviors,Drinking,Y,Salihu_2012b,0
+228,Health Behaviors,Drinking,Y,Hanley_2017,0
+229,Health Behaviors,Drinking,Y,deWeger_2011,0
+230,Health Behaviors,Drinking,Y,Coo_2017,2
+231,Health Behaviors,Drinking,Y,Ball_2014,0
+232,Health Behaviors,Substance use,Y,Zhu_2001a,0
+233,Health Behaviors,Substance use,Y,Zhu_2001b,0
+234,Health Behaviors,Substance use,Y,Zhu_1999,0
+235,Health Behaviors,Substance use,Y,Smith_2003,0
+236,Health Behaviors,Substance use,Y,Shachar_2016,0
+237,Health Behaviors,Substance use,Y,Salihu_2012a,0
+238,Health Behaviors,Substance use,Y,Salihu_2012b,0
+239,Health Behaviors,Substance use,Y,Hanley_2017,0
+240,Health Behaviors,Substance use,Y,deWeger_2011,0
+241,Health Behaviors,Substance use,Y,Coo_2017,2
+242,Health Behaviors,Substance use,Y,Ball_2014,0
+243,Underlying Health,Maternal BMI,Y,Zhu_2001a,0
+244,Underlying Health,Maternal BMI,Y,Zhu_2001b,0
+245,Underlying Health,Maternal BMI,Y,Zhu_1999,0
+246,Underlying Health,Maternal BMI,Y,Smith_2003,0
+247,Underlying Health,Maternal BMI,Y,Shachar_2016,2
+248,Underlying Health,Maternal BMI,Y,Salihu_2012a,0
+249,Underlying Health,Maternal BMI,Y,Salihu_2012b,0
+250,Underlying Health,Maternal BMI,Y,Hanley_2017,0
+251,Underlying Health,Maternal BMI,Y,deWeger_2011,0
+252,Underlying Health,Maternal BMI,Y,Coo_2017,0
+253,Underlying Health,Maternal BMI,Y,Ball_2014,0
+254,Underlying Health,Maternal weight,Y,Zhu_2001a,0
+255,Underlying Health,Maternal weight,Y,Zhu_2001b,0
+256,Underlying Health,Maternal weight,Y,Zhu_1999,2
+257,Underlying Health,Maternal weight,Y,Smith_2003,0
+258,Underlying Health,Maternal weight,Y,Shachar_2016,0
+259,Underlying Health,Maternal weight,Y,Salihu_2012a,0
+260,Underlying Health,Maternal weight,Y,Salihu_2012b,0
+261,Underlying Health,Maternal weight,Y,Hanley_2017,0
+262,Underlying Health,Maternal weight,Y,deWeger_2011,0
+263,Underlying Health,Maternal weight,Y,Coo_2017,0
+264,Underlying Health,Maternal weight,Y,Ball_2014,0
+265,Underlying Health,Diabetes,Y,Zhu_2001a,0
+266,Underlying Health,Diabetes,Y,Zhu_2001b,0
+267,Underlying Health,Diabetes,Y,Zhu_1999,0
+268,Underlying Health,Diabetes,Y,Smith_2003,0
+269,Underlying Health,Diabetes,Y,Shachar_2016,0
+270,Underlying Health,Diabetes,Y,Salihu_2012a,2
+271,Underlying Health,Diabetes,Y,Salihu_2012b,2
+272,Underlying Health,Diabetes,Y,Hanley_2017,2
+273,Underlying Health,Diabetes,Y,deWeger_2011,0
+274,Underlying Health,Diabetes,Y,Coo_2017,2
+275,Underlying Health,Diabetes,Y,Ball_2014,0
+276,Underlying Health,Hypertension,Y,Zhu_2001a,2
+277,Underlying Health,Hypertension,Y,Zhu_2001b,0
+278,Underlying Health,Hypertension,Y,Zhu_1999,0
+279,Underlying Health,Hypertension,Y,Smith_2003,0
+280,Underlying Health,Hypertension,Y,Shachar_2016,0
+281,Underlying Health,Hypertension,Y,Salihu_2012a,2
+282,Underlying Health,Hypertension,Y,Salihu_2012b,2
+283,Underlying Health,Hypertension,Y,Hanley_2017,2
+284,Underlying Health,Hypertension,Y,deWeger_2011,0
+285,Underlying Health,Hypertension,Y,Coo_2017,2
+286,Underlying Health,Hypertension,Y,Ball_2014,0
+287,Underlying Health,Chronic diseases,Y,Zhu_2001a,0
+288,Underlying Health,Chronic diseases,Y,Zhu_2001b,0
+289,Underlying Health,Chronic diseases,Y,Zhu_1999,0
+290,Underlying Health,Chronic diseases,Y,Smith_2003,0
+291,Underlying Health,Chronic diseases,Y,Shachar_2016,0
+292,Underlying Health,Chronic diseases,Y,Salihu_2012a,2
+293,Underlying Health,Chronic diseases,Y,Salihu_2012b,2
+294,Underlying Health,Chronic diseases,Y,Hanley_2017,0
+295,Underlying Health,Chronic diseases,Y,deWeger_2011,0
+296,Underlying Health,Chronic diseases,Y,Coo_2017,0
+297,Underlying Health,Chronic diseases,Y,Ball_2014,0
+298,Biology/Genetics,Biology/Genetics,Y,Zhu_2001a,0
+299,Biology/Genetics,Biology/Genetics,Y,Zhu_2001b,0
+300,Biology/Genetics,Biology/Genetics,Y,Zhu_1999,0
+301,Biology/Genetics,Biology/Genetics,Y,Smith_2003,0
+302,Biology/Genetics,Biology/Genetics,Y,Shachar_2016,0
+303,Biology/Genetics,Biology/Genetics,Y,Salihu_2012a,0
+304,Biology/Genetics,Biology/Genetics,Y,Salihu_2012b,0
+305,Biology/Genetics,Biology/Genetics,Y,Hanley_2017,0
+306,Biology/Genetics,Biology/Genetics,Y,deWeger_2011,0
+307,Biology/Genetics,Biology/Genetics,Y,Coo_2017,0
+308,Biology/Genetics,Biology/Genetics,Y,Ball_2014,0
+309,Implicit (Racial) Bias,Structural racism,Y,Zhu_2001a,0
+310,Implicit (Racial) Bias,Structural racism,Y,Zhu_2001b,0
+311,Implicit (Racial) Bias,Structural racism,Y,Zhu_1999,0
+312,Implicit (Racial) Bias,Structural racism,Y,Smith_2003,0
+313,Implicit (Racial) Bias,Structural racism,Y,Shachar_2016,0
+314,Implicit (Racial) Bias,Structural racism,Y,Salihu_2012a,0
+315,Implicit (Racial) Bias,Structural racism,Y,Salihu_2012b,0
+316,Implicit (Racial) Bias,Structural racism,Y,Hanley_2017,0
+317,Implicit (Racial) Bias,Structural racism,Y,deWeger_2011,0
+318,Implicit (Racial) Bias,Structural racism,Y,Coo_2017,0
+319,Implicit (Racial) Bias,Structural racism,Y,Ball_2014,0
+320,Maternal Characteristics,Maternal height,N,Zhu_2001a,0
+321,Maternal Characteristics,Maternal height,N,Zhu_2001b,0
+322,Maternal Characteristics,Maternal height,N,Zhu_1999,2
+323,Maternal Characteristics,Maternal height,N,Smith_2003,2
+324,Maternal Characteristics,Maternal height,N,Shachar_2016,0
+325,Maternal Characteristics,Maternal height,N,Salihu_2012a,0
+326,Maternal Characteristics,Maternal height,N,Salihu_2012b,0
+327,Maternal Characteristics,Maternal height,N,Hanley_2017,0
+328,Maternal Characteristics,Maternal height,N,deWeger_2011,0
+329,Maternal Characteristics,Maternal height,N,Coo_2017,0
+330,Maternal Characteristics,Maternal height,N,Ball_2014,0
+331,Pregnancy Factors,Adequate prenatal care,N,Zhu_2001a,2
+332,Pregnancy Factors,Adequate prenatal care,N,Zhu_2001b,2
+333,Pregnancy Factors,Adequate prenatal care,N,Zhu_1999,0
+334,Pregnancy Factors,Adequate prenatal care,N,Smith_2003,0
+335,Pregnancy Factors,Adequate prenatal care,N,Shachar_2016,0
+336,Pregnancy Factors,Adequate prenatal care,N,Salihu_2012a,2
+337,Pregnancy Factors,Adequate prenatal care,N,Salihu_2012b,2
+338,Pregnancy Factors,Adequate prenatal care,N,Hanley_2017,0
+339,Pregnancy Factors,Adequate prenatal care,N,deWeger_2011,0
+340,Pregnancy Factors,Adequate prenatal care,N,Coo_2017,2
+341,Pregnancy Factors,Adequate prenatal care,N,Ball_2014,0
+342,Pregnancy Factors,No. of prenatal visits,N,Zhu_2001a,0
+343,Pregnancy Factors,No. of prenatal visits,N,Zhu_2001b,0
+344,Pregnancy Factors,No. of prenatal visits,N,Zhu_1999,2
+345,Pregnancy Factors,No. of prenatal visits,N,Smith_2003,0
+346,Pregnancy Factors,No. of prenatal visits,N,Shachar_2016,0
+347,Pregnancy Factors,No. of prenatal visits,N,Salihu_2012a,0
+348,Pregnancy Factors,No. of prenatal visits,N,Salihu_2012b,0
+349,Pregnancy Factors,No. of prenatal visits,N,Hanley_2017,0
+350,Pregnancy Factors,No. of prenatal visits,N,deWeger_2011,0
+351,Pregnancy Factors,No. of prenatal visits,N,Coo_2017,0
+352,Pregnancy Factors,No. of prenatal visits,N,Ball_2014,0
+353,Pregnancy Factors,High blood pressure,N,Zhu_2001a,0
+354,Pregnancy Factors,High blood pressure,N,Zhu_2001b,0
+355,Pregnancy Factors,High blood pressure,N,Zhu_1999,0
+356,Pregnancy Factors,High blood pressure,N,Smith_2003,0
+357,Pregnancy Factors,High blood pressure,N,Shachar_2016,0
+358,Pregnancy Factors,High blood pressure,N,Salihu_2012a,0
+359,Pregnancy Factors,High blood pressure,N,Salihu_2012b,0
+360,Pregnancy Factors,High blood pressure,N,Hanley_2017,2
+361,Pregnancy Factors,High blood pressure,N,deWeger_2011,0
+362,Pregnancy Factors,High blood pressure,N,Coo_2017,0
+363,Pregnancy Factors,High blood pressure,N,Ball_2014,0
+364,Pregnancy Factors,Gestational diabetes,N,Zhu_2001a,0
+365,Pregnancy Factors,Gestational diabetes,N,Zhu_2001b,0
+366,Pregnancy Factors,Gestational diabetes,N,Zhu_1999,0
+367,Pregnancy Factors,Gestational diabetes,N,Smith_2003,0
+368,Pregnancy Factors,Gestational diabetes,N,Shachar_2016,0
+369,Pregnancy Factors,Gestational diabetes,N,Salihu_2012a,2
+370,Pregnancy Factors,Gestational diabetes,N,Salihu_2012b,2
+371,Pregnancy Factors,Gestational diabetes,N,Hanley_2017,2
+372,Pregnancy Factors,Gestational diabetes,N,deWeger_2011,0
+373,Pregnancy Factors,Gestational diabetes,N,Coo_2017,2
+374,Pregnancy Factors,Gestational diabetes,N,Ball_2014,0
+375,Pregnancy Factors,Pregnancy weight gain,N,Zhu_2001a,0
+376,Pregnancy Factors,Pregnancy weight gain,N,Zhu_2001b,0
+377,Pregnancy Factors,Pregnancy weight gain,N,Zhu_1999,2
+378,Pregnancy Factors,Pregnancy weight gain,N,Smith_2003,0
+379,Pregnancy Factors,Pregnancy weight gain,N,Shachar_2016,0
+380,Pregnancy Factors,Pregnancy weight gain,N,Salihu_2012a,0
+381,Pregnancy Factors,Pregnancy weight gain,N,Salihu_2012b,0
+382,Pregnancy Factors,Pregnancy weight gain,N,Hanley_2017,0
+383,Pregnancy Factors,Pregnancy weight gain,N,deWeger_2011,0
+384,Pregnancy Factors,Pregnancy weight gain,N,Coo_2017,0
+385,Pregnancy Factors,Pregnancy weight gain,N,Ball_2014,0
+386,Pregnancy Factors,Infant sex,N,Zhu_2001a,0
+387,Pregnancy Factors,Infant sex,N,Zhu_2001b,0
+388,Pregnancy Factors,Infant sex,N,Zhu_1999,0
+389,Pregnancy Factors,Infant sex,N,Smith_2003,0
+390,Pregnancy Factors,Infant sex,N,Shachar_2016,0
+391,Pregnancy Factors,Infant sex,N,Salihu_2012a,0
+392,Pregnancy Factors,Infant sex,N,Salihu_2012b,0
+393,Pregnancy Factors,Infant sex,N,Hanley_2017,0
+394,Pregnancy Factors,Infant sex,N,deWeger_2011,0
+395,Pregnancy Factors,Infant sex,N,Coo_2017,2
+396,Pregnancy Factors,Infant sex,N,Ball_2014,0
+397,Pregnancy Factors,Year of delivery,N,Zhu_2001a,0
+398,Pregnancy Factors,Year of delivery,N,Zhu_2001b,0
+399,Pregnancy Factors,Year of delivery,N,Zhu_1999,0
+400,Pregnancy Factors,Year of delivery,N,Smith_2003,0
+401,Pregnancy Factors,Year of delivery,N,Shachar_2016,2
+402,Pregnancy Factors,Year of delivery,N,Salihu_2012a,0
+403,Pregnancy Factors,Year of delivery,N,Salihu_2012b,0
+404,Pregnancy Factors,Year of delivery,N,Hanley_2017,2
+405,Pregnancy Factors,Year of delivery,N,deWeger_2011,2
+406,Pregnancy Factors,Year of delivery,N,Coo_2017,2
+407,Pregnancy Factors,Year of delivery,N,Ball_2014,2

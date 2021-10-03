@@ -1,10 +1,9 @@
 ## code to prepare `ipi` dataset goes here
 library(tidyverse)
 library(janitor)
-ipi <- readxl::read_xlsx("data-raw/ipi2.xlsx") %>%
+ipi <- read_csv("data-raw/ipi_updated_2021-09.csv") %>%
+  select(-1) %>%
   mutate_at(-1:-3, ~replace_na(., 0)) %>%
-  mutate_at(-1:-3, ~ . - 1) %>%
-  pivot_longer(cols = -1:-3, names_to = "study", values_to = "control_quality") %>%
   clean_names()
 
 usethis::use_data(ipi, overwrite = TRUE)
