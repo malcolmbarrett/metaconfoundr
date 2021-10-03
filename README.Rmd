@@ -18,7 +18,7 @@ knitr::opts_chunk$set(
 # metaconfoundr
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![CRAN status](https://www.r-pkg.org/badges/version/metaconfoundr)](https://CRAN.R-project.org/package=metaconfoundr)
 [![R build status](https://github.com/malcolmbarrett/metaconfoundr/workflows/R-CMD-check/badge.svg)](https://github.com/malcolmbarrett/metaconfoundr/actions)
 [![Codecov test coverage](https://codecov.io/gh/malcolmbarrett/metaconfoundr/branch/master/graph/badge.svg)](https://codecov.io/gh/malcolmbarrett/metaconfoundr?branch=master)

@@ -4,6 +4,7 @@
 #' confounding control in meta-analyses
 #'
 #' @export
+#' @return A Shiny app
 launch_metaconfoundr_app <- function() {
   app_dir <- system.file("shiny_app", package = "metaconfoundr")
   if (app_dir == "") {

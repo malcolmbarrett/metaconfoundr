@@ -6,6 +6,9 @@
 \usage{
 launch_metaconfoundr_app()
 }
+\value{
+A Shiny app
+}
 \description{
 \code{launch_metaconfoundr_app()} launches a Shiny app to create visualizations of
 confounding control in meta-analyses
