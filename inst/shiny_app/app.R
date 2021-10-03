@@ -19,9 +19,9 @@ wrap_labeller <- function(x) stringr::str_wrap(x, 10)
 
 is_csv <- function(x) tolower(tools::file_ext("x.CSV")) == "csv"
 
-scq_text <- 'Sociodemographics = `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
-    Socioeconomics = `SES Category` | Insurance & Education,
-    \"Reproductive Hx\" = `Prior Pregnancy Outcome`'
+scq_text <- 'Sociodemographics = `Maternal age` & `Race/ethnicity` & `Marital status`,
+    Socioeconomics = `SES category` | Insurance & Education,
+    \"Reproductive Hx\" = `Prior pregnancy outcome`'
 # Define UI
 ui <-
     div(
