@@ -9,9 +9,9 @@ expect_mc_sum_tbl <- function(x) {
 test_that("summarize_control_quality() works", {
   x1 <- summarize_control_quality(
     metaconfoundr(ipi),
-    Sociodemographics = `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
-    Socioeconomics = `SES Category` | Insurance & Education,
-    "Reproductive Hx" = `Prior Pregnancy Outcome`
+    Sociodemographics = `Maternal age` & `Race/ethnicity` & `Marital status`,
+    Socioeconomics = `SES category` | Insurance & Education,
+    "Reproductive Hx" = `Prior pregnancy outcome`
   )
 
   expect_mc_sum_tbl(x1)
@@ -27,18 +27,18 @@ test_that("summarize_control_quality() works", {
 
   x2 <- summarize_control_quality(
     metaconfoundr(ipi),
-    "Sociodemographics = `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
-    Socioeconomics = `SES Category` | Insurance & Education,
-    \"Reproductive Hx\" = `Prior Pregnancy Outcome`"
+    "Sociodemographics = `Maternal age` & `Race/ethnicity` & `Marital status`,
+    Socioeconomics = `SES category` | Insurance & Education,
+    \"Reproductive Hx\" = `Prior pregnancy outcome`"
   )
 
   expect_mc_sum_tbl(x2)
 
   x3 <- summarize_control_quality(
     metaconfoundr(ipi),
-    `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
-    `SES Category` | Insurance & Education,
-    `Prior Pregnancy Outcome`
+    `Maternal age` & `Race/ethnicity` & `Marital status`,
+    `SES category` | Insurance & Education,
+    `Prior pregnancy outcome`
   )
 
   expect_mc_sum_tbl(x3)
@@ -47,9 +47,9 @@ test_that("summarize_control_quality() works", {
 
   x4 <- summarize_control_quality(
     metaconfoundr(ipi),
-    `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
-    `SES Category` | Insurance & Education,
-    `Prior Pregnancy Outcome`,
+    `Maternal age` & `Race/ethnicity` & `Marital status`,
+    `SES category` | Insurance & Education,
+    `Prior pregnancy outcome`,
     domains = FALSE
   )
 

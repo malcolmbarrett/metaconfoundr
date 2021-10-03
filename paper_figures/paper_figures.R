@@ -17,7 +17,7 @@ critical_constructs <- c(
 summary_df <- summarize_control_quality(
   metaconfoundr(ipi),
   "Socio-<br/>demo-<br/>graphics^†" = `Maternal age` & `Race/ethnicity` & `Marital status`,
-  "Socio-<br/>economic<br/>Factors^‡" = `SES Category` | Insurance & Education,
+  "Socio-<br/>economic<br/>Factors^‡" = `SES category` | Insurance & Education,
   "Repro-<br/>ductive Hx^§" = `Prior pregnancy outcome`
 )
 

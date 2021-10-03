@@ -27,9 +27,9 @@ named.
 
 summary_df <- summarize_control_quality(
   metaconfoundr(ipi),
-  Sociodemographics = `Maternal Age` & `Race/Ethnicity` & `Marital Status`,
-  Socioeconomics = `SES Category` | Insurance & Education,
-  "Reproductive Hx" = `Prior Pregnancy Outcome`
+  Sociodemographics = `Maternal age` & `Race/ethnicity` & `Marital status`,
+  Socioeconomics = `SES category` | Insurance & Education,
+  "Reproductive Hx" = `Prior pregnancy outcome`
 )
 
 summary_df
