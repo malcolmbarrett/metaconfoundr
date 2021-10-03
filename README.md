@@ -72,7 +72,7 @@ mc_ipi
 
 metaconfoundr includes several tools for visualizing the results of a
 confounding control assesment. The most common are `mc_heatmap()` and
-`mc_trafficlight()`
+`mc_trafficlight()`.
 
 ``` r
 mc_heatmap(mc_ipi)
@@ -86,7 +86,7 @@ mc_trafficlight(mc_ipi)
 
 <img src="man/figures/README-unnamed-chunk-2-2.png" width="100%" />
 
-These plotting functions return ggplots, so they are easy to modify
+These plotting functions return ggplots, so they are easy to modify.
 
 ``` r
 mc_heatmap(mc_ipi) +
@@ -97,7 +97,7 @@ mc_heatmap(mc_ipi) +
 <img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 metaconfoundr also includes geoms and scales to make output similar to
-other types of bias assessments for meta-analyses
+other types of bias assessments for meta-analyses.
 
 ``` r
 mc_trafficlight(mc_ipi) +
