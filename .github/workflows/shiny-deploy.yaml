@@ -34,7 +34,11 @@ jobs:
         shell: Rscript {0}
 
       - name: Authorize and deploy app
+        env:
+          RSCONNECT_USER: ${{ secrets.RSCONNECT_USER }}
+          RSCONNECT_TOKEN: ${{ secrets.RSCONNECT_TOKEN }}
+          RSCONNECT_SECRET: ${{ secrets.RSCONNECT_SECRET }}
         run: |
-          rsconnect::setAccountInfo(${{ secrets.RSCONNECT_USER }}, ${{ secrets.RSCONNECT_TOKEN }}, ${{ secrets.RSCONNECT_SECRET }})
+          rsconnect::setAccountInfo(Sys.getenv("RSCONNECT_USER"), Sys.getenv("RSCONNECT_TOKEN"), Sys.getenv("RSCONNECT_SECRET"))
           rsconnect::deployApp(appDir = "inst/shiny_app", appId = "2495855", forceUpdate = TRUE)
         shell: Rscript {0}
