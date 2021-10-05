@@ -24,9 +24,9 @@ jobs:
 
       - uses: r-lib/actions/setup-r-dependencies@v1
         with:
-          extra-packages:
-            - rsconnect
-            - markdown
+          extra-packages: |
+            rsconnect
+            markdown
 
       - name: Install metaconfoundr
         run: |
