@@ -23,13 +23,13 @@ jobs:
 
       - uses: r-lib/actions/setup-renv@v1
 
-      - name: Install rsconnect
-        run: install.packages("rsconnect")
-        shell: Rscript {0}
+      - uses: r-lib/actions/setup-r-dependencies@v1
+        with:
+          extra-packages: rsconnect
 
-      - name: Install packages
+      - name: Install metaconfoundr
         run: |
-          install.packages(c("remotes", "rsconnect"))
+          install.packages("remotes")
           remotes::install_github("malcolmbarrett/metaconfoundr")
         shell: Rscript {0}
 
