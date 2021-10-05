@@ -4,10 +4,10 @@ on:
   push:
     branches: [main, master]
 
-name: shiny-deploy
+name: deploy-shiny-app
 
 jobs:
-  shiny-deploy:
+  deploy-shiny-app:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
