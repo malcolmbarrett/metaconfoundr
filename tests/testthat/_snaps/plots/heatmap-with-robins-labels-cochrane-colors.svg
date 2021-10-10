@@ -438,7 +438,7 @@
 <rect x='646.65' y='291.61' width='17.28' height='17.28' style='stroke-width: 1.07; stroke: none; fill: #FFFFFF;' />
 <rect x='647.78' y='292.75' width='15.01' height='15.01' style='stroke-width: 1.71; stroke: #FFFFFF; stroke-linecap: square; stroke-linejoin: miter; fill: #E2B01E;' />
 <text x='669.41' y='286.00' style='font-size: 8.80px; font-family: sans;' textLength='32.77px' lengthAdjust='spacingAndGlyphs'>high risk</text>
-<text x='669.41' y='303.28' style='font-size: 8.80px; font-family: sans;' textLength='36.71px' lengthAdjust='spacingAndGlyphs'>adequate</text>
+<text x='669.41' y='303.28' style='font-size: 8.80px; font-family: sans;' textLength='29.34px' lengthAdjust='spacingAndGlyphs'>low risk</text>
 <text x='83.19' y='14.56' style='font-size: 13.20px; font-family: sans;' textLength='276.63px' lengthAdjust='spacingAndGlyphs'>Heatmap with ROBINS labels, Cochrane colors</text>
 </g>
 </svg>
