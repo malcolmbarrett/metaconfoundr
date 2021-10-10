@@ -57,7 +57,7 @@ ui <-
                     ),
                     checkboxInput(
                         "group_domain",
-                        label = "Group by Domain"
+                        label = "Group by Construct"
                     ),
                     checkboxInput(
                         "symbols",
