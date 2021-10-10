@@ -175,7 +175,7 @@ scale_color_cochrane <- function(...) {
 #' @export
 #' @rdname scale_fill_cochrane
 scale_shape_cochrane <- function(...) {
-  ggplot2::scale_shape_manual(values = c(120, 45, 43))
+  ggplot2::scale_shape_manual(values = c(120, 45, 43), ...)
 }
 
 #' A minimal theme for metaconfoundr plots
@@ -228,14 +228,14 @@ facet_constructs <- function(...) {
 #'
 #' @examples
 #' mc_heatmap(metaconfoundr(ipi)) +
-#'   scale_fill_ordinal(labels = label_robins())
+#'   ggplot2::scale_fill_ordinal(labels = label_robins())
 #'
 #' mc_heatmap(metaconfoundr(ipi)) +
 #'   scale_fill_cochrane(labels = label_robins())
 #'
 label_robins <- function() {
   c(
-    "low risk",
+    "adequate" = "low risk",
     "some concerns" = "some concerns",
     "inadequate" = "high risk"
   )
