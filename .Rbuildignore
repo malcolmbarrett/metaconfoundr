@@ -12,3 +12,4 @@
 ^deploy$
 ^_pkgdown\.yml$
 ^rhub\.R$
+^CRAN-RELEASE$
