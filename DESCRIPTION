@@ -1,6 +1,6 @@
 Package: metaconfoundr
-Title: Visualize Confounder Control in Meta-Analyses
-Version: 0.0.0.9000
+Title: Visualize 'Confounder' Control in Meta-Analyses
+Version: 0.1.0
 Authors@R: 
     c(person(given = "Malcolm",
              family = "Barrett",
@@ -17,15 +17,14 @@ Authors@R:
              role = "aut",
              email = "ludovic@bu.edu",
              comment = c(ORCID = "0000-0002-3028-4900")))
-Description: Visualize confounder control in meta-analysis.
+Description: Visualize 'confounder' control in meta-analysis.
     'metaconfoundr' is an approach to evaluating bias in studies used in
     meta-analyses based on the causal inference framework. Study groups
     create a causal diagram displaying their assumptions about the
     scientific question. From this, they develop a list of important
-    confounders. Then, they evaluate whether studies controlled for these
+    'confounders'. Then, they evaluate whether studies controlled for these
     variables well. 'metaconfoundr' is a toolkit to facilitate this
-    process and visualize the results as heatmaps, traffic light plots,
-    and more.
+    process and visualize the results as heat maps, traffic light plots,
 License: MIT + file LICENSE
 URL: https://github.com/malcolmbarrett/metaconfoundr
 BugReports: 
