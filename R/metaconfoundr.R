@@ -76,11 +76,11 @@ mc_longer <- function(
 ) {
   function(.df) {
     nms <- names(.df)
-    study <- validate_select(nms, study)
-    construct <- validate_select(nms, construct)
-    variable <- validate_select(nms, variable)
-    control_quality <- validate_select(nms, control_quality)
-    is_confounder <- validate_select(nms, is_confounder)
+    study <- validate_select(nms, dplyr::all_of(study))
+    construct <- validate_select(nms, dplyr::all_of(construct))
+    variable <- validate_select(nms, dplyr::all_of(variable))
+    control_quality <- validate_select(nms, dplyr::all_of(control_quality))
+    is_confounder <- validate_select(nms, dplyr::all_of(is_confounder))
 
     .df %>%
       dplyr::rename(
@@ -123,17 +123,28 @@ mc_wider <- function(
 ) {
   function(.df) {
     nms <- names(.df)
-    columns <- tidyselect::vars_select(nms, -construct, -variable, -is_confounder) %>%
-      tidyselect::vars_select(study)
+    columns <- tidyselect::vars_select(
+      nms,
+      -dplyr::all_of(construct),
+      -dplyr::all_of(variable),
+      -dplyr::all_of(is_confounder)
+    ) %>%
+      tidyselect::vars_select(dplyr::all_of(study))
 
     .df <- tidyr::pivot_longer(
       .df,
-      cols = columns,
+      cols = dplyr::all_of(columns),
       names_to = "study",
       values_to = "control_quality"
     )
 
-    prep_df <- mc_longer(construct = construct, variable = variable, is_confounder = is_confounder, study_values = study_values)
+    prep_df <- mc_longer(
+      construct = construct,
+      variable = variable,
+      is_confounder = is_confounder,
+      study_values = study_values
+    )
+
     prep_df(.df)
   }
 }

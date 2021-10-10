@@ -1,5 +1,3 @@
-context("mc-plots-work")
-
 set.seed(1234)
 
 test_that("heatmap works", {
@@ -52,4 +50,16 @@ test_that("traffic light plot works", {
   vdiffr::expect_doppelganger("Sorted traffic light plot", p6)
   vdiffr::expect_doppelganger("Sorted traffic light plot by domain", p7)
   vdiffr::expect_doppelganger("Cochrane traffic light plot", p8)
+})
+
+test_that("`label_robins()` correctly modifies labels", {
+  p9 <- mc_heatmap(metaconfoundr(ipi)) +
+    ggplot2::scale_fill_ordinal(labels = label_robins())
+
+  p10 <- mc_heatmap(metaconfoundr(ipi)) +
+    scale_fill_cochrane(labels = label_robins())
+
+  vdiffr::expect_doppelganger("Heatmap with ROBINS labels", p9)
+  vdiffr::expect_doppelganger("Heatmap with ROBINS labels, Cochrane colors", p10)
+
 })
