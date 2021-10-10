@@ -1,7 +1,7 @@
 pandoc: 2.7.3
 pkgdown: 1.9000.9000.9000
-pkgdown_sha: 2720abc02fbddbb761104d44d30ce7a3d0c26812
+pkgdown_sha: 31939caeb87846bc75e0cb5eccc0d610405c4580
 articles:
   intro-to-metaconfoundr: intro-to-metaconfoundr.html
-last_built: 2021-10-05T20:21Z
+last_built: 2021-10-10T03:32Z
 
