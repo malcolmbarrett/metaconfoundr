@@ -11,3 +11,4 @@
 ^codecov\.yml$
 ^deploy$
 ^_pkgdown\.yml$
+^rhub\.R$

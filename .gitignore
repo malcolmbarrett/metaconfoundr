@@ -6,3 +6,4 @@ examples.R
 deploy
 inst/shiny_app/rsconnect/
 inst/doc
+rhub.R

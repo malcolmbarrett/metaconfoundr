@@ -13,6 +13,7 @@ reference:
   - '`score_control`'
   - '`summarize_control_quality`'
   - '`theme_mc`'
+  - '`label_robins`'
 articles:
 - title: All vignettes
   desc: null
