@@ -47,7 +47,7 @@ metaconfoundr includes an example dataset, `ipi`, that contains
 information on a meta-analysis of interpregnancy interval and the risk
 of preterm birth. Use `metaconfoundr()` to prepare the dataset to work
 with metaconfoundr functions. `ipi` includes several domains of
-confounders, but for ease of visualization, we’ll just show one,
+confounders, but for ease of visualization, we will just show one,
 `Sociodemographics`.
 
 ``` r
@@ -119,6 +119,6 @@ ROBINS tool, see the excellent
 
 # Code of Conduct
 
-Please note that the ‘metaconfoundr’ project is released with a
+Please note that the metaconfoundr project is released with a
 [Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By
 contributing to this project, you agree to abide by its terms.
