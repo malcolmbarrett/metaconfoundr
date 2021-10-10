@@ -15,7 +15,7 @@ ROBINS-like labels: low risk, some concerns, high risk.
 }
 \examples{
 mc_heatmap(metaconfoundr(ipi)) +
-  scale_fill_ordinal(labels = label_robins())
+  ggplot2::scale_fill_ordinal(labels = label_robins())
 
 mc_heatmap(metaconfoundr(ipi)) +
   scale_fill_cochrane(labels = label_robins())
