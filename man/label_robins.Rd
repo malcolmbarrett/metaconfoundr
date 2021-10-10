@@ -14,7 +14,6 @@ a character vector of ROBINS labels
 ROBINS-like labels: low risk, some concerns, high risk.
 }
 \examples{
-
 mc_heatmap(metaconfoundr(ipi)) +
   scale_fill_ordinal(labels = label_robins())
 

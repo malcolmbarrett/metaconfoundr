@@ -227,12 +227,11 @@ facet_constructs <- function(...) {
 #' @export
 #'
 #' @examples
+#' mc_heatmap(metaconfoundr(ipi)) +
+#'   scale_fill_ordinal(labels = label_robins())
 #'
-# mc_heatmap(metaconfoundr(ipi)) +
-#   scale_fill_ordinal(labels = label_robins())
-#
-# mc_heatmap(metaconfoundr(ipi)) +
-#   scale_fill_cochrane(labels = label_robins())
+#' mc_heatmap(metaconfoundr(ipi)) +
+#'   scale_fill_cochrane(labels = label_robins())
 #'
 label_robins <- function() {
   c(
