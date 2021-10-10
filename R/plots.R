@@ -218,3 +218,27 @@ facet_constructs <- function(...) {
   ggplot2::facet_grid(. ~ construct, scales = "free_x", space = "free_x", ...)
 }
 
+#' Label values using ROBINS approach
+#'
+#' `label_robins()` is a helper function to modify metaconfoundr labels to use
+#' ROBINS-like labels: low risk, some concerns, high risk.
+#'
+#' @return a character vector of ROBINS labels
+#' @export
+#'
+#' @examples
+#'
+# mc_heatmap(metaconfoundr(ipi)) +
+#   scale_fill_ordinal(labels = label_robins())
+#
+# mc_heatmap(metaconfoundr(ipi)) +
+#   scale_fill_cochrane(labels = label_robins())
+#'
+label_robins <- function() {
+  c(
+    "low risk",
+    "some concerns" = "some concerns",
+    "inadequate" = "high risk"
+  )
+}
+
