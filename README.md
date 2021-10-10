@@ -120,5 +120,6 @@ ROBINS tool, see the excellent
 # Code of Conduct
 
 Please note that the metaconfoundr project is released with a
-[Contributor Code of Conduct](.github/CODE_OF_CONDUCT.md). By
-contributing to this project, you agree to abide by its terms.
+[Contributor Code of
+Conduct](https://raw.githubusercontent.com/malcolmbarrett/metaconfoundr/master/.github/CODE_OF_CONDUCT.md).
+By contributing to this project, you agree to abide by its terms.
