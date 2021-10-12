@@ -32,8 +32,14 @@ version](https://malcolmbarrett.shinyapps.io/metaconfoundr/).
 
 ## Installation
 
-metaconfoundr is not yet on CRAN, but you can install the development
-version of metaconfoundr from GitHub with:
+Install the most recent released version of metaconfoundr from CRAN:
+
+``` r
+install.packages("metaconfoundr")
+```
+
+You can install the development version of metaconfoundr from GitHub
+with:
 
 ``` r
 # if needed
