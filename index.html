@@ -41,7 +41,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">metaconfoundr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0.9000</span>
       </span>
     </div>
 
@@ -67,6 +67,9 @@
       <a href="articles/intro-to-metaconfoundr.html">An Introduction to metaconfoundr</a>
     </li>
   </ul>
+</li>
+<li>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
 <ul class="nav navbar-nav navbar-right">
@@ -99,8 +102,11 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor" aria-hidden="true"></a>Installation</h2>
-<p>metaconfoundr is not yet on CRAN, but you can install the development version of metaconfoundr from GitHub with:</p>
+<p>Install the most recent released version of metaconfoundr from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"metaconfoundr"</span><span class="op">)</span></code></pre></div>
+<p>You can install the development version of metaconfoundr from GitHub with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># if needed</span>
 <span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"malcolmbarrett/metaconfoundr"</span><span class="op">)</span></code></pre></div>
@@ -109,7 +115,7 @@
 <h2 class="hasAnchor">
 <a href="#visualizing-confounding-control" class="anchor" aria-hidden="true"></a>Visualizing confounding control</h2>
 <p>metaconfoundr includes an example dataset, <code>ipi</code>, that contains information on a meta-analysis of interpregnancy interval and the risk of preterm birth. Use <code><a href="reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> to prepare the dataset to work with metaconfoundr functions. <code>ipi</code> includes several domains of confounders, but for ease of visualization, we will just show one, <code>Sociodemographics</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/malcolmbarrett/metaconfoundr" class="external-link">metaconfoundr</a></span><span class="op">)</span>
 <span class="va">mc_ipi</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
   <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">construct</span> <span class="op">==</span> <span class="st">"Sociodemographics"</span><span class="op">)</span>
@@ -130,20 +136,20 @@
 <span class="co">#&gt; 10 Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
 <span class="co">#&gt; # … with 45 more rows</span></code></pre></div>
 <p>metaconfoundr includes several tools for visualizing the results of a confounding control assesment. The most common are <code><a href="reference/mc_heatmap.html">mc_heatmap()</a></code> and <code><a href="reference/mc_heatmap.html">mc_trafficlight()</a></code>.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-2.png" width="100%"></p>
 <p>These plotting functions return ggplots, so they are easy to modify.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
 <p>metaconfoundr also includes geoms and scales to make output similar to other types of bias assessments for meta-analyses.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="reference/geom_cochrane.html">geom_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
@@ -169,6 +175,8 @@
     <div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
+<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=metaconfoundr">https://​cloud.r-project.org/​package=metaconfoundr</a>
+</li>
 <li>Browse source code at <br><a href="https://github.com/malcolmbarrett/metaconfoundr/">https://​github.com/​malcolmbarrett/​metaconfoundr/​</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/malcolmbarrett/metaconfoundr/issues">https://​github.com/​malcolmbarrett/​metaconfoundr/​issues</a>
