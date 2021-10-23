@@ -45,7 +45,7 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul><ul class="nav navbar-nav navbar-right"><li>
-  <a href="https://github.com/malcolmbarrett/metaconfoundr/">
+  <a href="https://github.com/malcolmbarrett/metaconfoundr/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -60,7 +60,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Add Cochrane-style symbols to heatmaps and traffic light plots</h1>
-    <small class="dont-index">Source: <a href="https://github.com/malcolmbarrett/metaconfoundr/blob/master/R/plots.R"><code>R/plots.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/malcolmbarrett/metaconfoundr/blob/master/R/plots.R" class="external-link"><code>R/plots.R</code></a></small>
     <div class="hidden name"><code>geom_cochrane.Rd</code></div>
     </div>
 
@@ -69,7 +69,7 @@
     </div>
 
     <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">geom_cochrane</span><span class="op">(</span>
-  mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="va">control_quality</span><span class="op">)</span>,
+  mapping <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="va">control_quality</span><span class="op">)</span>,
   data <span class="op">=</span> <span class="cn">NULL</span>,
   stat <span class="op">=</span> <span class="st">"identity"</span>,
   position <span class="op">=</span> <span class="st">"identity"</span>,
@@ -79,59 +79,56 @@
   inherit.aes <span class="op">=</span> <span class="cn">TRUE</span>
 <span class="op">)</span></code></pre></div>
 
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments"><colgroup><col class="name"><col class="desc"></colgroup><tr><th>mapping</th>
-      <td><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes()</a></code> or
-<code><a href="https://ggplot2.tidyverse.org/reference/aes_.html">aes_()</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
+    <div id="ref-sections">
+    <div id="arguments">
+    <h2>Arguments</h2>
+    
+
+<dl><dt>mapping</dt><dd><p>Set of aesthetic mappings created by <code><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes()</a></code> or
+<code><a href="https://ggplot2.tidyverse.org/reference/aes_.html" class="external-link">aes_()</a></code>. If specified and <code>inherit.aes = TRUE</code> (the
 default), it is combined with the default mapping at the top level of the
-plot. You must supply <code>mapping</code> if there is no plot mapping.</p></td>
-    </tr><tr><th>data</th>
-      <td><p>The data to be displayed in this layer. There are three
-options:</p>
-<p>If <code>NULL</code>, the default, the data is inherited from the plot
-data as specified in the call to <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot()</a></code>.</p>
-<p>A <code>data.frame</code>, or other object, will override the plot
+plot. You must supply <code>mapping</code> if there is no plot mapping.</p></dd>
+</dl><dl><dt>data</dt><dd><p>The data to be displayed in this layer. There are three
+options:If <code>NULL</code>, the default, the data is inherited from the plot
+data as specified in the call to <code><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot()</a></code>.A <code>data.frame</code>, or other object, will override the plot
 data. All objects will be fortified to produce a data frame. See
-<code><a href="https://ggplot2.tidyverse.org/reference/fortify.html">fortify()</a></code> for which variables will be created.</p>
-<p>A <code>function</code> will be called with a single argument,
+<code><a href="https://ggplot2.tidyverse.org/reference/fortify.html" class="external-link">fortify()</a></code> for which variables will be created.A <code>function</code> will be called with a single argument,
 the plot data. The return value must be a <code>data.frame</code>, and
 will be used as the layer data. A <code>function</code> can be created
-from a <code>formula</code> (e.g. <code>~ head(.x, 10)</code>).</p></td>
-    </tr><tr><th>stat</th>
-      <td><p>The statistical transformation to use on the data for this
-layer, as a string.</p></td>
-    </tr><tr><th>position</th>
-      <td><p>Position adjustment, either as a string, or the result of
-a call to a position adjustment function.</p></td>
-    </tr><tr><th>...</th>
-      <td><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/layer.html">layer()</a></code>. These are
+from a <code>formula</code> (e.g. <code>~ head(.x, 10)</code>).</p></dd>
+</dl><dl><dt>stat</dt><dd><p>The statistical transformation to use on the data for this
+layer, as a string.</p></dd>
+</dl><dl><dt>position</dt><dd><p>Position adjustment, either as a string, or the result of
+a call to a position adjustment function.</p></dd>
+</dl><dl><dt>...</dt><dd><p>Other arguments passed on to <code><a href="https://ggplot2.tidyverse.org/reference/layer.html" class="external-link">layer()</a></code>. These are
 often aesthetics, used to set an aesthetic to a fixed value, like
 <code>colour = "red"</code> or <code>size = 3</code>. They may also be parameters
-to the paired geom/stat.</p></td>
-    </tr><tr><th>na.rm</th>
-      <td><p>If <code>FALSE</code>, the default, missing values are removed with
-a warning. If <code>TRUE</code>, missing values are silently removed.</p></td>
-    </tr><tr><th>show.legend</th>
-      <td><p>logical. Should this layer be included in the legends?
+to the paired geom/stat.</p></dd>
+</dl><dl><dt>na.rm</dt><dd><p>If <code>FALSE</code>, the default, missing values are removed with
+a warning. If <code>TRUE</code>, missing values are silently removed.</p></dd>
+</dl><dl><dt>show.legend</dt><dd><p>logical. Should this layer be included in the legends?
 <code>NA</code>, the default, includes if any aesthetics are mapped.
 <code>FALSE</code> never includes, and <code>TRUE</code> always includes.
 It can also be a named logical vector to finely select the aesthetics to
-display.</p></td>
-    </tr><tr><th>inherit.aes</th>
-      <td><p>If <code>FALSE</code>, overrides the default aesthetics,
+display.</p></dd>
+</dl><dl><dt>inherit.aes</dt><dd><p>If <code>FALSE</code>, overrides the default aesthetics,
 rather than combining with them. This is most useful for helper functions
 that define both data and aesthetics and shouldn't inherit behaviour from
-the default plot specification, e.g. <code><a href="https://ggplot2.tidyverse.org/reference/borders.html">borders()</a></code>.</p></td>
-    </tr></table><h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
-
+the default plot specification, e.g. <code><a href="https://ggplot2.tidyverse.org/reference/borders.html" class="external-link">borders()</a></code>.</p></dd>
+</dl></div>
+    <div id="value">
+    <h2>Value</h2>
     <p>a geom</p>
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
+    </div>
+    <div id="see-also">
+    <h2>See also</h2>
     <div class="dont-index"><p>Other plots: 
 <code><a href="facet_constructs.html">facet_constructs</a>()</code>,
 <code><a href="mc_heatmap.html">mc_heatmap</a>()</code>,
 <code><a href="scale_fill_cochrane.html">scale_fill_cochrane</a>()</code>,
 <code><a href="theme_mc.html">theme_mc</a>()</code></p></div>
+    </div>
+    </div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

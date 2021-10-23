@@ -153,9 +153,9 @@
 <span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
 <span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
 <span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></code></pre></div>
-<div id="creating-plots" class="section level1">
-<h1 class="hasAnchor">
-<a href="#creating-plots" class="anchor" aria-hidden="true"></a>Creating plots</h1>
+<div class="section level1">
+<h1 id="creating-plots">Creating plots<a class="anchor" aria-label="anchor" href="#creating-plots"></a>
+</h1>
 <p>The primary goal of metaconfoundr is to visualize confounding control for a set of studies in a meta-analysis. The two main plotting functions are <code><a href="../reference/mc_heatmap.html">mc_heatmap()</a></code> and <code><a href="../reference/mc_heatmap.html">mc_trafficlight()</a></code>, which both accept data prepared by <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">mc_ipi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span></code></pre></div>
@@ -165,9 +165,9 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="../reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-5-1.png" width="1152"></p>
-<div id="customizing-plots" class="section level2">
-<h2 class="hasAnchor">
-<a href="#customizing-plots" class="anchor" aria-hidden="true"></a>Customizing plots</h2>
+<div class="section level2">
+<h2 id="customizing-plots">Customizing plots<a class="anchor" aria-label="anchor" href="#customizing-plots"></a>
+</h2>
 <p>These results are ggplots and can thus be customized like any other plot from ggplot2.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">wrap_labeller</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">10</span><span class="op">)</span>
@@ -195,9 +195,9 @@
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, hjust <span class="op">=</span> <span class="fl">1</span>, vjust <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span>,<span class="op">)</span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-8-1.png" width="1152"></p>
 </div>
-<div id="summarizing-confounder-control" class="section level2">
-<h2 class="hasAnchor">
-<a href="#summarizing-confounder-control" class="anchor" aria-hidden="true"></a>Summarizing confounder control</h2>
+<div class="section level2">
+<h2 id="summarizing-confounder-control">Summarizing confounder control<a class="anchor" aria-label="anchor" href="#summarizing-confounder-control"></a>
+</h2>
 <p>In addition to visualizing all possible confounders, metaconfoundr supports evaluating confounders at the domain level. For instance, if we feel <code>ipi</code> has three core areas of confounding, we can specify what variables are necessary for adequate control to account for the domain. These three domains are sociodemographics, socioeconomics, and reproductive history. We’ll say that controlling for maternal age, race/ethnicity, and marital status are sufficient to control for sociodemographics; socioeconomic status <em>or</em> insurance status <em>and</em> education are adequate for socioeconomics; and prior pregnancy outcomes are enough to control for reproductive history. We can specify these rules using boolean logic that refers to confounders in the <code>variable</code> column of our data:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">summary_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summarize_control_quality.html">summarize_control_quality</a></span><span class="op">(</span>
@@ -231,9 +231,9 @@
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-10-1.png" width="480"></p>
 </div>
 </div>
-<div id="combining-with-forest-plots" class="section level1">
-<h1 class="hasAnchor">
-<a href="#combining-with-forest-plots" class="anchor" aria-hidden="true"></a>Combining with forest plots</h1>
+<div class="section level1">
+<h1 id="combining-with-forest-plots">Combining with forest plots<a class="anchor" aria-label="anchor" href="#combining-with-forest-plots"></a>
+</h1>
 <p>Because metaconfoundr plots are ggplots, it’s easy to combine with other plots using tools from the ggplot2 ecosystem. The patchwork package makes it particularly easy, allowing you to connect plots with <code>+</code>. For example, let’s make a simple forest plot in ggplot2 and combine it with a metaconfoundr plot. (Alternatively, you could use a tool like <a href="https://github.com/malcolmbarrett/tidymeta" class="external-link">tidymeta</a> to create the forest plot.) <code>ipi_metaanalysis</code> contains effect sizes for the studies in <code>ipi</code>. We’ll also write a helper function, <code>sort_by_year()</code>, to help order the two plots in the same way.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">sort_by_year</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.df</span><span class="op">)</span> <span class="op">{</span>
@@ -302,9 +302,9 @@
   <span class="co"># make the FP thrice as as wide as the TLP</span>
   <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-13-1.png" width="960"></p>
-<div id="using-control-quality-as-an-analytic-category" class="section level2">
-<h2 class="hasAnchor">
-<a href="#using-control-quality-as-an-analytic-category" class="anchor" aria-hidden="true"></a>Using control quality as an analytic category</h2>
+<div class="section level2">
+<h2 id="using-control-quality-as-an-analytic-category">Using control quality as an analytic category<a class="anchor" aria-label="anchor" href="#using-control-quality-as-an-analytic-category"></a>
+</h2>
 <p>Another use of metaconfoundr is to create categories for which to estimate sub-group summary effect sizes. Let’s use the metafor package to do a simple meta-analysis by whether a study is, overall, adequately controlled, inadequately controlled, or controlled with some concerns.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.metafor-project.org" class="external-link">metafor</a></span><span class="op">)</span>
@@ -334,9 +334,9 @@
 <span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
 </div>
 </div>
-<div id="visualizing-non-confounders" class="section level1">
-<h1 class="hasAnchor">
-<a href="#visualizing-non-confounders" class="anchor" aria-hidden="true"></a>Visualizing non-confounders</h1>
+<div class="section level1">
+<h1 id="visualizing-non-confounders">Visualizing non-confounders<a class="anchor" aria-label="anchor" href="#visualizing-non-confounders"></a>
+</h1>
 <p>Many studies control for variables that are not, in fact, confounders. While there are many cases where doing this will not affect results, there are several, such as controlling for a descendant of the exposure and outcome, that may increase bias. By default, metaconfoundr does not plot non-confounders. Instead, there is a set of tools for evaluating how many non-confounders for which a study controls. The more controlled for, the higher the chance that one is inducing bias.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">ipi</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
@@ -363,7 +363,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link external-link">pkgdown</a> 1.9000.9000.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
 </div>
 
       </footer>
