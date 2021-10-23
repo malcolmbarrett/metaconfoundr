@@ -65,11 +65,13 @@ ui <-
           ),
           checkboxInput(
             "dodge",
-            label = "Dodge x-axis labels"
+            label = "Dodge x-axis labels",
+            value = TRUE
           ),
           checkboxInput(
             "wrap_labels",
-            label = "Wrap x-axis labels"
+            label = "Wrap x-axis labels",
+            value = TRUE
           ),
           checkboxInput(
             "use_robins_labels",
