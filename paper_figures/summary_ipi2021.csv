@@ -1,0 +1,89 @@
+study,variable,control_quality,construct
+zhu_2001a,overall,some concerns,overall
+zhu_2001b,overall,some concerns,overall
+zhu_1999,overall,some concerns,overall
+salihu_2012a,overall,some concerns,overall
+salihu_2012b,overall,some concerns,overall
+smith_2003,overall,some concerns,overall
+shachar_2016,overall,some concerns,overall
+ball_2014,overall,some concerns,overall
+coo_2017,overall,inadequate,overall
+hanley_2017,overall,inadequate,overall
+de_weger_2011,overall,inadequate,overall
+zhu_2001a,Repro-<br/>ductive Hx^§,adequate,domains
+zhu_2001b,Repro-<br/>ductive Hx^§,adequate,domains
+zhu_1999,Repro-<br/>ductive Hx^§,adequate,domains
+salihu_2012a,Repro-<br/>ductive Hx^§,adequate,domains
+salihu_2012b,Repro-<br/>ductive Hx^§,adequate,domains
+smith_2003,Repro-<br/>ductive Hx^§,adequate,domains
+shachar_2016,Repro-<br/>ductive Hx^§,adequate,domains
+ball_2014,Repro-<br/>ductive Hx^§,adequate,domains
+coo_2017,Repro-<br/>ductive Hx^§,adequate,domains
+hanley_2017,Repro-<br/>ductive Hx^§,inadequate,domains
+de_weger_2011,Repro-<br/>ductive Hx^§,inadequate,domains
+zhu_2001a,Socio-<br/>demo-<br/>graphics^†,adequate,domains
+zhu_2001b,Socio-<br/>demo-<br/>graphics^†,adequate,domains
+zhu_1999,Socio-<br/>demo-<br/>graphics^†,adequate,domains
+salihu_2012a,Socio-<br/>demo-<br/>graphics^†,adequate,domains
+salihu_2012b,Socio-<br/>demo-<br/>graphics^†,adequate,domains
+smith_2003,Socio-<br/>demo-<br/>graphics^†,some concerns,domains
+shachar_2016,Socio-<br/>demo-<br/>graphics^†,some concerns,domains
+ball_2014,Socio-<br/>demo-<br/>graphics^†,some concerns,domains
+coo_2017,Socio-<br/>demo-<br/>graphics^†,inadequate,domains
+hanley_2017,Socio-<br/>demo-<br/>graphics^†,inadequate,domains
+de_weger_2011,Socio-<br/>demo-<br/>graphics^†,some concerns,domains
+zhu_2001a,Socio-<br/>economic<br/>Factors^‡,some concerns,domains
+zhu_2001b,Socio-<br/>economic<br/>Factors^‡,some concerns,domains
+zhu_1999,Socio-<br/>economic<br/>Factors^‡,some concerns,domains
+salihu_2012a,Socio-<br/>economic<br/>Factors^‡,some concerns,domains
+salihu_2012b,Socio-<br/>economic<br/>Factors^‡,some concerns,domains
+smith_2003,Socio-<br/>economic<br/>Factors^‡,adequate,domains
+shachar_2016,Socio-<br/>economic<br/>Factors^‡,adequate,domains
+ball_2014,Socio-<br/>economic<br/>Factors^‡,adequate,domains
+coo_2017,Socio-<br/>economic<br/>Factors^‡,adequate,domains
+hanley_2017,Socio-<br/>economic<br/>Factors^‡,inadequate,domains
+de_weger_2011,Socio-<br/>economic<br/>Factors^‡,adequate,domains
+zhu_2001a,Family<br/>Planning^¶,inadequate,domains
+zhu_2001b,Family<br/>Planning^¶,inadequate,domains
+zhu_1999,Family<br/>Planning^¶,some concerns,domains
+salihu_2012a,Family<br/>Planning^¶,inadequate,domains
+salihu_2012b,Family<br/>Planning^¶,inadequate,domains
+smith_2003,Family<br/>Planning^¶,inadequate,domains
+shachar_2016,Family<br/>Planning^¶,inadequate,domains
+ball_2014,Family<br/>Planning^¶,inadequate,domains
+coo_2017,Family<br/>Planning^¶,inadequate,domains
+hanley_2017,Family<br/>Planning^¶,inadequate,domains
+de_weger_2011,Family<br/>Planning^¶,some concerns,domains
+zhu_2001a,Structured<br/>Racism^#,inadequate,domains
+zhu_2001b,Structured<br/>Racism^#,inadequate,domains
+zhu_1999,Structured<br/>Racism^#,inadequate,domains
+salihu_2012a,Structured<br/>Racism^#,inadequate,domains
+salihu_2012b,Structured<br/>Racism^#,inadequate,domains
+smith_2003,Structured<br/>Racism^#,inadequate,domains
+shachar_2016,Structured<br/>Racism^#,inadequate,domains
+ball_2014,Structured<br/>Racism^#,inadequate,domains
+coo_2017,Structured<br/>Racism^#,inadequate,domains
+hanley_2017,Structured<br/>Racism^#,inadequate,domains
+de_weger_2011,Structured<br/>Racism^#,inadequate,domains
+zhu_2001a,Underlying<br/>Health,inadequate,domains
+zhu_2001b,Underlying<br/>Health,inadequate,domains
+zhu_1999,Underlying<br/>Health,some concerns,domains
+salihu_2012a,Underlying<br/>Health,adequate,domains
+salihu_2012b,Underlying<br/>Health,adequate,domains
+smith_2003,Underlying<br/>Health,inadequate,domains
+shachar_2016,Underlying<br/>Health,adequate,domains
+ball_2014,Underlying<br/>Health,inadequate,domains
+coo_2017,Underlying<br/>Health,adequate,domains
+hanley_2017,Underlying<br/>Health,adequate,domains
+de_weger_2011,Underlying<br/>Health,inadequate,domains
+zhu_2001a,Health<br/>Behaviors,adequate,domains
+zhu_2001b,Health<br/>Behaviors,adequate,domains
+zhu_1999,Health<br/>Behaviors,adequate,domains
+salihu_2012a,Health<br/>Behaviors,adequate,domains
+salihu_2012b,Health<br/>Behaviors,adequate,domains
+smith_2003,Health<br/>Behaviors,adequate,domains
+shachar_2016,Health<br/>Behaviors,adequate,domains
+ball_2014,Health<br/>Behaviors,inadequate,domains
+coo_2017,Health<br/>Behaviors,adequate,domains
+hanley_2017,Health<br/>Behaviors,adequate,domains
+de_weger_2011,Health<br/>Behaviors,inadequate,domains
