@@ -64,7 +64,7 @@ evaluations of control quality."><!-- mathjax --><script src="https://cdnjs.clou
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Tidy metaconfoundr data layouts</h1>
-    <small class="dont-index">Source: <a href="https://github.com/malcolmbarrett/metaconfoundr/blob/master/R/metaconfoundr.R" class="external-link"><code>R/metaconfoundr.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/malcolmbarrett/metaconfoundr/blob/HEAD/R/metaconfoundr.R" class="external-link"><code>R/metaconfoundr.R</code></a></small>
     <div class="hidden name"><code>mc_detect_layout.Rd</code></div>
     </div>
 
@@ -76,7 +76,8 @@ number of variables in the data frame. <code>mc_study_values()</code> helps stan
 evaluations of control quality.</p>
     </div>
 
-    <div class="ref-usage sourceCode"><pre class="sourceCode r"><code><span class="fu">mc_detect_layout</span><span class="op">(</span><span class="va">...</span><span class="op">)</span>
+    <div id="ref-usage">
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mc_detect_layout</span><span class="op">(</span><span class="va">...</span><span class="op">)</span>
 
 <span class="fu">mc_longer</span><span class="op">(</span>
   study <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"construct"</span><span class="op">)</span>,
@@ -96,29 +97,36 @@ evaluations of control quality.</p>
   study <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>,
   study_values <span class="op">=</span> <span class="fu">mc_study_values</span><span class="op">(</span><span class="op">)</span>
 <span class="op">)</span></code></pre></div>
+    </div>
 
-    <div id="ref-sections">
     <div id="arguments">
     <h2>Arguments</h2>
-    
-
-<dl><dt>...</dt><dd><p>Additional arguments passed to <code>mc_wider()</code> or <code>mc_longer()</code></p></dd>
-</dl><dl><dt>study</dt><dd><p>The column with the name of the studies</p></dd>
-</dl><dl><dt>construct</dt><dd><p>The domain or construct column</p></dd>
-</dl><dl><dt>variable</dt><dd><p>The column that describes the confounding variables</p></dd>
-</dl><dl><dt>control_quality</dt><dd><p>The column that describes the confounding control
+    <dl><dt>...</dt>
+<dd><p>Additional arguments passed to <code>mc_wider()</code> or <code>mc_longer()</code></p></dd>
+<dt>study</dt>
+<dd><p>The column with the name of the studies</p></dd>
+<dt>construct</dt>
+<dd><p>The domain or construct column</p></dd>
+<dt>variable</dt>
+<dd><p>The column that describes the confounding variables</p></dd>
+<dt>control_quality</dt>
+<dd><p>The column that describes the confounding control
 quality</p></dd>
-</dl><dl><dt>is_confounder</dt><dd><p>The column that describes if a variable is a confounder</p></dd>
-</dl><dl><dt>study_values</dt><dd><p>What are the levels of <code>control_quality</code>? Use
+<dt>is_confounder</dt>
+<dd><p>The column that describes if a variable is a confounder</p></dd>
+<dt>study_values</dt>
+<dd><p>What are the levels of <code>control_quality</code>? Use
 <code>mc_study_values()</code> to set up.</p></dd>
-</dl><dl><dt>inadequate</dt><dd><p>Which value signifies inadequate control?</p></dd>
-</dl><dl><dt>some_concerns</dt><dd><p>Which value signifies control with some concerns?</p></dd>
-</dl><dl><dt>adequate</dt><dd><p>Which value signifies adequate control?</p></dd>
+<dt>inadequate</dt>
+<dd><p>Which value signifies inadequate control?</p></dd>
+<dt>some_concerns</dt>
+<dd><p>Which value signifies control with some concerns?</p></dd>
+<dt>adequate</dt>
+<dd><p>Which value signifies adequate control?</p></dd>
 </dl></div>
     <div id="value">
     <h2>Value</h2>
     <p>a function that tidies the data</p>
-    </div>
     </div>
 
   </div>
@@ -133,7 +141,7 @@ quality</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 1.9000.9000.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
 </div>
 
       </footer></div>
