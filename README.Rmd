@@ -22,7 +22,7 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/metaconfoundr)](https://CRAN.R-project.org/package=metaconfoundr)
 [![R build status](https://github.com/malcolmbarrett/metaconfoundr/workflows/R-CMD-check/badge.svg)](https://github.com/malcolmbarrett/metaconfoundr/actions)
 [![Shiny app deployment](https://github.com/malcolmbarrett/metaconfoundr/workflows/deploy-shiny-app/badge.svg)](https://github.com/malcolmbarrett/metaconfoundr/actions)
-[![Codecov test coverage](https://codecov.io/gh/malcolmbarrett/metaconfoundr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/malcolmbarrett/metaconfoundr?branch=master)
+[![Codecov test coverage](https://codecov.io/gh/malcolmbarrett/metaconfoundr/branch/mainer/graph/badge.svg)](https://app.codecov.io/gh/malcolmbarrett/metaconfoundr?branch=mainer)
 <!-- badges: end -->
 
 The goal of metaconfoundr is to make it easy to visualize confounding control in meta-analyses. Researchers use a causal diagram to assess factors that are required to control for to estimate an effect unbiased by confounding. Then, the researchers create a data frame of confounding variables and how well each study in the meta-analysis controlled for each: adequately, inadequately, or with some control. See the vignette on collecting confounder data for more information.
@@ -88,4 +88,4 @@ For working with common assessments of bias in studies, such as the ROBINS tool,
 
 # Code of Conduct
 
-Please note that the metaconfoundr project is released with a [Contributor Code of Conduct](https://raw.githubusercontent.com/malcolmbarrett/metaconfoundr/master/.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.
+Please note that the metaconfoundr project is released with a [Contributor Code of Conduct](https://raw.githubusercontent.com/malcolmbarrett/metaconfoundr/mainer/.github/CODE_OF_CONDUCT.md). By contributing to this project, you agree to abide by its terms.

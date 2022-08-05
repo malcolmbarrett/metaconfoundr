@@ -14,7 +14,7 @@ status](https://github.com/malcolmbarrett/metaconfoundr/workflows/R-CMD-check/ba
 [![Shiny app
 deployment](https://github.com/malcolmbarrett/metaconfoundr/workflows/deploy-shiny-app/badge.svg)](https://github.com/malcolmbarrett/metaconfoundr/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/malcolmbarrett/metaconfoundr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/malcolmbarrett/metaconfoundr?branch=master)
+coverage](https://codecov.io/gh/malcolmbarrett/metaconfoundr/branch/mainer/graph/badge.svg)](https://app.codecov.io/gh/malcolmbarrett/metaconfoundr?branch=mainer)
 <!-- badges: end -->
 
 The goal of metaconfoundr is to make it easy to visualize confounding
@@ -76,6 +76,7 @@ mc_ipi
 #>  9 Sociodemographics Maternal age Y             deWeger_2011 adequate       
 #> 10 Sociodemographics Maternal age Y             Coo_2017     adequate       
 #> # … with 45 more rows
+#> # ℹ Use `print(n = ...)` to see more rows
 ```
 
 metaconfoundr includes several tools for visualizing the results of a
@@ -127,5 +128,5 @@ ROBINS tool, see the excellent
 
 Please note that the metaconfoundr project is released with a
 [Contributor Code of
-Conduct](https://raw.githubusercontent.com/malcolmbarrett/metaconfoundr/master/.github/CODE_OF_CONDUCT.md).
+Conduct](https://raw.githubusercontent.com/malcolmbarrett/metaconfoundr/mainer/.github/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
