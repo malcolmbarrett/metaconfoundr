@@ -1,7 +1,9 @@
 # re-export functions from {tidyselect}
 
-peek_vars <- tidyselect::peek_vars
-
+#' @aliases select_helpers
+#' @importFrom tidyselect peek_vars
+#' @export
+tidyselect::peek_vars
 #' @aliases select_helpers
 #' @importFrom tidyselect contains
 #' @export

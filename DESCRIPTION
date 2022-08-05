@@ -25,10 +25,8 @@ Depends:
     R (>= 3.5.0)
 Imports: 
     dplyr (>= 1.0.0),
-    ellipsis,
     forcats,
     ggplot2 (>= 3.3.1),
-    glue,
     magrittr,
     purrr,
     rlang (>= 0.1.2),
