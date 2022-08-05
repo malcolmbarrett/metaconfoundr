@@ -14,7 +14,7 @@ status](https://github.com/malcolmbarrett/metaconfoundr/workflows/R-CMD-check/ba
 [![Shiny app
 deployment](https://github.com/malcolmbarrett/metaconfoundr/workflows/deploy-shiny-app/badge.svg)](https://github.com/malcolmbarrett/metaconfoundr/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/malcolmbarrett/metaconfoundr/branch/master/graph/badge.svg)](https://codecov.io/gh/malcolmbarrett/metaconfoundr?branch=master)
+coverage](https://codecov.io/gh/malcolmbarrett/metaconfoundr/branch/master/graph/badge.svg)](https://app.codecov.io/gh/malcolmbarrett/metaconfoundr?branch=master)
 <!-- badges: end -->
 
 The goal of metaconfoundr is to make it easy to visualize confounding
