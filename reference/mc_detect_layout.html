@@ -36,7 +36,7 @@ evaluations of control quality."><!-- mathjax --><script src="https://cdnjs.clou
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -77,56 +77,77 @@ evaluations of control quality.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">mc_detect_layout</span><span class="op">(</span><span class="va">...</span><span class="op">)</span>
-
-<span class="fu">mc_longer</span><span class="op">(</span>
-  study <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"construct"</span><span class="op">)</span>,
-  construct <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"construct"</span><span class="op">)</span>,
-  variable <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">matches</a></span><span class="op">(</span><span class="st">"variable|factor"</span><span class="op">)</span>,
-  control_quality <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"control_quality"</span><span class="op">)</span>,
-  is_confounder <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"confounder"</span><span class="op">)</span>,
-  study_values <span class="op">=</span> <span class="fu">mc_study_values</span><span class="op">(</span><span class="op">)</span>
-<span class="op">)</span>
-
-<span class="fu">mc_study_values</span><span class="op">(</span>inadequate <span class="op">=</span> <span class="fl">0</span>, some_concerns <span class="op">=</span> <span class="fl">1</span>, adequate <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
-
-<span class="fu">mc_wider</span><span class="op">(</span>
-  construct <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"construct"</span><span class="op">)</span>,
-  variable <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">matches</a></span><span class="op">(</span><span class="st">"variable|factor"</span><span class="op">)</span>,
-  is_confounder <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"confounder"</span><span class="op">)</span>,
-  study <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>,
-  study_values <span class="op">=</span> <span class="fu">mc_study_values</span><span class="op">(</span><span class="op">)</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">mc_detect_layout</span><span class="op">(</span><span class="va">...</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">mc_longer</span><span class="op">(</span></span>
+<span>  study <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"construct"</span><span class="op">)</span>,</span>
+<span>  construct <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"construct"</span><span class="op">)</span>,</span>
+<span>  variable <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">matches</a></span><span class="op">(</span><span class="st">"variable|factor"</span><span class="op">)</span>,</span>
+<span>  control_quality <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"control_quality"</span><span class="op">)</span>,</span>
+<span>  is_confounder <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"confounder"</span><span class="op">)</span>,</span>
+<span>  study_values <span class="op">=</span> <span class="fu">mc_study_values</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">mc_study_values</span><span class="op">(</span>inadequate <span class="op">=</span> <span class="fl">0</span>, some_concerns <span class="op">=</span> <span class="fl">1</span>, adequate <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">mc_wider</span><span class="op">(</span></span>
+<span>  construct <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"construct"</span><span class="op">)</span>,</span>
+<span>  variable <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">matches</a></span><span class="op">(</span><span class="st">"variable|factor"</span><span class="op">)</span>,</span>
+<span>  is_confounder <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html" class="external-link">contains</a></span><span class="op">(</span><span class="st">"confounder"</span><span class="op">)</span>,</span>
+<span>  study <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html" class="external-link">everything</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  study_values <span class="op">=</span> <span class="fu">mc_study_values</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>Additional arguments passed to <code>mc_wider()</code> or <code>mc_longer()</code></p></dd>
+
+
 <dt>study</dt>
 <dd><p>The column with the name of the studies</p></dd>
+
+
 <dt>construct</dt>
 <dd><p>The domain or construct column</p></dd>
+
+
 <dt>variable</dt>
 <dd><p>The column that describes the confounding variables</p></dd>
+
+
 <dt>control_quality</dt>
 <dd><p>The column that describes the confounding control
 quality</p></dd>
+
+
 <dt>is_confounder</dt>
 <dd><p>The column that describes if a variable is a confounder</p></dd>
+
+
 <dt>study_values</dt>
 <dd><p>What are the levels of <code>control_quality</code>? Use
 <code>mc_study_values()</code> to set up.</p></dd>
+
+
 <dt>inadequate</dt>
 <dd><p>Which value signifies inadequate control?</p></dd>
+
+
 <dt>some_concerns</dt>
 <dd><p>Which value signifies control with some concerns?</p></dd>
+
+
 <dt>adequate</dt>
 <dd><p>Which value signifies adequate control?</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a function that tidies the data</p>
+    
+
+<p>a function that tidies the data</p>
     </div>
 
   </div>
@@ -141,7 +162,7 @@ quality</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

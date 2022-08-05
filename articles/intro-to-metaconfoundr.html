@@ -49,7 +49,7 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -96,252 +96,257 @@
     
 <p>The metaconfoundr package is a toolkit for visualizing confounding control in a set of studies included in a meta-analysis. In this approach, a set of domain experts agree on the variables required to control for confounding for a scientific question properly. Then, for a given confounder, the studies are described as being adequately controlled, inadequately controlled, or controlled with some concerns (see the vignette on evaluating studies and setting up your data). metaconfoundr visualizes these relationships using heatmaps and traffic light plots. <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> standardizes data for use in <code><a href="../reference/mc_heatmap.html">mc_heatmap()</a></code> and <code><a href="../reference/mc_heatmap.html">mc_trafficlight()</a></code>. Let’s look at an example with an included data set, <code>ipi</code>. These data represent 14 analyses (retrospective cohorts and sibling-matched designs) to evaluate the association between short interpregnancy interval (&lt;6 months versus 18-23 months) and risk of preterm birth (&lt;37 weeks gestation) and the adequacy of confounder control. Using <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> on <code>ipi</code> does some data wrangling to get it into a shape expected by the plotting functions:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/malcolmbarrett/metaconfoundr" class="external-link">metaconfoundr</a></span><span class="op">)</span>
-
-<span class="co"># for later examples</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span>
-
-<span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 407 × 5</span></span>
-<span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>          </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Sociodemographics Maternal age Y             Zhu_1999     adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Sociodemographics Maternal age Y             Smith_2003   adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Sociodemographics Maternal age Y             Shachar_2016 adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Sociodemographics Maternal age Y             Salihu_2012a adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Sociodemographics Maternal age Y             Salihu_2012b adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/malcolmbarrett/metaconfoundr" class="external-link">metaconfoundr</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># for later examples</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span>, warn.conflicts <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 407 × 5</span></span></span>
+<span><span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Sociodemographics Maternal age Y             Zhu_1999     adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Sociodemographics Maternal age Y             Smith_2003   adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Sociodemographics Maternal age Y             Shachar_2016 adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Sociodemographics Maternal age Y             Salihu_2012a adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Sociodemographics Maternal age Y             Salihu_2012b adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
 <p>The vignette on evaluating studies has more detail, but in brief, the goal is to create a data frame where there are five columns and a row for each confounder and study. The columns are <code>construct</code>, the domain to which a confounder might belong (e.g., “Sociodemographics”); <code>variable</code>, the name of the variable (e.g. “age”); <code>is_confounder</code>, an indicator if the variable is a confounder; <code>study</code>, the name of the study (or another unique ID); and <code>control_quality</code>, an indicator of the level of control for a confounder. <code>control_quality</code> is one of “adequate”, “some concerns”, or “inadequate”. metaconfoundr attempts to automatically detect the layout of your data, but you have full control (see <code><a href="../reference/mc_detect_layout.html">?mc_detect_layout</a></code>). You can also specify the data in this format manually.</p>
 <p>Data that you provide <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> can be in two basic formats: a long and wide. With the long format, metaconfoundr assumes that five columns match the above layout and standardizes them. If there are more than five, <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> treats any additional columns as studies, (e.g., they are in wide format). It will automatically transform your wide data to the format expected by metaconfoundr plotting functions. <code>ipi</code> has a wide cousin, <code>ipi_wide</code>, which <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> can prepare seamlessly:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ipi_wide</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 37 × 14</span></span>
-<span class="co">#&gt;    construct   factor     confounder_y_n Zhu_2001a Zhu_2001b Zhu_1999 Smith_2003</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sociodemog… Maternal … Y                      2         2        2          2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sociodemog… Race/ethn… Y                      2         2        2          0</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Sociodemog… Marital s… Y                      2         2        2          2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Sociodemog… Paternity  Y                      0         0        0          0</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Sociodemog… Geographi… Y                      0         0        2          0</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Socioecono… SES categ… Y                      0         0        0          2</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Socioecono… Income as… Y                      0         0        0          0</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Socioecono… Education  Y                      2         2        2          0</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Socioecono… Insurance  Y                      0         0        0          0</span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Reproducti… Prior pre… Y                      2         2        2          2</span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 27 more rows, and 7 more variables: Shachar_2016 &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   Salihu_2012a &lt;dbl&gt;, Salihu_2012b &lt;dbl&gt;, Hanley_2017 &lt;dbl&gt;,</span></span>
-<span class="co">#&gt; <span style="color: #949494;">#   deWeger_2011 &lt;dbl&gt;, Coo_2017 &lt;dbl&gt;, Ball_2014 &lt;dbl&gt;</span></span>
-
-<span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi_wide</span><span class="op">)</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 407 × 5</span></span>
-<span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>          </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Sociodemographics Maternal age Y             Zhu_1999     adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Sociodemographics Maternal age Y             Smith_2003   adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Sociodemographics Maternal age Y             Shachar_2016 adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Sociodemographics Maternal age Y             Salihu_2012a adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Sociodemographics Maternal age Y             Salihu_2012b adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></code></pre></div>
-<div class="section level1">
-<h1 id="creating-plots">Creating plots<a class="anchor" aria-label="anchor" href="#creating-plots"></a>
-</h1>
+<code class="sourceCode R"><span><span class="va">ipi_wide</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 37 × 14</span></span></span>
+<span><span class="co">#&gt;    construct      factor confo…¹ Zhu_2…² Zhu_2…³ Zhu_1…⁴ Smith…⁵ Shach…⁶ Salih…⁷</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sociodemograp… Mater… Y             2       2       2       2       2       2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sociodemograp… Race/… Y             2       2       2       0       2       2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Sociodemograp… Marit… Y             2       2       2       2       0       2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Sociodemograp… Pater… Y             0       0       0       0       0       0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Sociodemograp… Geogr… Y             0       0       2       0       0       0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Socioeconomics SES c… Y             0       0       0       2       0       0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Socioeconomics Incom… Y             0       0       0       0       0       0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Socioeconomics Educa… Y             2       2       2       0       2       2</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Socioeconomics Insur… Y             0       0       0       0       2       0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Reproductive … Prior… Y             2       2       2       2       2       2</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 27 more rows, 5 more variables: Salihu_2012b &lt;dbl&gt;, Hanley_2017 &lt;dbl&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   deWeger_2011 &lt;dbl&gt;, Coo_2017 &lt;dbl&gt;, Ball_2014 &lt;dbl&gt;, and abbreviated</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   variable names ¹​confounder_y_n, ²​Zhu_2001a, ³​Zhu_2001b, ⁴​Zhu_1999,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   ⁵​Smith_2003, ⁶​Shachar_2016, ⁷​Salihu_2012a</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi_wide</span><span class="op">)</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 407 × 5</span></span></span>
+<span><span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>          </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Sociodemographics Maternal age Y             Zhu_1999     adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Sociodemographics Maternal age Y             Smith_2003   adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Sociodemographics Maternal age Y             Shachar_2016 adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Sociodemographics Maternal age Y             Salihu_2012a adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Sociodemographics Maternal age Y             Salihu_2012b adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
+<div class="section level2">
+<h2 id="creating-plots">Creating plots<a class="anchor" aria-label="anchor" href="#creating-plots"></a>
+</h2>
 <p>The primary goal of metaconfoundr is to visualize confounding control for a set of studies in a meta-analysis. The two main plotting functions are <code><a href="../reference/mc_heatmap.html">mc_heatmap()</a></code> and <code><a href="../reference/mc_heatmap.html">mc_trafficlight()</a></code>, which both accept data prepared by <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">mc_ipi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">mc_ipi</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-4-1.png" width="1152"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-5-1.png" width="1152"></p>
-<div class="section level2">
-<h2 id="customizing-plots">Customizing plots<a class="anchor" aria-label="anchor" href="#customizing-plots"></a>
-</h2>
+<div class="section level3">
+<h3 id="customizing-plots">Customizing plots<a class="anchor" aria-label="anchor" href="#customizing-plots"></a>
+</h3>
 <p>These results are ggplots and can thus be customized like any other plot from ggplot2.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">wrap_labeller</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">10</span><span class="op">)</span>
-
-<span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/facet_constructs.html">facet_constructs</a></span><span class="op">(</span>labeller <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/as_labeller.html" class="external-link">as_labeller</a></span><span class="op">(</span><span class="va">wrap_labeller</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>
-    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, hjust <span class="op">=</span> <span class="fl">1</span>, vjust <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span>,
-    strip.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span>
-  <span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">wrap_labeller</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">10</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/facet_constructs.html">facet_constructs</a></span><span class="op">(</span>labeller <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/as_labeller.html" class="external-link">as_labeller</a></span><span class="op">(</span><span class="va">wrap_labeller</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
+<span>    axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, hjust <span class="op">=</span> <span class="fl">1</span>, vjust <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span>,</span>
+<span>    strip.text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span><span class="op">)</span></span>
+<span>  <span class="op">)</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-6-1.png" width="1152"></p>
 <p>metaconfoundr also supports adding Cochrane-like symbols and colors to plots with geoms and scales. Note that these colors are <em>not</em> colorblind-friendly.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/geom_cochrane.html">geom_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># dodge axis text rather than rotate</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/geom_cochrane.html">geom_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="co"># dodge axis text rather than rotate</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-7-1.png" width="1152"></p>
 <p>It’s also possible to sort plots by how well a confounder is controlled over all the studies included. See <code><a href="../reference/score_control.html">?score_control</a></code> for more information on available algorithms by which to sort confounders.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, hjust <span class="op">=</span> <span class="fl">1</span>, vjust <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span>,<span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_text</a></span><span class="op">(</span>angle <span class="op">=</span> <span class="fl">90</span>, hjust <span class="op">=</span> <span class="fl">1</span>, vjust <span class="op">=</span> <span class="fl">.5</span><span class="op">)</span>,<span class="op">)</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-8-1.png" width="1152"></p>
 </div>
-<div class="section level2">
-<h2 id="summarizing-confounder-control">Summarizing confounder control<a class="anchor" aria-label="anchor" href="#summarizing-confounder-control"></a>
-</h2>
+<div class="section level3">
+<h3 id="summarizing-confounder-control">Summarizing confounder control<a class="anchor" aria-label="anchor" href="#summarizing-confounder-control"></a>
+</h3>
 <p>In addition to visualizing all possible confounders, metaconfoundr supports evaluating confounders at the domain level. For instance, if we feel <code>ipi</code> has three core areas of confounding, we can specify what variables are necessary for adequate control to account for the domain. These three domains are sociodemographics, socioeconomics, and reproductive history. We’ll say that controlling for maternal age, race/ethnicity, and marital status are sufficient to control for sociodemographics; socioeconomic status <em>or</em> insurance status <em>and</em> education are adequate for socioeconomics; and prior pregnancy outcomes are enough to control for reproductive history. We can specify these rules using boolean logic that refers to confounders in the <code>variable</code> column of our data:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">summary_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summarize_control_quality.html">summarize_control_quality</a></span><span class="op">(</span>
-  <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span>,
-  Sociodemographics <span class="op">=</span> <span class="va">`Maternal age`</span> <span class="op">&amp;</span> <span class="va">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital status`</span>,
-  Socioeconomics <span class="op">=</span> <span class="va">`SES category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,
-  <span class="st">"Reproductive Hx"</span> <span class="op">=</span> <span class="va">`Prior pregnancy outcome`</span>
-<span class="op">)</span>
-
-<span class="va">summary_df</span>
-<span class="co">#&gt; <span style="color: #949494;"># A tibble: 44 × 4</span></span>
-<span class="co">#&gt;    study     variable          control_quality construct</span>
-<span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Zhu_2001a overall           some concerns   overall  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Zhu_2001a Sociodemographics adequate        domains  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Zhu_2001a Socioeconomics    inadequate      domains  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Zhu_2001a Reproductive Hx   adequate        domains  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Zhu_2001b overall           some concerns   overall  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Zhu_2001b Sociodemographics adequate        domains  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Zhu_2001b Socioeconomics    inadequate      domains  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Zhu_2001b Reproductive Hx   adequate        domains  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Zhu_1999  overall           some concerns   overall  </span>
-<span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zhu_1999  Sociodemographics adequate        domains  </span>
-<span class="co">#&gt; <span style="color: #949494;"># … with 34 more rows</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">summary_df</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summarize_control_quality.html">summarize_control_quality</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span>,</span>
+<span>  Sociodemographics <span class="op">=</span> <span class="va">`Maternal age`</span> <span class="op">&amp;</span> <span class="va">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital status`</span>,</span>
+<span>  Socioeconomics <span class="op">=</span> <span class="va">`SES category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,</span>
+<span>  <span class="st">"Reproductive Hx"</span> <span class="op">=</span> <span class="va">`Prior pregnancy outcome`</span></span>
+<span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">summary_df</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 44 × 4</span></span></span>
+<span><span class="co">#&gt;    study     variable          control_quality construct</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> Zhu_2001a overall           some concerns   overall  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> Zhu_2001a Sociodemographics adequate        domains  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> Zhu_2001a Socioeconomics    inadequate      domains  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> Zhu_2001a Reproductive Hx   adequate        domains  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Zhu_2001b overall           some concerns   overall  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Zhu_2001b Sociodemographics adequate        domains  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> Zhu_2001b Socioeconomics    inadequate      domains  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Zhu_2001b Reproductive Hx   adequate        domains  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Zhu_1999  overall           some concerns   overall  </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zhu_1999  Sociodemographics adequate        domains  </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 34 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
 <p>Summarizing control quality creates a more straightforward visualization. You can also visualize just the overall control quality of a study by using the <code>domains = FALSE</code> argument in <code><a href="../reference/summarize_control_quality.html">summarize_control_quality()</a></code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">summary_df</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">summary_df</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-10-1.png" width="480"></p>
 </div>
 </div>
-<div class="section level1">
-<h1 id="combining-with-forest-plots">Combining with forest plots<a class="anchor" aria-label="anchor" href="#combining-with-forest-plots"></a>
-</h1>
+<div class="section level2">
+<h2 id="combining-with-forest-plots">Combining with forest plots<a class="anchor" aria-label="anchor" href="#combining-with-forest-plots"></a>
+</h2>
 <p>Because metaconfoundr plots are ggplots, it’s easy to combine with other plots using tools from the ggplot2 ecosystem. The patchwork package makes it particularly easy, allowing you to connect plots with <code>+</code>. For example, let’s make a simple forest plot in ggplot2 and combine it with a metaconfoundr plot. (Alternatively, you could use a tool like <a href="https://github.com/malcolmbarrett/tidymeta" class="external-link">tidymeta</a> to create the forest plot.) <code>ipi_metaanalysis</code> contains effect sizes for the studies in <code>ipi</code>. We’ll also write a helper function, <code>sort_by_year()</code>, to help order the two plots in the same way.</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">sort_by_year</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.df</span><span class="op">)</span> <span class="op">{</span>
-  <span class="va">.df</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">study</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>study <span class="op">=</span> <span class="fu">forcats</span><span class="fu">::</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_inorder.html" class="external-link">fct_inorder</a></span><span class="op">(</span><span class="va">study</span><span class="op">)</span><span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">forest_plot</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.df</span><span class="op">)</span> <span class="op">{</span>
-   <span class="va">.df</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-    <span class="fu">sort_by_year</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-    <span class="co"># set small weight for missing sample size</span>
-    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>sample_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sample_size</span><span class="op">)</span>, <span class="fl">1</span>, <span class="va">sample_size</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">estimate</span>, y <span class="op">=</span> <span class="va">study</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="co">#  add effect estimates</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">sample_size</span><span class="op">)</span>, shape <span class="op">=</span> <span class="fl">15</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_errorbarh.html" class="external-link">geom_errorbarh</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>xmin <span class="op">=</span> <span class="va">lower_ci</span>, xmax <span class="op">=</span> <span class="va">upper_ci</span><span class="op">)</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="co">#  use a log10 transformed scale</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_log10</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-    <span class="co">#  use a minumal scale with only vertical grid lines</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="fl">14</span><span class="op">)</span> <span class="op">+</span>
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>
-      axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-      panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,
-      panel.grid.major.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>
-    <span class="op">)</span> <span class="op">+</span> 
-    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>
-      x <span class="op">=</span> <span class="st">"Odds Ratio"</span>,
-      size <span class="op">=</span> <span class="st">"Sample Size"</span>
-    <span class="op">)</span>
-<span class="op">}</span>
-
-<span class="va">fp</span> <span class="op">&lt;-</span> <span class="fu">forest_plot</span><span class="op">(</span><span class="va">ipi_metaanalysis</span><span class="op">)</span>
-
-<span class="va">fp</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">sort_by_year</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.df</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">.df</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">year</span><span class="op">)</span>, <span class="fu"><a href="https://dplyr.tidyverse.org/reference/desc.html" class="external-link">desc</a></span><span class="op">(</span><span class="va">study</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>study <span class="op">=</span> <span class="fu">forcats</span><span class="fu">::</span><span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_inorder.html" class="external-link">fct_inorder</a></span><span class="op">(</span><span class="va">study</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">forest_plot</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">.df</span><span class="op">)</span> <span class="op">{</span></span>
+<span>   <span class="va">.df</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu">sort_by_year</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="co"># set small weight for missing sample size</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>sample_size <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html" class="external-link">ifelse</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">sample_size</span><span class="op">)</span>, <span class="fl">1</span>, <span class="va">sample_size</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">estimate</span>, y <span class="op">=</span> <span class="va">study</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="co">#  add effect estimates</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">sample_size</span><span class="op">)</span>, shape <span class="op">=</span> <span class="fl">15</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_errorbarh.html" class="external-link">geom_errorbarh</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>xmin <span class="op">=</span> <span class="va">lower_ci</span>, xmax <span class="op">=</span> <span class="va">upper_ci</span><span class="op">)</span>, height <span class="op">=</span> <span class="fl">0</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="co">#  use a log10 transformed scale</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html" class="external-link">scale_x_log10</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="co">#  use a minumal scale with only vertical grid lines</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="fl">14</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span></span>
+<span>      axis.title.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      panel.grid.minor <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>      panel.grid.major.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="op">)</span> <span class="op">+</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span></span>
+<span>      x <span class="op">=</span> <span class="st">"Odds Ratio"</span>,</span>
+<span>      size <span class="op">=</span> <span class="st">"Sample Size"</span></span>
+<span>    <span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span></span>
+<span><span class="va">fp</span> <span class="op">&lt;-</span> <span class="fu">forest_plot</span><span class="op">(</span><span class="va">ipi_metaanalysis</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">fp</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-11-1.png" width="768"></p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">tl_plot</span> <span class="op">&lt;-</span> 
-  <span class="va">mc_ipi</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/summarize_control_quality.html">summarize_control_quality</a></span><span class="op">(</span>
-    <span class="st">"Socio-\ndemo-\ngraphics"</span> <span class="op">=</span> <span class="va">`Maternal age`</span> <span class="op">&amp;</span> <span class="va">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital status`</span>,
-    <span class="st">"Socio-\neconomic\nFactors"</span> <span class="op">=</span> <span class="va">`SES category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,
-    <span class="st">"Repro-\nductive Hx"</span> <span class="op">=</span> <span class="va">`Prior pregnancy outcome`</span>
-  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">ipi_metaanalysis</span>, by <span class="op">=</span> <span class="st">"study"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu">sort_by_year</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>variable <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span><span class="va">variable</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="../reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/geom_cochrane.html">geom_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="../reference/facet_constructs.html">facet_constructs</a></span><span class="op">(</span><span class="op">)</span>
-
-<span class="va">tl_plot</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">tl_plot</span> <span class="op">&lt;-</span> </span>
+<span>  <span class="va">mc_ipi</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/summarize_control_quality.html">summarize_control_quality</a></span><span class="op">(</span></span>
+<span>    <span class="st">"Socio-\ndemo-\ngraphics"</span> <span class="op">=</span> <span class="va">`Maternal age`</span> <span class="op">&amp;</span> <span class="va">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital status`</span>,</span>
+<span>    <span class="st">"Socio-\neconomic\nFactors"</span> <span class="op">=</span> <span class="va">`SES category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,</span>
+<span>    <span class="st">"Repro-\nductive Hx"</span> <span class="op">=</span> <span class="va">`Prior pregnancy outcome`</span></span>
+<span>  <span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">ipi_metaanalysis</span>, by <span class="op">=</span> <span class="st">"study"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">sort_by_year</span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>variable <span class="op">=</span> <span class="fu">stringr</span><span class="fu">::</span><span class="fu"><a href="https://stringr.tidyverse.org/reference/str_wrap.html" class="external-link">str_wrap</a></span><span class="op">(</span><span class="va">variable</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="../reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/geom_cochrane.html">geom_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"right"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="../reference/facet_constructs.html">facet_constructs</a></span><span class="op">(</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">tl_plot</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-12-1.png" width="480"></p>
 <p>Putting the plots side-by-side is effortless with patchwork:</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span>
-
-<span class="co"># forest plot</span>
-<span class="va">fp</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="co"># traffic light plot</span>
-  <span class="va">tl_plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>, legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span>
-  <span class="co"># make the FP thrice as as wide as the TLP</span>
-  <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com" class="external-link">patchwork</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># forest plot</span></span>
+<span><span class="va">fp</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="co"># traffic light plot</span></span>
+<span>  <span class="va">tl_plot</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html" class="external-link">theme</a></span><span class="op">(</span>axis.text.y <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html" class="external-link">element_blank</a></span><span class="op">(</span><span class="op">)</span>, legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="co"># make the FP thrice as as wide as the TLP</span></span>
+<span>  <span class="fu"><a href="https://patchwork.data-imaginist.com/reference/plot_layout.html" class="external-link">plot_layout</a></span><span class="op">(</span>widths <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-13-1.png" width="960"></p>
-<div class="section level2">
-<h2 id="using-control-quality-as-an-analytic-category">Using control quality as an analytic category<a class="anchor" aria-label="anchor" href="#using-control-quality-as-an-analytic-category"></a>
-</h2>
+<div class="section level3">
+<h3 id="using-control-quality-as-an-analytic-category">Using control quality as an analytic category<a class="anchor" aria-label="anchor" href="#using-control-quality-as-an-analytic-category"></a>
+</h3>
 <p>Another use of metaconfoundr is to create categories for which to estimate sub-group summary effect sizes. Let’s use the metafor package to do a simple meta-analysis by whether a study is, overall, adequately controlled, inadequately controlled, or controlled with some concerns.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.metafor-project.org" class="external-link">metafor</a></span><span class="op">)</span>
-<span class="va">ipi_metaanalysis</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">summary_df</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">variable</span> <span class="op">==</span> <span class="st">"overall"</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"study"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>se <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">upper_ci</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1.96</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">control_quality</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_map.html" class="external-link">group_map</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://wviechtb.github.io/metafor/reference/rma.uni.html" class="external-link">rma</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.x</span>, yi <span class="op">=</span> <span class="va">estimate</span>, sei <span class="op">=</span> <span class="va">se</span><span class="op">)</span><span class="op">)</span> 
-<span class="co">#&gt; [[1]]</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Random-Effects Model (k = 11; tau^2 estimator: REML)</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; tau^2 (estimated amount of total heterogeneity): 0 (SE = 0.0299)</span>
-<span class="co">#&gt; tau (square root of estimated tau^2 value):      0</span>
-<span class="co">#&gt; I^2 (total heterogeneity / total variability):   0.00%</span>
-<span class="co">#&gt; H^2 (total variability / sampling variability):  1.00</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Test for Heterogeneity:</span>
-<span class="co">#&gt; Q(df = 10) = 5.7452, p-val = 0.8362</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; Model Results:</span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; estimate      se     zval    pval   ci.lb   ci.ub </span>
-<span class="co">#&gt;   1.4211  0.0841  16.9044  &lt;.0001  1.2563  1.5858  *** </span>
-<span class="co">#&gt; </span>
-<span class="co">#&gt; ---</span>
-<span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://www.metafor-project.org" class="external-link">metafor</a></span><span class="op">)</span></span>
+<span><span class="va">ipi_metaanalysis</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">summary_df</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">variable</span> <span class="op">==</span> <span class="st">"overall"</span><span class="op">)</span>, by <span class="op">=</span> <span class="st">"study"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>se <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">upper_ci</span><span class="op">)</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html" class="external-link">log</a></span><span class="op">(</span><span class="va">estimate</span><span class="op">)</span> <span class="op">/</span> <span class="fl">1.96</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html" class="external-link">group_by</a></span><span class="op">(</span><span class="va">control_quality</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_map.html" class="external-link">group_map</a></span><span class="op">(</span><span class="op">~</span><span class="fu"><a href="https://wviechtb.github.io/metafor/reference/rma.uni.html" class="external-link">rma</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">.x</span>, yi <span class="op">=</span> <span class="va">estimate</span>, sei <span class="op">=</span> <span class="va">se</span><span class="op">)</span><span class="op">)</span> </span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Random-Effects Model (k = 11; tau^2 estimator: REML)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; tau^2 (estimated amount of total heterogeneity): 0 (SE = 0.0299)</span></span>
+<span><span class="co">#&gt; tau (square root of estimated tau^2 value):      0</span></span>
+<span><span class="co">#&gt; I^2 (total heterogeneity / total variability):   0.00%</span></span>
+<span><span class="co">#&gt; H^2 (total variability / sampling variability):  1.00</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Test for Heterogeneity:</span></span>
+<span><span class="co">#&gt; Q(df = 10) = 5.7452, p-val = 0.8362</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Model Results:</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; estimate      se     zval    pval   ci.lb   ci.ub     ​ </span></span>
+<span><span class="co">#&gt;   1.4211  0.0841  16.9044  &lt;.0001  1.2563  1.5858  *** </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span></code></pre></div>
 </div>
 </div>
-<div class="section level1">
-<h1 id="visualizing-non-confounders">Visualizing non-confounders<a class="anchor" aria-label="anchor" href="#visualizing-non-confounders"></a>
-</h1>
+<div class="section level2">
+<h2 id="visualizing-non-confounders">Visualizing non-confounders<a class="anchor" aria-label="anchor" href="#visualizing-non-confounders"></a>
+</h2>
 <p>Many studies control for variables that are not, in fact, confounders. While there are many cases where doing this will not affect results, there are several, such as controlling for a descendant of the exposure and outcome, that may increase bias. By default, metaconfoundr does not plot non-confounders. Instead, there is a set of tools for evaluating how many non-confounders for which a study controls. The more controlled for, the higher the chance that one is inducing bias.</p>
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">ipi</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span>
-  <span class="fu"><a href="../reference/count_non_confounders.html">plot_non_confounders</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="va"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">ipi</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
+<span>  <span class="fu"><a href="../reference/count_non_confounders.html">plot_non_confounders</a></span><span class="op">(</span>geom <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="va"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">)</span></span></code></pre></div>
 <p><img src="intro-to-metaconfoundr_files/figure-html/unnamed-chunk-15-1.png" width="480"></p>
 </div>
   </div>
@@ -363,7 +368,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer>

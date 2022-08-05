@@ -57,7 +57,7 @@
   <a href="reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -96,7 +96,6 @@
 <div class="page-header"><h1 id="metaconfoundr">metaconfoundr<a class="anchor" aria-label="anchor" href="#metaconfoundr"></a>
 </h1></div>
 <!-- badges: start -->
-
 <p>The goal of metaconfoundr is to make it easy to visualize confounding control in meta-analyses. Researchers use a causal diagram to assess factors that are required to control for to estimate an effect unbiased by confounding. Then, the researchers create a data frame of confounding variables and how well each study in the meta-analysis controlled for each: adequately, inadequately, or with some control. See the vignette on collecting confounder data for more information.</p>
 <p>In addition to the package, metaconfoundr ships with a Shiny app to help create visualizations. You can start the app locally with <code><a href="reference/launch_metaconfoundr_app.html">launch_metaconfoundr_app()</a></code> or <a href="https://malcolmbarrett.shinyapps.io/metaconfoundr/" class="external-link">use the hosted version</a>.</p>
 <div class="section level2">
@@ -104,57 +103,57 @@
 </h2>
 <p>Install the most recent released version of metaconfoundr from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"metaconfoundr"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"metaconfoundr"</span><span class="op">)</span></span></code></pre></div>
 <p>You can install the development version of metaconfoundr from GitHub with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="co"># if needed</span>
-<span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"malcolmbarrett/metaconfoundr"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># if needed</span></span>
+<span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"malcolmbarrett/metaconfoundr"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="visualizing-confounding-control">Visualizing confounding control<a class="anchor" aria-label="anchor" href="#visualizing-confounding-control"></a>
 </h2>
 <p>metaconfoundr includes an example dataset, <code>ipi</code>, that contains information on a meta-analysis of interpregnancy interval and the risk of preterm birth. Use <code><a href="reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> to prepare the dataset to work with metaconfoundr functions. <code>ipi</code> includes several domains of confounders, but for ease of visualization, we will just show one, <code>Sociodemographics</code>.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/malcolmbarrett/metaconfoundr" class="external-link">metaconfoundr</a></span><span class="op">)</span>
-<span class="va">mc_ipi</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> 
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">construct</span> <span class="op">==</span> <span class="st">"Sociodemographics"</span><span class="op">)</span>
-
-<span class="va">mc_ipi</span>
-<span class="co">#&gt; # A tibble: 55 × 5</span>
-<span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span>
-<span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;        &lt;ord&gt;          </span>
-<span class="co">#&gt;  1 Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span>
-<span class="co">#&gt;  2 Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span>
-<span class="co">#&gt;  3 Sociodemographics Maternal age Y             Zhu_1999     adequate       </span>
-<span class="co">#&gt;  4 Sociodemographics Maternal age Y             Smith_2003   adequate       </span>
-<span class="co">#&gt;  5 Sociodemographics Maternal age Y             Shachar_2016 adequate       </span>
-<span class="co">#&gt;  6 Sociodemographics Maternal age Y             Salihu_2012a adequate       </span>
-<span class="co">#&gt;  7 Sociodemographics Maternal age Y             Salihu_2012b adequate       </span>
-<span class="co">#&gt;  8 Sociodemographics Maternal age Y             Hanley_2017  adequate       </span>
-<span class="co">#&gt;  9 Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
-<span class="co">#&gt; 10 Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
-<span class="co">#&gt; # … with 45 more rows</span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/malcolmbarrett/metaconfoundr" class="external-link">metaconfoundr</a></span><span class="op">)</span></span>
+<span><span class="va">mc_ipi</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span> <span class="op"><a href="reference/pipe.html">%&gt;%</a></span> </span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">construct</span> <span class="op">==</span> <span class="st">"Sociodemographics"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">mc_ipi</span></span>
+<span><span class="co">#&gt; # A tibble: 55 × 5</span></span>
+<span><span class="co">#&gt;    construct         variable     is_confounder study        control_quality</span></span>
+<span><span class="co">#&gt;    &lt;chr&gt;             &lt;chr&gt;        &lt;chr&gt;         &lt;chr&gt;        &lt;ord&gt;          </span></span>
+<span><span class="co">#&gt;  1 Sociodemographics Maternal age Y             Zhu_2001a    adequate       </span></span>
+<span><span class="co">#&gt;  2 Sociodemographics Maternal age Y             Zhu_2001b    adequate       </span></span>
+<span><span class="co">#&gt;  3 Sociodemographics Maternal age Y             Zhu_1999     adequate       </span></span>
+<span><span class="co">#&gt;  4 Sociodemographics Maternal age Y             Smith_2003   adequate       </span></span>
+<span><span class="co">#&gt;  5 Sociodemographics Maternal age Y             Shachar_2016 adequate       </span></span>
+<span><span class="co">#&gt;  6 Sociodemographics Maternal age Y             Salihu_2012a adequate       </span></span>
+<span><span class="co">#&gt;  7 Sociodemographics Maternal age Y             Salihu_2012b adequate       </span></span>
+<span><span class="co">#&gt;  8 Sociodemographics Maternal age Y             Hanley_2017  adequate       </span></span>
+<span><span class="co">#&gt;  9 Sociodemographics Maternal age Y             deWeger_2011 adequate       </span></span>
+<span><span class="co">#&gt; 10 Sociodemographics Maternal age Y             Coo_2017     adequate       </span></span>
+<span><span class="co">#&gt; # … with 45 more rows</span></span></code></pre></div>
 <p>metaconfoundr includes several tools for visualizing the results of a confounding control assesment. The most common are <code><a href="reference/mc_heatmap.html">mc_heatmap()</a></code> and <code><a href="reference/mc_heatmap.html">mc_trafficlight()</a></code>.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-2-2.png" width="100%"></p>
 <p>These plotting functions return ggplots, so they are easy to modify.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
 <p>metaconfoundr also includes geoms and scales to make output similar to other types of bias assessments for meta-analyses.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
-  <span class="fu"><a href="reference/geom_cochrane.html">geom_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> 
-  <span class="fu"><a href="reference/scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span><span class="op">)</span>  <span class="op">+</span>
-  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="reference/mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="va">mc_ipi</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="reference/theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="reference/geom_cochrane.html">geom_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
+<span>  <span class="fu"><a href="reference/scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span><span class="op">)</span>  <span class="op">+</span></span>
+<span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guides.html" class="external-link">guides</a></span><span class="op">(</span>x <span class="op">=</span> <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/guide_axis.html" class="external-link">guide_axis</a></span><span class="op">(</span>n.dodge <span class="op">=</span> <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
 </div>
 </div>
@@ -194,6 +193,7 @@
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 <li><a href="CODE_OF_CONDUCT.html">Code of conduct</a></li>
+<li><a href="SUPPORT.html">Getting help</a></li>
 </ul>
 </div>
 
@@ -235,7 +235,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer>

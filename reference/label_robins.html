@@ -33,7 +33,7 @@ ROBINS-like labels: low risk, some concerns, high risk."><!-- mathjax --><script
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -71,24 +71,26 @@ ROBINS-like labels: low risk, some concerns, high risk.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">label_robins</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">label_robins</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="value">
     <h2>Value</h2>
-    <p>a character vector of ROBINS labels</p>
+    
+
+<p>a character vector of ROBINS labels</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="fu"><a href="mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="fu"><a href="metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_ordinal</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">label_robins</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu"><a href="mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="fu"><a href="metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu">ggplot2</span><span class="fu">::</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html" class="external-link">scale_fill_ordinal</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">label_robins</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="label_robins-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu"><a href="mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="fu"><a href="metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">label_robins</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu"><a href="mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="fu"><a href="metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span>labels <span class="op">=</span> <span class="fu">label_robins</span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="label_robins-2.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -103,7 +105,7 @@ ROBINS-like labels: low risk, some concerns, high risk.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

@@ -35,7 +35,7 @@ named."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/math
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -75,35 +75,42 @@ named.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">summarize_control_quality</span><span class="op">(</span><span class="va">.df</span>, <span class="va">...</span>, domains <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">summarize_control_quality</span><span class="op">(</span><span class="va">.df</span>, <span class="va">...</span>, domains <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>.df</dt>
 <dd><p>A data frame, usually the result of <code><a href="metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code></p></dd>
+
+
 <dt>...</dt>
 <dd><p>Boolean arguments to declare adequate control logic</p></dd>
+
+
 <dt>domains</dt>
 <dd><p>Logical. Include the domains in the output? If <code>FALSE</code>, only
 returns overall control quality.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A tibble</p>
+    
+
+<p>A tibble</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="va">summary_df</span> <span class="op">&lt;-</span> <span class="fu">summarize_control_quality</span><span class="op">(</span></span>
-<span class="r-in">  <span class="fu"><a href="metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span>,</span>
-<span class="r-in">  Sociodemographics <span class="op">=</span> <span class="va">`Maternal age`</span> <span class="op">&amp;</span> <span class="va">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital status`</span>,</span>
-<span class="r-in">  Socioeconomics <span class="op">=</span> <span class="va">`SES category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,</span>
-<span class="r-in">  <span class="st">"Reproductive Hx"</span> <span class="op">=</span> <span class="va">`Prior pregnancy outcome`</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">summary_df</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">summary_df</span> <span class="op">&lt;-</span> <span class="fu">summarize_control_quality</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  Sociodemographics <span class="op">=</span> <span class="va">`Maternal age`</span> <span class="op">&amp;</span> <span class="va">`Race/ethnicity`</span> <span class="op">&amp;</span> <span class="va">`Marital status`</span>,</span></span>
+<span class="r-in"><span>  Socioeconomics <span class="op">=</span> <span class="va">`SES category`</span> <span class="op">|</span> <span class="va">Insurance</span> <span class="op">&amp;</span> <span class="va">Education</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"Reproductive Hx"</span> <span class="op">=</span> <span class="va">`Prior pregnancy outcome`</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">summary_df</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 44 × 4</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    study     variable          control_quality construct</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;fct&gt;</span>    </span>
@@ -118,15 +125,16 @@ returns overall control quality.</p></dd>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Zhu_1999  overall           some concerns   overall  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Zhu_1999  Sociodemographics adequate        domains  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 34 more rows</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">summary_df</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu"><a href="mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="facet_constructs.html">facet_constructs</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="geom_cochrane.html">geom_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span class="r-in">  <span class="fu"><a href="scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">summary_df</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="mc_heatmap.html">mc_trafficlight</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="theme_mc.html">theme_mc</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="facet_constructs.html">facet_constructs</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="geom_cochrane.html">geom_cochrane</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span></span>
+<span class="r-in"><span>  <span class="fu"><a href="scale_fill_cochrane.html">scale_fill_cochrane</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="summarize_control_quality-1.png" alt="" width="700" height="433"></span>
-<span class="r-in"></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -141,7 +149,7 @@ returns overall control quality.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>

@@ -40,7 +40,7 @@ your evaluation."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax
   <a href="../reference/index.html">Reference</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Articles
      
     <span class="caret"></span>
@@ -85,7 +85,7 @@ your evaluation.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">metaconfoundr</span><span class="op">(</span><span class="va">.df</span>, data_format <span class="op">=</span> <span class="fu"><a href="mc_detect_layout.html">mc_detect_layout</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">metaconfoundr</span><span class="op">(</span><span class="va">.df</span>, data_format <span class="op">=</span> <span class="fu"><a href="mc_detect_layout.html">mc_detect_layout</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -93,19 +93,24 @@ your evaluation.</p>
     <dl><dt>.df</dt>
 <dd><p>A data frame. See the vignette on data preparation for more
 details.</p></dd>
+
+
 <dt>data_format</dt>
 <dd><p>The format of the data. Detected automatically by default,
 but explicit options include <code><a href="mc_detect_layout.html">mc_longer()</a></code> and <code><a href="mc_detect_layout.html">mc_wider()</a></code></p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>a tibble</p>
+    
+
+<p>a tibble</p>
     </div>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
-<span class="r-in"><span class="fu">metaconfoundr</span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">metaconfoundr</span><span class="op">(</span><span class="va">ipi</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 407 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    construct         variable     is_confounder study        control_quality</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>          </span>
@@ -120,8 +125,9 @@ but explicit options include <code><a href="mc_detect_layout.html">mc_longer()</
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 397 more rows</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">metaconfoundr</span><span class="op">(</span><span class="va">ipi_wide</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">metaconfoundr</span><span class="op">(</span><span class="va">ipi_wide</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 407 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    construct         variable     is_confounder study        control_quality</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>          </span>
@@ -136,11 +142,12 @@ but explicit options include <code><a href="mc_detect_layout.html">mc_longer()</
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 397 more rows</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">ipi_wide2</span> <span class="op">&lt;-</span> <span class="va">ipi_wide</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span>
-<span class="r-in">  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>scope <span class="op">=</span> <span class="va">construct</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="fu">metaconfoundr</span><span class="op">(</span><span class="va">ipi_wide2</span>, <span class="fu"><a href="mc_detect_layout.html">mc_wider</a></span><span class="op">(</span>construct <span class="op">=</span> <span class="st">"scope"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">ipi_wide2</span> <span class="op">&lt;-</span> <span class="va">ipi_wide</span> <span class="op"><a href="pipe.html">%&gt;%</a></span></span></span>
+<span class="r-in"><span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/rename.html" class="external-link">rename</a></span><span class="op">(</span>scope <span class="op">=</span> <span class="va">construct</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="fu">metaconfoundr</span><span class="op">(</span><span class="va">ipi_wide2</span>, <span class="fu"><a href="mc_detect_layout.html">mc_wider</a></span><span class="op">(</span>construct <span class="op">=</span> <span class="st">"scope"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 407 × 5</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    construct         variable     is_confounder study        control_quality</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>             <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>          </span>
@@ -155,8 +162,9 @@ but explicit options include <code><a href="mc_detect_layout.html">mc_longer()</
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># … with 397 more rows</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -171,7 +179,7 @@ but explicit options include <code><a href="mc_detect_layout.html">mc_longer()</
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
 </div>
 
       </footer></div>
