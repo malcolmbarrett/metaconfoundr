@@ -128,5 +128,5 @@ ROBINS tool, see the excellent
 
 Please note that the metaconfoundr project is released with a
 [Contributor Code of
-Conduct](https://raw.githubusercontent.com/malcolmbarrett/metaconfoundr/mainer/.github/CODE_OF_CONDUCT.md).
+Conduct](https://raw.githubusercontent.com/malcolmbarrett/metaconfoundr/main/.github/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.

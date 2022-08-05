@@ -13,3 +13,4 @@
 ^_pkgdown\.yml$
 ^rhub\.R$
 ^CRAN-RELEASE$
+^CRAN-SUBMISSION$
