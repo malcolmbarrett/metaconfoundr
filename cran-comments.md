@@ -5,7 +5,6 @@
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-* This is a new release.
-* There are currently no references for the package's methods. We will update this reference when it is available.
+* This is a patch release to address changes detected in upcoming dplyr release
