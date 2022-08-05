@@ -1,6 +1,6 @@
 Package: metaconfoundr
 Title: Visualize 'Confounder' Control in Meta-Analyses
-Version: 0.1.0.9000
+Version: 0.1.1
 Authors@R: c(
     person("Malcolm", "Barrett", , "malcolmbarrett@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-0299-5825")),
