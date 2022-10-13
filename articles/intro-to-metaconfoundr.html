@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">metaconfoundr</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1.9000</span>
       </span>
     </div>
 
@@ -116,8 +116,7 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></span></code></pre></div>
 <p>The vignette on evaluating studies has more detail, but in brief, the goal is to create a data frame where there are five columns and a row for each confounder and study. The columns are <code>construct</code>, the domain to which a confounder might belong (e.g., “Sociodemographics”); <code>variable</code>, the name of the variable (e.g. “age”); <code>is_confounder</code>, an indicator if the variable is a confounder; <code>study</code>, the name of the study (or another unique ID); and <code>control_quality</code>, an indicator of the level of control for a confounder. <code>control_quality</code> is one of “adequate”, “some concerns”, or “inadequate”. metaconfoundr attempts to automatically detect the layout of your data, but you have full control (see <code><a href="../reference/mc_detect_layout.html">?mc_detect_layout</a></code>). You can also specify the data in this format manually.</p>
 <p>Data that you provide <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> can be in two basic formats: a long and wide. With the long format, metaconfoundr assumes that five columns match the above layout and standardizes them. If there are more than five, <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> treats any additional columns as studies, (e.g., they are in wide format). It will automatically transform your wide data to the format expected by metaconfoundr plotting functions. <code>ipi</code> has a wide cousin, <code>ipi_wide</code>, which <code><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr()</a></code> can prepare seamlessly:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
@@ -139,7 +138,6 @@
 <span><span class="co">#&gt; <span style="color: #949494;">#   deWeger_2011 &lt;dbl&gt;, Coo_2017 &lt;dbl&gt;, Ball_2014 &lt;dbl&gt;, and abbreviated</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   variable names ¹​confounder_y_n, ²​Zhu_2001a, ³​Zhu_2001b, ⁴​Zhu_1999,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ⁵​Smith_2003, ⁶​Shachar_2016, ⁷​Salihu_2012a</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</span></span></span>
 <span></span>
 <span><span class="fu"><a href="../reference/metaconfoundr-open-paren-close-paren.html">metaconfoundr</a></span><span class="op">(</span><span class="va">ipi_wide</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 407 × 5</span></span></span>
@@ -155,8 +153,7 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Sociodemographics Maternal age Y             Hanley_2017  adequate       </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Sociodemographics Maternal age Y             deWeger_2011 adequate       </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Sociodemographics Maternal age Y             Coo_2017     adequate       </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 397 more rows</span></span></span></code></pre></div>
 <div class="section level2">
 <h2 id="creating-plots">Creating plots<a class="anchor" aria-label="anchor" href="#creating-plots"></a>
 </h2>
@@ -225,8 +222,7 @@
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Zhu_2001b Reproductive Hx   adequate        domains  </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Zhu_1999  overall           some concerns   overall  </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Zhu_1999  Sociodemographics adequate        domains  </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 34 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ Use `print(n = ...)` to see more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 34 more rows</span></span></span></code></pre></div>
 <p>Summarizing control quality creates a more straightforward visualization. You can also visualize just the overall control quality of a study by using the <code>domains = FALSE</code> argument in <code><a href="../reference/summarize_control_quality.html">summarize_control_quality()</a></code>.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/mc_heatmap.html">mc_heatmap</a></span><span class="op">(</span><span class="va">summary_df</span><span class="op">)</span> <span class="op">+</span></span>
@@ -332,7 +328,7 @@
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Model Results:</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; estimate      se     zval    pval   ci.lb   ci.ub     ​ </span></span>
+<span><span class="co">#&gt; estimate      se     zval    pval   ci.lb   ci.ub      </span></span>
 <span><span class="co">#&gt;   1.4211  0.0841  16.9044  &lt;.0001  1.2563  1.5858  *** </span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; ---</span></span>
