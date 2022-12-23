@@ -49,7 +49,7 @@ mc_heatmap <- function(.df, legend_title = "control quality", sort = FALSE, by_g
   )
 
   p +
-    ggplot2::geom_tile(color = "white", size = .8)
+    ggplot2::geom_tile(color = "white", linewidth = .8)
 }
 
 
