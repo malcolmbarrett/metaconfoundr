@@ -49,7 +49,7 @@ mc_heatmap <- function(.df, legend_title = "control quality", sort = FALSE, by_g
   )
 
   p +
-    ggplot2::geom_tile(color = "white", size = .8)
+    ggplot2::geom_tile(color = "white", linewidth = .8)
 }
 
 
@@ -157,7 +157,11 @@ geom_cochrane <- function(mapping = ggplot2::aes(shape = control_quality), data 
 #' @family plots
 scale_fill_cochrane <- function(...) {
   ggplot2::scale_fill_manual(
-    values = c("#D85247FF", "#E2B01EFF", "#409C58FF"),
+    values = c(
+      "inadequate" = "#D85247FF",
+      "some concerns" = "#E2B01EFF",
+      "adequate" = "#409C58FF"
+    ),
     ...
   )
 }
@@ -167,7 +171,11 @@ scale_fill_cochrane <- function(...) {
 #' @rdname scale_fill_cochrane
 scale_color_cochrane <- function(...) {
   ggplot2::scale_color_manual(
-    values = c("#D85247FF", "#E2B01EFF", "#409C58FF"),
+    values = c(
+      "inadequate" = "#D85247FF",
+      "some concerns" = "#E2B01EFF",
+      "adequate" = "#409C58FF"
+    ),
     ...
   )
 }
@@ -175,7 +183,14 @@ scale_color_cochrane <- function(...) {
 #' @export
 #' @rdname scale_fill_cochrane
 scale_shape_cochrane <- function(...) {
-  ggplot2::scale_shape_manual(values = c(120, 45, 43), ...)
+  ggplot2::scale_shape_manual(
+    values = c(
+      "inadequate" = 120,
+      "some concerns" = 45,
+      "adequate" = 43
+    ),
+    ...
+  )
 }
 
 #' A minimal theme for metaconfoundr plots
