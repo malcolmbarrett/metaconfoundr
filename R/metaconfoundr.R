@@ -130,6 +130,7 @@ mc_wider <- function(
       -dplyr::all_of(is_confounder)
     ) %>%
       tidyselect::vars_select(dplyr::all_of(study))
+    columns <- unname(columns)
 
     .df <- tidyr::pivot_longer(
       .df,
