@@ -1,3 +1,5 @@
+# metaconfoundr (development version)
+
 # metaconfoundr 0.1.2
 
 * Fixed bug in scales (#15)
