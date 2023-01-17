@@ -76,7 +76,6 @@ mc_ipi
 #>  9 Sociodemographics Maternal age Y             deWeger_2011 adequate       
 #> 10 Sociodemographics Maternal age Y             Coo_2017     adequate       
 #> # … with 45 more rows
-#> # ℹ Use `print(n = ...)` to see more rows
 ```
 
 metaconfoundr includes several tools for visualizing the results of a
