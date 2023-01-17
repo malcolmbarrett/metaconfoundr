@@ -30,7 +30,6 @@ geoms
 ggplot
 ggplots
 interpregnancy
-metaconfoundr’
 metafor
 pts
 robvis
@@ -38,3 +37,4 @@ sociodemographics
 socioeconomics
 tibble
 tidymeta
+tidyr
